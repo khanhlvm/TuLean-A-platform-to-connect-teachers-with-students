@@ -1,13 +1,14 @@
 package tulearn.dto;
 
 public class Post{
-	private byte learnerID;
-	private byte communeID;
-	private byte genderID;
-	private byte qualificateID;
-	private byte subjectID;
-	private byte statusPostID;
-	private char typePost;
+	private int postID;
+	private int learnerID;
+	private int communeID;
+	private int genderID;
+	private int qualificateID;
+	private int subjectID;
+	private int statusPostID;
+	private boolean typePost;
 	private byte lessonLearn;
 	private float timeLearn;
 	private String fee;
@@ -18,9 +19,11 @@ public class Post{
 		super();
 	}
 
-	public Post(byte learnerID, byte communeID, byte genderID, byte qualificateID, byte subjectID, byte statusPostID,
-			char typePost, byte lessonLearn, float timeLearn, String fee, String startDay, String postDes) {
+	public Post(int postID, int learnerID, int communeID, int genderID, int qualificateID, int subjectID,
+			int statusPostID, boolean typePost, byte lessonLearn, float timeLearn, String fee, String startDay,
+			String postDes) {
 		super();
+		this.postID = postID;
 		this.learnerID = learnerID;
 		this.communeID = communeID;
 		this.genderID = genderID;
@@ -33,61 +36,69 @@ public class Post{
 		this.fee = fee;
 		this.startDay = startDay;
 		this.postDes = postDes;
+	}	
+
+	public int getPostID() {
+		return postID;
 	}
 
-	public byte getLearnerID() {
+	public void setPostID(int postID) {
+		this.postID = postID;
+	}
+
+	public int getLearnerID() {
 		return learnerID;
 	}
 
-	public void setLearnerID(byte learnerID) {
+	public void setLearnerID(int learnerID) {
 		this.learnerID = learnerID;
 	}
 
-	public byte getCommuneID() {
+	public int getCommuneID() {
 		return communeID;
 	}
 
-	public void setCommuneID(byte communeID) {
+	public void setCommuneID(int communeID) {
 		this.communeID = communeID;
 	}
 
-	public byte getGenderID() {
+	public int getGenderID() {
 		return genderID;
 	}
 
-	public void setGenderID(byte genderID) {
+	public void setGenderID(int genderID) {
 		this.genderID = genderID;
 	}
 
-	public byte getQualificateID() {
+	public int getQualificateID() {
 		return qualificateID;
 	}
 
-	public void setQualificateID(byte qualificateID) {
+	public void setQualificateID(int qualificateID) {
 		this.qualificateID = qualificateID;
 	}
 
-	public byte getSubjectID() {
+	public int getSubjectID() {
 		return subjectID;
 	}
 
-	public void setSubjectID(byte subjectID) {
+	public void setSubjectID(int subjectID) {
 		this.subjectID = subjectID;
 	}
 
-	public byte getStatusPostID() {
+	public int getStatusPostID() {
 		return statusPostID;
 	}
 
-	public void setStatusPostID(byte statusPostID) {
+	public void setStatusPostID(int statusPostID) {
 		this.statusPostID = statusPostID;
 	}
 
-	public char getTypePost() {
+	public boolean isTypePost() {
 		return typePost;
 	}
 
-	public void setTypePost(char typePost) {
+	public void setTypePost(boolean typePost) {
 		this.typePost = typePost;
 	}
 

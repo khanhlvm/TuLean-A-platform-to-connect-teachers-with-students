@@ -10,10 +10,11 @@ public class Tutor extends User{
 		super();
 	}
 
-	public Tutor(String email, String phone, String password, String name, String avatar, String street, byte roleID,
-			byte statusUserID, byte genderID, byte qualificationID, byte communeID, String salary, String workAt,
-			String identityCard, String studentCard) {
-		super(email, phone, password, name, avatar, street, roleID, statusUserID, genderID, qualificationID, communeID);
+	public Tutor(int userID, int roleID, int statusUserID, int genderID, int qualificationID, int communeID,
+			String email, String phone, String password, String name, String avatar, String street, String salary,
+			String workAt, String identityCard, String studentCard) {
+		super(userID, roleID, statusUserID, genderID, qualificationID, communeID, email, phone, password, name, avatar,
+				street);
 		this.salary = salary;
 		this.workAt = workAt;
 		this.identityCard = identityCard;
@@ -51,6 +52,7 @@ public class Tutor extends User{
 	public void setStudentCard(String studentCard) {
 		this.studentCard = studentCard;
 	}
+
 	
-	
+
 }

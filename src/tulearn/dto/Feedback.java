@@ -1,13 +1,14 @@
 package tulearn.dto;
 
-public class Feedback extends FeedbackReport{
+public class Feedback extends Report{
 	private byte grade;
 
 	public Feedback() {
 		super();
 	}
 
-	public Feedback(byte tutorID, byte postID, String dateTime, String content, byte grade) {
+	
+	public Feedback(int tutorID, int postID, String dateTime, String content, byte grade) {
 		super(tutorID, postID, dateTime, content);
 		this.grade = grade;
 	}

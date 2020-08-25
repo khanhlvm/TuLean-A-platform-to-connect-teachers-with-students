@@ -1,7 +1,7 @@
 package tulearn.dto;
 
 public class Certificate {
-	private byte tutorID;
+	private int tutorID;
 	private	String certificateName;
 	private String certificateURL;
 	
@@ -9,18 +9,18 @@ public class Certificate {
 		super();
 	}
 
-	public Certificate(byte tutorID, String certificateName, String certificateURL) {
+	public Certificate(int tutorID, String certificateName, String certificateURL) {
 		super();
 		this.tutorID = tutorID;
 		this.certificateName = certificateName;
 		this.certificateURL = certificateURL;
 	}
 
-	public byte getTutorID() {
+	public int getTutorID() {
 		return tutorID;
 	}
 
-	public void setTutorID(byte tutorID) {
+	public void setTutorID(int tutorID) {
 		this.tutorID = tutorID;
 	}
 

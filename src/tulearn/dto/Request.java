@@ -1,54 +1,54 @@
 package tulearn.dto;
 
 public class Request {
-	private byte tutorID;
-	private byte postID;
-	private char typeRequest;
-	private byte statusID;
+	private int tutorID;
+	private int postID;
+	private int statusID;
+	private boolean typeRequest;
 	
 	public Request() {
 		super();
 	}
 
-	public Request(byte tutorID, byte postID, char typeRequest, byte statusID) {
+	public Request(int tutorID, int postID, int statusID, boolean typeRequest) {
 		super();
 		this.tutorID = tutorID;
 		this.postID = postID;
-		this.typeRequest = typeRequest;
 		this.statusID = statusID;
+		this.typeRequest = typeRequest;
 	}
 
-	public byte getTutorID() {
+	public int getTutorID() {
 		return tutorID;
 	}
 
-	public void setTutorID(byte tutorID) {
+	public void setTutorID(int tutorID) {
 		this.tutorID = tutorID;
 	}
 
-	public byte getPostID() {
+	public int getPostID() {
 		return postID;
 	}
 
-	public void setPostID(byte postID) {
+	public void setPostID(int postID) {
 		this.postID = postID;
 	}
 
-	public char getTypeRequest() {
-		return typeRequest;
-	}
-
-	public void setTypeRequest(char typeRequest) {
-		this.typeRequest = typeRequest;
-	}
-
-	public byte getStatusID() {
+	public int getStatusID() {
 		return statusID;
 	}
 
-	public void setStatusID(byte statusID) {
+	public void setStatusID(int statusID) {
 		this.statusID = statusID;
-	} 
-	
+	}
+
+	public boolean isTypeRequest() {
+		return typeRequest;
+	}
+
+	public void setTypeRequest(boolean typeRequest) {
+		this.typeRequest = typeRequest;
+	}
+
 	
 }

@@ -1,7 +1,7 @@
 package tulearn.dto;
 
 public class Schedule {
-	private byte entityID;
+	private int entityID;
 	private String dayTime;
 	private String startTime;
 	private String endTime;
@@ -10,7 +10,7 @@ public class Schedule {
 		super();
 	}
 
-	public Schedule(byte entityID, String dayTime, String startTime, String endTime) {
+	public Schedule(int entityID, String dayTime, String startTime, String endTime) {
 		super();
 		this.entityID = entityID;
 		this.dayTime = dayTime;
@@ -18,7 +18,7 @@ public class Schedule {
 		this.endTime = endTime;
 	}
 
-	public byte getEntityID() {
+	public int getEntityID() {
 		return entityID;
 	}
 

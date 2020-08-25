@@ -1,35 +1,92 @@
 package tulearn.dto;
 
-public abstract class User {
+public class User {
+	private int userID;
+	private int roleID;
+	private int statusUserID;
+	private int genderID;
+	private int qualificationID;
+	private int communeID;
 	private String email;
 	private String phone;
 	private String password;
 	private String name;
 	private String avatar;
 	private String street;
-	private byte roleID;
-	private byte statusUserID;
-	private byte genderID;
-	private byte qualificationID;
-	private byte communeID;
 	
 	public User() {
 		super();
 	}
 
-	public User(String email, String phone, String password, String name, String avatar, String street, byte roleID,
-			byte statusUserID, byte genderID, byte qualificationID, byte communeID) {
+	
+	public User(int userID) {
 		super();
+		this.userID = userID;
+	}
+
+
+	public User(int userID, int roleID, int statusUserID, int genderID, int qualificationID, int communeID,
+			String email, String phone, String password, String name, String avatar, String street) {
+		super();
+		this.userID = userID;
+		this.roleID = roleID;
+		this.statusUserID = statusUserID;
+		this.genderID = genderID;
+		this.qualificationID = qualificationID;
+		this.communeID = communeID;
 		this.email = email;
 		this.phone = phone;
 		this.password = password;
 		this.name = name;
 		this.avatar = avatar;
 		this.street = street;
+	}
+
+	public int getUserID() {
+		return userID;
+	}
+
+	public void setUserID(int userID) {
+		this.userID = userID;
+	}
+
+	public int getRoleID() {
+		return roleID;
+	}
+
+	public void setRoleID(int roleID) {
 		this.roleID = roleID;
+	}
+
+	public int getStatusUserID() {
+		return statusUserID;
+	}
+
+	public void setStatusUserID(int statusUserID) {
 		this.statusUserID = statusUserID;
+	}
+
+	public int getGenderID() {
+		return genderID;
+	}
+
+	public void setGenderID(int genderID) {
 		this.genderID = genderID;
+	}
+
+	public int getQualificationID() {
+		return qualificationID;
+	}
+
+	public void setQualificationID(int qualificationID) {
 		this.qualificationID = qualificationID;
+	}
+
+	public int getCommuneID() {
+		return communeID;
+	}
+
+	public void setCommuneID(int communeID) {
 		this.communeID = communeID;
 	}
 
@@ -80,46 +137,7 @@ public abstract class User {
 	public void setStreet(String street) {
 		this.street = street;
 	}
-
-	public byte getRoleID() {
-		return roleID;
-	}
-
-	public void setRoleID(byte roleID) {
-		this.roleID = roleID;
-	}
-
-	public byte getStatusUserID() {
-		return statusUserID;
-	}
-
-	public void setStatusUserID(byte statusUserID) {
-		this.statusUserID = statusUserID;
-	}
-
-	public byte getGenderID() {
-		return genderID;
-	}
-
-	public void setGenderID(byte genderID) {
-		this.genderID = genderID;
-	}
-
-	public byte getQualificationID() {
-		return qualificationID;
-	}
-
-	public void setQualificationID(byte qualificationID) {
-		this.qualificationID = qualificationID;
-	}
-
-	public byte getCommuneID() {
-		return communeID;
-	}
-
-	public void setCommuneID(byte communeID) {
-		this.communeID = communeID;
-	}
+	
 	
 	
 }

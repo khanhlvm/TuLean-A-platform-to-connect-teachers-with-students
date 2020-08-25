@@ -1,20 +1,20 @@
 package tulearn.dto;
 
 public class Subject {
-	private byte subjectID;
+	private int subjectID;
 	private String subjectName;
 	
 	public Subject() {
 		super();
 	}
 
-	public Subject(byte subjectID, String subjectName) {
+	public Subject(int subjectID, String subjectName) {
 		super();
 		this.subjectID = subjectID;
 		this.subjectName = subjectName;
 	}
 
-	public byte getSubjectID() {
+	public int getSubjectID() {
 		return subjectID;
 	}
 
