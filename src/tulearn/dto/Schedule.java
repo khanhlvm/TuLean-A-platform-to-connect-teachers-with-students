@@ -18,6 +18,13 @@ public class Schedule {
 		this.endTime = endTime;
 	}
 
+	public Schedule(String dayTime, String startTime, String endTime) {
+		super();
+		this.dayTime = dayTime;
+		this.startTime = startTime;
+		this.endTime = endTime;
+	}
+
 	public int getEntityID() {
 		return entityID;
 	}

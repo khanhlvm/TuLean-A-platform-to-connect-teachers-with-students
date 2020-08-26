@@ -38,6 +38,23 @@ public class Post{
 		this.postDes = postDes;
 	}	
 
+	public Post(int learnerID, int communeID, int genderID, int qualificateID, int subjectID, int statusPostID,
+			boolean typePost, byte lessonLearn, float timeLearn, String fee, String startDay, String postDes) {
+		super();
+		this.learnerID = learnerID;
+		this.communeID = communeID;
+		this.genderID = genderID;
+		this.qualificateID = qualificateID;
+		this.subjectID = subjectID;
+		this.statusPostID = statusPostID;
+		this.typePost = typePost;
+		this.lessonLearn = lessonLearn;
+		this.timeLearn = timeLearn;
+		this.fee = fee;
+		this.startDay = startDay;
+		this.postDes = postDes;
+	}
+
 	public int getPostID() {
 		return postID;
 	}
