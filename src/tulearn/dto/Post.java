@@ -1,6 +1,6 @@
 package tulearn.dto;
 
-public class Post{
+public class Post {
 	private int postID;
 	private int learnerID;
 	private int communeID;
@@ -18,6 +18,40 @@ public class Post{
 	public Post() {
 		super();
 	}
+	
+
+	
+
+
+	public Post(int postID) {
+		super();
+		this.postID = postID;
+	}
+
+
+
+
+
+	public Post(int learnerID, int communeID, int genderID, int qualificateID, int subjectID, int statusPostID,
+			boolean typePost, byte lessonLearn, float timeLearn, String fee, String startDay, String postDes) {
+		super();
+		this.learnerID = learnerID;
+		this.communeID = communeID;
+		this.genderID = genderID;
+		this.qualificateID = qualificateID;
+		this.subjectID = subjectID;
+		this.statusPostID = statusPostID;
+		this.typePost = typePost;
+		this.lessonLearn = lessonLearn;
+		this.timeLearn = timeLearn;
+		this.fee = fee;
+		this.startDay = startDay;
+		this.postDes = postDes;
+	}
+
+
+
+
 
 	public Post(int postID, int learnerID, int communeID, int genderID, int qualificateID, int subjectID,
 			int statusPostID, boolean typePost, byte lessonLearn, float timeLearn, String fee, String startDay,
@@ -141,5 +175,18 @@ public class Post{
 	public void setPostDes(String postDes) {
 		this.postDes = postDes;
 	}
+
+
+
+
+
+	@Override
+	public String toString() {
+		return "Post [learnerID=" + learnerID + ", communeID=" + communeID + ", genderID=" + genderID
+				+ ", qualificateID=" + qualificateID + ", subjectID=" + subjectID + ", statusPostID=" + statusPostID
+				+ ", typePost=" + typePost + ", lessonLearn=" + lessonLearn + ", timeLearn=" + timeLearn + ", fee="
+				+ fee + ", startDay=" + startDay + ", postDes=" + postDes + "]";
+	}
+	
 	
 }

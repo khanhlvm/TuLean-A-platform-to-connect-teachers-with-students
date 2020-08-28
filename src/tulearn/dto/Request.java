@@ -6,14 +6,28 @@ public class Request {
 	private int statusID;
 	private boolean typeRequest;
 	
+	
 	public Request() {
 		super();
+	}
+
+	public Request(int tutorID, int postID) {
+		super();
+		this.tutorID = tutorID;
+		this.postID = postID;
 	}
 
 	public Request(int tutorID, int postID, int statusID, boolean typeRequest) {
 		super();
 		this.tutorID = tutorID;
 		this.postID = postID;
+		this.statusID = statusID;
+		this.typeRequest = typeRequest;
+	}
+
+
+	public Request(int statusID, boolean typeRequest) {
+		super();
 		this.statusID = statusID;
 		this.typeRequest = typeRequest;
 	}
@@ -48,6 +62,11 @@ public class Request {
 
 	public void setTypeRequest(boolean typeRequest) {
 		this.typeRequest = typeRequest;
+	}
+
+	@Override
+	public String toString() {
+		return "Request [tutorID=" + tutorID + ", postID=" + postID +  "]";
 	}
 
 	
