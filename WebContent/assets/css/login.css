@@ -1,0 +1,16 @@
+.dn {
+    opacity: 0.6;
+    background-color: #00BFFF;
+    text-align: center;
+    height: 2.3em;
+    border-radius: 5px;
+    color: white;
+}
+
+.dn:hover {
+    color: black;
+    background-color: #00BFFF;
+    opacity: 1;
+}
+
+.dn p{font-size: 1.2em;}
