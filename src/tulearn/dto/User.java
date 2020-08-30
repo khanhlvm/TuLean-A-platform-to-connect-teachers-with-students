@@ -137,6 +137,13 @@ public class User {
 	public void setStreet(String street) {
 		this.street = street;
 	}
+
+
+	public User(String password, String name) {
+		super();
+		this.password = password;
+		this.name = name;
+	}
 	
 	
 	
