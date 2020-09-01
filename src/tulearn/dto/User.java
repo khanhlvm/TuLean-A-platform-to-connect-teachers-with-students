@@ -24,6 +24,20 @@ public class User {
 		this.userID = userID;
 	}
 
+	public User(int userID, int roleID, int genderID, int qualificationID, int communeID, String email, String phone,
+			String name, String street) {
+		super();
+		this.userID = userID;
+		this.roleID = roleID;
+		this.genderID = genderID;
+		this.qualificationID = qualificationID;
+		this.communeID = communeID;
+		this.email = email;
+		this.phone = phone;
+		this.name = name;
+		this.street = street;
+	}
+
 
 	public User(int userID, int roleID, int statusUserID, int genderID, int qualificationID, int communeID,
 			String email, String phone, String password, String name, String avatar, String street) {

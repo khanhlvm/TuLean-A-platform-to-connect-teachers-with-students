@@ -10,11 +10,44 @@ public class Tutor extends User{
 		super();
 	}
 
+	
+	public Tutor(int userID, int roleID, int statusUserID, int genderID, int qualificationID, int communeID,
+			String email, String phone, String password, String name, String avatar, String street) {
+		super(userID, roleID, statusUserID, genderID, qualificationID, communeID, email, phone, password, name, avatar,
+				street);
+	}
+	
+	
+
+	public Tutor(int userID, int roleID, int genderID, int qualificationID, int communeID, String email, String phone,
+			String name, String street) {
+		super(userID, roleID, genderID, qualificationID, communeID, email, phone, name, street);
+	}
+
+	
+	public Tutor(int userID, int roleID, int genderID, int qualificationID, int communeID, String email, String phone,
+			String name, String street, String salary, String workAt, String identityCard, String studentCard) {
+		super(userID, roleID, genderID, qualificationID, communeID, email, phone, name, street);
+		this.salary = salary;
+		this.workAt = workAt;
+		this.identityCard = identityCard;
+		this.studentCard = studentCard;
+	}
+
+
 	public Tutor(int userID, int roleID, int statusUserID, int genderID, int qualificationID, int communeID,
 			String email, String phone, String password, String name, String avatar, String street, String salary,
 			String workAt, String identityCard, String studentCard) {
 		super(userID, roleID, statusUserID, genderID, qualificationID, communeID, email, phone, password, name, avatar,
 				street);
+		this.salary = salary;
+		this.workAt = workAt;
+		this.identityCard = identityCard;
+		this.studentCard = studentCard;
+	}	
+
+	public Tutor(String salary, String workAt, String identityCard, String studentCard) {
+		super();
 		this.salary = salary;
 		this.workAt = workAt;
 		this.identityCard = identityCard;

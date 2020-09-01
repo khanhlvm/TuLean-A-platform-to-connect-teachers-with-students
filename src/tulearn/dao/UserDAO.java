@@ -5,11 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 
 import tulearn.context.DBContext;
-import tulearn.dto.ListUser;
-import tulearn.dto.User;
+import tulearn.dto.Tutor;
 
 public class UserDAO {
 	private Connection conn;
@@ -30,78 +28,122 @@ public class UserDAO {
 		}
 	} 
 
-	// Get list user
-	public ArrayList<ListUser> getAllListUser(int userID) throws SQLException {
-		ArrayList<ListUser> listUser = new ArrayList<>();
+	public Tutor getUserTutorByID(int id) throws SQLException {
+		Tutor t = new Tutor();
 		try {
 			conn = DBContext.getConnection();
 			if (conn != null) {
-				String sql = "SELECT UserTB.userName, UserTB.phone, UserTB.email,UserTB.workAt,UserTB.salary,UserTB.identityCard, UserTB.studentCard, ProvinceOrCity.provinceName, District.districtName, CommuneOrWard.communeName, UserTB.streetName FROM UserTB \r\n"
-						+ " INNER JOIN CommuneOrWard  ON UserTB.communeID = CommuneOrWard.communeID\r\n"
-						+ "INNER JOIN District  ON CommuneOrWard.districtID = District.districtID\r\n"
-						+ "INNER JOIN ProvinceOrCity  ON District.provinceID = ProvinceOrCity.provinceID WHERE userID=?";
-				
+				String sql = "SELECT * FROM UserTB WHERE userID = ?";				
 				ps = conn.prepareStatement(sql);
-				ps.setInt(1, userID);
+				ps.setInt(1, id);
 				rs = ps.executeQuery();
 				if (rs.next()) {
-					ListUser lu = new ListUser(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5), rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9), rs.getString(10), rs.getString(11));
-					listUser.add(lu);
+					int userID = rs.getInt(1);
+					int roleID = rs.getInt(2);
+					int statusUserID = rs.getInt(3);
+					int genderID = rs.getInt(4);
+					int qualificationID = rs.getInt(5);
+					int communeID = rs.getInt(6);
+					String email = rs.getString(7);				
+					String password = rs.getString(8);					
+					String street = rs.getNString(9);
+					String name = rs.getNString(10);
+					String avatar = rs.getNString(11);
+					String phone = rs.getString(12);
+					t = new Tutor(userID,roleID,statusUserID,genderID,qualificationID,communeID,email,phone,password,name,avatar,street);
+					if(roleID==2) {
+						String query = "SELECT salary,workAt,identityCard,studentCard FROM UserTB WHERE userID = ?";				
+						ps = conn.prepareStatement(query);
+						ps.setInt(1, id);
+						rs = ps.executeQuery();
+						if (rs.next()) {
+							String salary = rs.getString(1);
+							String workAt = rs.getNString(2);
+							String identityCard = rs.getString(3);
+							String studentCard = rs.getString(4);
+							t = new Tutor(userID,roleID,statusUserID,genderID,qualificationID,communeID,email,
+									phone,password,name,avatar,street,salary,workAt,identityCard,studentCard);
+						}
+					}
 				}
 			}
-		} catch (NullPointerException e) {
-			e.printStackTrace();
-		} finally {
-			closeConnection();
-		}
-		return listUser;
-	}
-	
-
-//	// Change Pass
-	public boolean updatePassword(String username, String userpass) throws SQLException {
-		try {
-			conn = DBContext.getConnection();
-			String sql = "UPDATE UserTB SET userPass=? WHERE userName = ?";
-			ps = conn.prepareStatement(sql);
-			if (conn != null) {
-				ps.setString(1, userpass);
-				ps.setString(2, username);
-				ps.executeUpdate();
-			}
-		}catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			closeConnection();
-		}
-		return false;
-	}
-
-	//Update User
-	public boolean updateUser(int userID, ListUser ud) throws SQLException {
-		try {
-			conn = DBContext.getConnection();
-			if (conn != null) {
-				String sql = "UPDATE UserTB SET userName=?,phone=?,email=?,workAt=?,salary=?,identityCard=?,studentCard=?,communeID=?,streetName=?  WHERE userID = ?";
-				ps = conn.prepareStatement(sql);
-				ps.setInt(1, userID);
-				ps.setString(2, ud.getName());
-				ps.setString(3,ud.getPhone());
-				ps.setString(4, ud.getEmail());
-				ps.setString(5,ud.getWorkAt());
-				ps.setString(6,ud.getSalary() );
-				ps.setString(7, ud.getIdentityCard());
-				ps.setString(8, ud.getStudentCard());
-				ps.setInt(9,ud.getCommuneID());
-				ps.setString(10, ud.getStreetName());
-				ps.executeUpdate();
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}finally {
 			closeConnection();
 		}
-		return false;
+		return t;
 	}
+	
+	public Tutor getTutorByRole(int rID) throws SQLException{
+		Tutor t = new Tutor();
+		try {
+			conn = DBContext.getConnection();
+			if (conn != null) {
+				String sql = "SELECT salary,workAt,identityCard,studentCard FROM UserTB WHERE roleID = ?";				
+				ps = conn.prepareStatement(sql);
+				ps.setInt(1, rID);
+				rs = ps.executeQuery();
+				if (rs.next()) {
+					String salary = rs.getString(1);
+					String workAt = rs.getNString(2);
+					String identityCard = rs.getString(3);
+					String studentCard = rs.getString(4);
+					t = new Tutor(salary,workAt,identityCard,studentCard);
+				}
+			}
+		}finally {
+			closeConnection();
+		}
+		return t;
+	}
+	
+	public boolean updateUserOrTutorByID(Tutor t) throws SQLException {
+		boolean result = false;
+		try {
+			conn = DBContext.getConnection();
+			if (conn != null) {
+				String sql = "UPDATE UserTB SET userName=?, email=?, phone=?, genderID=?, qualificationID=?, communeID=?, streetName=?  WHERE userID = ?";
+				ps = conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+				ps.setNString(1, t.getName());
+				ps.setNString(2, t.getEmail());
+				ps.setString(3, t.getPhone());
+				ps.setInt(4, t.getGenderID());
+				ps.setInt(5, t.getQualificationID());
+				ps.setInt(6, t.getCommuneID());
+				ps.setNString(7, t.getStreet());
+				ps.setInt(8, t.getUserID());
+				result = ps.executeUpdate() > 0;
+				if(t.getRoleID()==2 && result) {
+					String query = "UPDATE UserTB SET salary=?, workAt=?, identityCard=?, studentCard=?  WHERE userID = ?";
+					ps = conn.prepareStatement(query,Statement.RETURN_GENERATED_KEYS);
+					ps.setString(1, t.getSalary());
+					ps.setString(2, t.getWorkAt());
+					ps.setString(3, t.getIdentityCard());
+					ps.setString(4, t.getStudentCard());
+					ps.setInt(5, t.getUserID());
+					result = ps.executeUpdate() > 0;
+				}
+			}
+		}finally {
+			closeConnection();
+		}
+		return result;
+	}
+	
+	public boolean updatePassword(int userID, String newPass) throws SQLException {
+		boolean result = false;
+		try {
+			conn = DBContext.getConnection();
+			if (conn != null) {
+				String sql = "UPDATE UserTB SET userPass=? WHERE userID=?";
+				ps = conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);			
+				ps.setString(1, newPass);
+				ps.setInt(2, userID);
+				result = ps.executeUpdate()>0;
+			}
+		}finally {
+			closeConnection();
+		}
+		return result;
+	}
+	
 }
