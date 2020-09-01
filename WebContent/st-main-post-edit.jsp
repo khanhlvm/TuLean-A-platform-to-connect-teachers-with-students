@@ -26,7 +26,7 @@
                         <div class="row gtr-uniform">
 
                             <div class="col-6 col-12-xsmall">
-                                <label for="MonHoc">Môn Học</label>
+                                <label for="MonHoc">Môn Học <span class="phainhap">*</span></label>
                                 <select name="MonHoc" id="MonHoc">
                                     <option value="">- Môn Học -</option>
                                     <option value="1">Hóa</option>
@@ -36,7 +36,7 @@
                                 <p id="state1" class="error"></p>
                             </div>
                             <div class="col-6 col-12-xsmall">
-                                <label for="GioiTinhGiaSu">Giới Tính Gia Sư</label>
+                                <label for="GioiTinhGiaSu">Giới Tính Gia Sư <span class="phainhap">*</span></label>
                                 <select name="GioiTinhGiaSu" id="GioiTinhGiaSu">
                                     <option value="">- Giới Tính Gia Sư -</option>
                                     <option value="1">Nam</option>
@@ -46,7 +46,7 @@
                                 <p id="state2" class="error"></p>
                             </div>
                             <div class="col-6 col-12-xsmall">
-                                <label for="TrinhDoGiaSu">Trình Độ Gia Sư</label>
+                                <label for="TrinhDoGiaSu">Trình Độ Gia Sư <span class="phainhap">*</span></label>
                                 <select name="TrinhDoGiaSu" id="TrinhDoGiaSu">
                                     <option value="">- Trình Độ Gia Sư -</option>
                                     <option value="1">Sinh Viên</option>
@@ -56,14 +56,14 @@
                                 <p id="state3" class="error"></p>
                             </div>
                             <div class="col-6 col-12-xsmall">
-                                <label for="">Học Phí Đề Xuất</label>
+                                <label for="">Học Phí Đề Xuất <span class="phainhap">*</span></label>
                                 <input type="text" name="HocPhiDeXuat" id="HocPhiDeXuat" value=""
                                     placeholder="0 vnđ/buổi" />
                                 <p id="state4" class="error"></p>
                             </div>
 
                             <div class="col-6 col-12-xsmall">
-                                <label for="SoGioMotBuoi">Số Giờ/Buổi</label>
+                                <label for="SoGioMotBuoi">Số Giờ/Buổi <span class="phainhap">*</span></label>
                                 <select name="SoGioMotBuoi" id="demo-category">
                                     <option value="">1</option>
                                     <option value="1">1.5</option>
@@ -73,7 +73,7 @@
                             </div>
 
                             <div class="col-6 col-12-xsmall">
-                                <label for="SoBuoiMotTuan">Số Buổi/Tuần</label>
+                                <label for="SoBuoiMotTuan">Số Buổi/Tuần <span class="phainhap">*</span></label>
                                 <select name="SoBuoiMotTuan" id="demo-category">
                                     <option value="">1</option>
                                     <option value="1">2</option>
@@ -82,7 +82,7 @@
                                 </select>
                             </div>
                             <div class="col-12">
-                                <label for="">Ngày Dự Kiến Bắt Đầu Học</label>
+                                <label for="">Ngày Dự Kiến Bắt Đầu Học <span class="phainhap">*</span></label>
                                 <input type="date" name="Date" id="datepicker" />
                             </div>
 

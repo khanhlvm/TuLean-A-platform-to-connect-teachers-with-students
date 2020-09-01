@@ -32,16 +32,16 @@
             <form method="post" action="#">
                 <div class="row gtr-uniform">
                     <div class="col-6">
-                        <label>Mật khẩu hiện tại</label>
+                        <label>Mật khẩu hiện tại <span class="phainhap">*</span></label>
                         <input type="password" name="demo-name" id="formPass" value="" placeholder="Nhập mật khẩu hiện tại"/>
                     </div>
                     <div class="col-6">
-                        <label>Mật khẩu mới</label>
+                        <label>Mật khẩu mới <span class="phainhap">*</span></label>
                         <input type="password" name="demo-name" id="formPassNew" value="" placeholder="Nhập mật khẩu mới"/>
                         <p id="invalidNewPass"  class="invalid"></p>
                     </div>
                     <div class="col-6">
-                        <label>Xác nhận mật khẩu mới</label>
+                        <label>Xác nhận mật khẩu mới <span class="phainhap">*</span></label>
                         <input type="password" name="demo-name" id="formXNPassNew" value="" placeholder="Nhập lại mật khẩu mới"/>
                         <p id="invalidXNPass"  class="invalid"></p>
                     </div>

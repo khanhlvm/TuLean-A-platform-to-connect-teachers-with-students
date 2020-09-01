@@ -27,16 +27,16 @@
                     <form method="post" action="#">
                         <div class="row gtr-uniform">
                             <div class="col-6 col-12-xsmall">
-                                <label for="">Họ và Tên</label>
+                                <label for="">Họ và Tên <span class="phainhap">*</span></label>
                                 <input type="text" name="name" id="name" value="" placeholder="Nhập Họ và Tên" />
                             </div>
                             <div class="col-6 col-12-xsmall">
-                                <label for="">Số điện thoại</label>
+                                <label for="">Số điện thoại <span class="phainhap">*</span></label>
                                 <input type="text" name="SĐT" id="SĐT" value="" placeholder="Nhập Số điện thoại" />
                                 <p id="phone" class="error"></p>
                             </div>
                             <div class="col-6 col-12-xsmall">
-                                <label for="">Tỉnh/Thành phố</label>
+                                <label for="">Tỉnh/Thành phố <span class="phainhap">*</span></label>
                                 <select name="Tinh_category" id="Tinh_category">
                                     <option value="">- Tỉnh/Thành phố -</option>
                                     <option value="1">Quảng Ngãi</option>
@@ -46,7 +46,7 @@
                             </div>
 
                             <div class="col-6 col-12-xsmall">
-                                <label for="">Quận huyện</label>
+                                <label for="">Quận huyện <span class="phainhap">*</span></label>
                                 <select name="Quan_category" id="Quan_category">
                                 <option value="">- Quận/Huyện -</option>
                                 <option value="1">lí sơn</option>

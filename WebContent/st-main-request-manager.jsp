@@ -24,7 +24,7 @@
             <!-- Tabbar -->
             <div class="tab">
                 <button class="tablinks" onclick="openCity(event, 'London')">Yêu cầu tìm GS</button>
-                <button class="tablinks" onclick="openCity(event, 'Paris')">Gửi lời mời dạy</button>
+                <button class="tablinks" onclick="openCity(event, 'Paris') " action="StMainRequestManagerGlmd" method="POST">Gửi lời mời dạy</button>
                 <button class="tablinks" onclick="openCity(event, 'Tokyo')">GS gửi yêu cầu</button>
             </div>
             

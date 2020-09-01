@@ -18,6 +18,8 @@ public class Main {
 		System.out.println(da.getListRequest(4, false));
 		System.out.println(da.deleteRequest(2));
 		System.out.println(da.updateSatus(5, 1));
+UserDAO ut = new UserDAO();
+
 
 	}
 
