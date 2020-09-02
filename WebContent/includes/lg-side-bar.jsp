@@ -17,11 +17,11 @@
                         <div class="row gtr-uniform">
 
                             <div class="col-12">
-                                <label for="Email">Địa chỉ Email</label>
+                                <label for="Email">Địa chỉ Email <span style="color.red">*</span> </label>
                                 <input type="text" name="demo-name" id="demo-name" value="" placeholder="Nhập địa chỉ email" />
                             </div>
                             <div class="col-6">
-                                <label for="MK">Mật khẩu</label>
+                                <label for="MK">Mật khẩu <span style="color.red">*</span> </label>
                             </div>
                             <div class="col-6">
                                 <div style="text-align: right;">
@@ -50,26 +50,26 @@
                     <form method="post" action="#">
                         <div class="row gtr-uniform">
                             <div class="col-12">
-                                <label for="e">Bạn là ai?</label>
+                                <label for="e">Bạn là ai? <span style="color.red">*</span> </label>
                             </div>
                             <div class="col-6 col-12-small">
                                 <input type="radio" id="demo-priority-low" name="demo-priority" checked>
-                                <label for="demo-priority-low">Học viên</label>
+                                <label for="demo-priority-low">Học viên </label>
                             </div>
                             <div class="col-6 col-12-small">
                                 <input type="radio" id="demo-priority-normal" name="demo-priority">
-                                <label for="demo-priority-normal">Gia sư</label>
+                                <label for="demo-priority-normal">Gia sư </label>
                             </div>
                             <div class="col-12">
-                                <label for="Email">Địa chỉ Email</label>
+                                <label for="Email">Địa chỉ Email <span style="color.red">*</span> </label>
                                 <input type="email" name="demo-email" id="demo-email" value="" placeholder="Nhập địa chỉ Email" />
                             </div>
                             <div class="col-12">
-                                <label for="MK">Mật khẩu</label>
+                                <label for="MK">Mật khẩu <span style="color.red">*</span> </label>
                                 <input type="text" name="demo-name" id="demo-name" value="" placeholder="Đặt mật khẩu" />
                             </div>
                             <div class="col-12">
-                                <label for="MK">Nhập lại mật khẩu</label>
+                                <label for="MK">Nhập lại mật khẩu <span style="color.red">*</span> </label>
                                 <input type="text" name="demo-name" id="demo-name" value="" placeholder="Nhập lại mật khẩu" />
                             </div>
                             <div class="col-12">

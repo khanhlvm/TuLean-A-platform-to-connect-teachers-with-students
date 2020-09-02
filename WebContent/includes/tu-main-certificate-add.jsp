@@ -28,12 +28,12 @@
         <form method="post" action="#">
             <div class="row gtr-uniform">
                 <div class="col-12">
-                    <label>Tên Chứng Chỉ</label>
+                    <label>Tên Chứng Chỉ <span style="color.red">*</span> </label>
                     <input type="password" name="demo-name" id="formPass" value="" placeholder="Nhập tên chứng chỉ" />
                 </div>
                 
                 <div class="col-12">
-                    <label>Link Chứng Chỉ</label>
+                    <label>Link Chứng Chỉ <span style="color.red">*</span> </label>
                     <input type="password" name="demo-name" id="formPassNew" value="" placeholder="Dán link chứng chỉ" />
                     <p id="invalidNewPass" class="invalid"></p>
                 </div>
@@ -54,4 +54,4 @@
 
 <!-- Add side bar -->
 <%@ include file="/includes/tu-side-bar.jsp" %>
-
+</html>
