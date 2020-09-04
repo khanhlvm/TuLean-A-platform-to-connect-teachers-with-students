@@ -27,13 +27,13 @@
                 <form method="post" action="#">
                     <div class="row gtr-uniform">
                         <div class=" col-6"  >
-                            <label for="">Họ và tên <span class="phainhap">*</span></label>
+                            <label for="">Họ và tên </label>
                             <input type="text" id="formHovaTen" placeholder="Nhập họ và tên">
                             <p id="invalidHovaTen"  class="invalid"></p>
                         </div>
 
                         <div class="col-6">
-                            <label for=""> Giới tính <span class="phainhap">*</span></label>
+                            <label for=""> Giới tính </label>
                             <input type="radio" id="demo-priority-low" name="demo-priority" checked>
                             <label for="demo-priority-low">Nam</label>
 
@@ -45,41 +45,41 @@
                         </div>
 
                         <div class=" col-6">
-                            <label for="">Địa chỉ Email <span class="phainhap">*</span></label>
+                            <label for="">Địa chỉ Email </label>
                             <input type="text" id="formEmail" placeholder="Nhập địa chỉ email">
                             <p id="invalidEmail"  class="invalid"></p>
                         </div>
 
                         
                         <div class="col-6"  >
-                            <label for="" >Số điện thoại <span class="phainhap">*</span></label>
+                            <label for="" >Số điện thoại </label>
                             <input type="text" id= "formSDT" placeholder="Nhập số điện thoại">
                             <p id="invalidSDT"  class="invalid"></p>
                         </div>
 
                         <div class="col-6"  >
-                            <label for="" >CMND <span class="phainhap">*</span></label>
+                            <label for="" >CMND </label>
                             <input type="text" id="formCMND" placeholder="Nhập số CMND">
                             <p id="invalidCMND"  class="invalid"></p>
                         </div>
                         <div class=" col-6"  >
-                            <label for="">Mức lương <span class="phainhap">*</span></label>
+                            <label for="">Mức lương </label>
                             <input type="text" id="formHovaTen" placeholder="Nhập mức lương">
                             <p id="invalidHovaTen"  class="invalid"></p>
                         </div>
                         <div class=" col-12">
-                            <label for="">Nơi Làm việc <span class="phainhap">*</span></label>
+                            <label for="">Nơi Làm việc </label>
                             <input type="text" id="formEmail" placeholder="Nhập nơi làm việc">
                             <p id="invalidEmail"  class="invalid"></p>
                         </div>
                         <div class=" col-6">
-                            <label for="">Trình độ chuyên môn <span class="phainhap">*</span></label>
+                            <label for="">Trình độ chuyên môn </label>
                             <input type="text" id="formEmail" placeholder="Nhập trình độ chuyên môn">
                             <p id="invalidEmail"  class="invalid"></p>
                         </div>                  
             
                         <div class="col-6" >
-                            <label for="" >Tỉnh/TP <span class="phainhap">*</span></label>
+                            <label for="" >Tỉnh/TP </label>
                             <select name="cars" id="cars">
                                 <option value="">Đà Nẵng</option>
                                 <option value="">Hà Nội</option>
@@ -87,7 +87,7 @@
                               </select>
                         </div>
                         <div class="col-6" >
-                            <label for="" >Quận/Huyện <span class="phainhap">*</span></label>
+                            <label for="" >Quận/Huyện </label>
                             <select name="cars" id="cars">
                                 <option value="">Hải Châu</option>
                                 <option value="">Hòa Vang</option>
@@ -95,7 +95,7 @@
                               </select>
                         </div>
                         <div class="col-6" >
-                            <label for="" >Phường/Xã <span class="phainhap">*</span></label>
+                            <label for="" >Phường/Xã </label>
                             <select name="cars" id="cars">
                                 <option value="">...</option>
                                 <option value="">...</option>

@@ -17,11 +17,11 @@
                         <div class="row gtr-uniform">
 
                             <div class="col-12">
-                                <label for="Email">Địa chỉ Email <span class="phainhap">*</span></label>
+                                <label for="Email">Địa chỉ Email <span style="color:red">*</span></label>
                                 <input type="text" name="demo-name" id="demo-name" value="" placeholder="Nhập địa chỉ email" />
                             </div>
                             <div class="col-6">
-                                <label for="MK">Mật khẩu <span class="phainhap">*</span></label>
+                                <label for="MK">Mật khẩu <span style="color:red">*</span></label>
                             </div>
                             <div class="col-6">
                                 <div style="text-align: right;">
@@ -61,15 +61,15 @@
                                 <label for="demo-priority-normal">Gia sư</label>
                             </div>
                             <div class="col-12">
-                                <label for="Email">Địa chỉ Email <span class="phainhap">*</span></label>
+                                <label for="Email">Địa chỉ Email <span style="color:red">*</span></label>
                                 <input type="email" name="demo-email" id="demo-email" value="" placeholder="Nhập địa chỉ Email" />
                             </div>
                             <div class="col-12">
-                                <label for="MK">Mật khẩu <span class="phainhap">*</span></label>
+                                <label for="MK">Mật khẩu <span style="color:red">*</span></label>
                                 <input type="text" name="demo-name" id="demo-name" value="" placeholder="Đặt mật khẩu" />
                             </div>
                             <div class="col-12">
-                                <label for="MK">Nhập lại mật khẩu <span class="phainhap">*</span></label>
+                                <label for="MK">Nhập lại mật khẩu <span style="color:red">*</span></label>
                                 <input type="text" name="demo-name" id="demo-name" value="" placeholder="Nhập lại mật khẩu" />
                             </div>
                             <div class="col-12">

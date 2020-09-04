@@ -1,5 +1,8 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <jsp:useBean id="r" class="tulearn.dao.RequestDAO" scope="session"/>
 
 <!DOCTYPE HTML>
 <html>
@@ -20,11 +23,10 @@
 
 <!-- Main -->
         <div id="main">
-
             <!-- Tabbar -->
-            <div class="tab">
+           <div class="tab">
                 <button class="tablinks" onclick="openCity(event, 'London')">Yêu cầu tìm GS</button>
-                <button class="tablinks" onclick="openCity(event, 'Paris') " action="StMainRequestManagerGlmd" method="POST">Gửi lời mời dạy</button>
+                <button class="tablinks" onclick="openCity(event, 'Paris')">Gửi lời mời dạy</button>
                 <button class="tablinks" onclick="openCity(event, 'Tokyo')">GS gửi yêu cầu</button>
             </div>
             
@@ -103,10 +105,12 @@
 
             <div id="Paris" class="tabcontent">
                 <!-- Post -->
-                <article class="post">
+              <c:forEach items="${requestScope.LIST_REQ}" var="req"> 
+         	      
+                <article class="post" action="StHuyYeuCauController" method="POST">
                     <header class="header_post">
                         <div class="title">
-                            <h3>bạn đã đăng kí học <span>Toán</span> với gia sư <span>Nguyễn Tố Tâm</span></h3>
+                            <h3>bạn đã đăng kí học <span>${req.post.subject.sName}</span> với gia sư <span>${req.tutor.name}</span></h3>
                         </div>
                         <div class="meta meta_ci">
                             <div class="circle"></div>
@@ -116,71 +120,65 @@
                     <div class="body_tokyo">
                         <div class="body_first">
                             <div class="body_text">
-                                <span>Dạy Lớp:</span>
-                                <p>Lớp 10, 11, 12</p><br>
-
-                            </div>
-                            <div class="body_text">
                                 <span>Môn:</span>
-                                <p>Toán</p>
+                                <p>${req.post.subject.sName}</p>
                             </div>
                         </div>
                         <div class="body_second">
                             <div class="body_text">
                                 <span>Số buổi/Tuần:</span>
-                                <p>3 buổi</p>
+                                <p>${req.post.lessonLearn} buổi</p>
                             </div>
                             <div class="body_text">
                                 <span>Thời gian/Buổi:</span>
-                                <p>2 giờ</p>
+                                <p>${req.post.timeLearn} giờ </p>
                             </div>
                         </div>
                     </div>
                     <footer>
-                        <a href="#" class="button btn">Hủy yêu cầu</a>
+								
+								
+                       <a href="StHuyYeuCauController"  class="button btn" name="txtHuyYeuCau" value="${req.post.postID}">Hủy yêu cầu</a> 
                     </footer>
                 </article>
+             </c:forEach>
             </div>
 
             <div id="Tokyo" class="tabcontent">
+             <c:forEach items="${requestScope.LIST_REQGS}" var="reqe"> 
                 <article class="post">
                     <header class="header_post">
                         <div class="title">
 
-                            <h3>Gia Sư <span>Võ Văn Hoàng</span> đăng kí dạy bạn</h3>
+                            <h3>Gia Sư <span>${reqe.tutor.name}</span> đăng kí dạy môn <span>${reqe.post.subject.sName}</span> với bạn</h3>
                         </div>
 
                     </header>
                     <div class="body_img">
                         <img src="images/pic08.jpg" class="image img_body" alt="">
-                        <h2>Võ Văn Hoàng</h2>
+                        <h2>${reqe.tutor.name}</h2>
                     </div>
                     <div class="body_tokyo">
                         <div class="body_first">
                             <div class="body_text">
                                 <span>Dạy môn:</span>
-                                <p>Toán</p><br>
+                                <p>${reqe.post.subject.sName}</p><br>
                             </div>
                             <div class="body_text">
                                 <span>Trình độ:</span>
-                                <p>Đại học</p>
-
+                                <p>${reqe.tutor.qualificate.qName}</p>
                             </div>
-                            <div class="body_text">
-                                <span>Học Phí:</span>
-                                <p>100.000 đ/Buổi</p>
-                            </div>
+                           
                         </div>
                         <div class="body_second">
                             <div class="body_text">
-
-                                <span>Dạy Lớp:</span>
-                                <p>Lớp 10, 11, 12</p><br>
+                                <span>Học Phí:</span>
+                                <p>${reqe.tutor.salary} đ/Buổi</p>
                             </div>
                             <div class="body_text">
 
                                 <span>Địa chỉ:</span>
-                                <p>Đà Nắng</p>
+                                <p>${reqe.tutor.address.provinceName}</p>
                             </div>
                         </div>
                     </div>
@@ -190,6 +188,7 @@
                         <a href="#" class="button btnjc">Chấp nhận</a>
                     </footer>
                 </article>
+                  </c:forEach>
             </div>
             
             <script>

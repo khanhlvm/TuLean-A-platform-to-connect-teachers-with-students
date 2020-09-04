@@ -1,34 +1,43 @@
 package tulearn.dto;
 
 public class Subject {
-	private int subjectID;
-	private String subjectName;
+	private int sID;
+	private String sName;
 	
 	public Subject() {
 		super();
 	}
 
-	public Subject(int subjectID, String subjectName) {
+	public Subject(int sID, String sName) {
 		super();
-		this.subjectID = subjectID;
-		this.subjectName = subjectName;
+		this.sID = sID;
+		this.sName = sName;
 	}
 
-	public int getSubjectID() {
-		return subjectID;
+	public Subject(String sName) {
+		super();
+		this.sName = sName;
 	}
 
-	public void setSubjectID(byte subjectID) {
-		this.subjectID = subjectID;
+	public int getsID() {
+		return sID;
 	}
 
-	public String getSubjectName() {
-		return subjectName;
+	public void setsID(int sID) {
+		this.sID = sID;
 	}
 
-	public void setSubjectName(String subjectName) {
-		this.subjectName = subjectName;
+	public String getsName() {
+		return sName;
 	}
-	
+
+	public void setsName(String sName) {
+		this.sName = sName;
+	}
+
+	@Override
+	public String toString() {
+		return "Subject [sID=" + sID + ", sName=" + sName + "]";
+	}
 	
 }

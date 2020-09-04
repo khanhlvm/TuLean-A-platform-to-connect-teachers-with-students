@@ -1,51 +1,49 @@
 package tulearn.dto;
 
 public class Request {
-	private int tutorID;
-	private int postID;
+	private Tutor tutor;
+	private Post post;
 	private int statusID;
 	private boolean typeRequest;
-	
 	
 	public Request() {
 		super();
 	}
 
-	public Request(int tutorID, int postID) {
+	public Request(Tutor tutor, Post post, int statusID, boolean typeRequest) {
 		super();
-		this.tutorID = tutorID;
-		this.postID = postID;
-	}
-
-	public Request(int tutorID, int postID, int statusID, boolean typeRequest) {
-		super();
-		this.tutorID = tutorID;
-		this.postID = postID;
+		this.tutor = tutor;
+		this.post = post;
 		this.statusID = statusID;
 		this.typeRequest = typeRequest;
 	}
+	
 
-
-	public Request(int statusID, boolean typeRequest) {
+	public Request(Tutor tutor, Post post) {
 		super();
-		this.statusID = statusID;
-		this.typeRequest = typeRequest;
+		this.tutor = tutor;
+		this.post = post;
 	}
 
-	public int getTutorID() {
-		return tutorID;
+	public Request(Post post) {
+		super();
+		this.post = post;
 	}
 
-	public void setTutorID(int tutorID) {
-		this.tutorID = tutorID;
+	public Tutor getTutor() {
+		return tutor;
 	}
 
-	public int getPostID() {
-		return postID;
+	public void setTutor(Tutor tutor) {
+		this.tutor = tutor;
 	}
 
-	public void setPostID(int postID) {
-		this.postID = postID;
+	public Post getPost() {
+		return post;
+	}
+
+	public void setPost(Post post) {
+		this.post = post;
 	}
 
 	public int getStatusID() {
@@ -66,8 +64,7 @@ public class Request {
 
 	@Override
 	public String toString() {
-		return "Request [tutorID=" + tutorID + ", postID=" + postID +  "]";
+		return "Request [tutor=" + tutor + ", post=" + post + "]";
 	}
-
 	
 }

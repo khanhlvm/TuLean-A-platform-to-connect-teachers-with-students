@@ -12,7 +12,7 @@
             <nav class="links">
                 <ul>
                     <li><a href="#"><i class="fas fa-users"></i> Quản lý lớp dạy</a></li>
-                    <li><a href="#"><i class="fas fa-tasks"></i> Quản lý yêu cầu</a></li>
+                    <li><a href="TuMaReManagerController"><i class="fas fa-tasks"></i> Quản lý yêu cầu</a></li>
                     <li><a href="#"><i class="fas fa-search"></i> Tìm yêu cầu</a></li>
                     <li><a href="#"><i class="fas fa-bell"></i> Thông báo</a></li>
                 </ul>

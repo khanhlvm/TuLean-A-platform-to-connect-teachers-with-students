@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
+	pageEncoding="UTF-8"%>
+
 <body class="is-preload">
 
 	<!-- Wrapper -->
@@ -14,10 +14,12 @@
 			</h1>
 			<nav class="links">
 				<ul>
-					<li><a href="#"><i class="fas fa-users"></i> Quản lý lớp
-							học</a></li>
-					<li><a href="#"><i class="fas fa-tasks"></i> Quản lý yêu
+					<li><a href="StMainClassMaController"><i
+							class="fas fa-users"></i> Quản lý lớp học</a></li>
+					  	<li><a href="StMainRequestManagerGlmd"><i class="fas fa-tasks"></i> Quản lý yêu
 							cầu</a></li>
+					
+
 					<li><a href="#"><i class="fas fa-search"></i> Tìm gia sư</a></li>
 					<li><a href="#"><i class="far fa-calendar-plus"></i> Tạo
 							yêu cầu</a></li>
@@ -87,4 +89,4 @@
 
 		</section>
 
-<!-- Main Below -->
+		<!-- Main Below -->

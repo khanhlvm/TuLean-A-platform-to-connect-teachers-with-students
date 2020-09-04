@@ -44,7 +44,7 @@
                     <form method="post" action="#">
                         <div class="row gtr-uniform">
                             <div class="col-6 col-12-xsmall">
-                                <label for="">Lớp học <span class="phainhap">*</span> </label>
+                                <label for="">Lớp học  <span style="color:red">*</span></label>
                                 <select name="class_category" id="class_category">
                                     <option value="">- Lớp Học -</option>
                                     <option value="1">Lớp 10</option>
@@ -54,7 +54,7 @@
                                 <p id="state" class="error"></p>
                             </div>
                             <div class="col-6 col-12-xsmall">
-                                <label for="">Môn học <span class="phainhap">*</span></label>
+                                <label for="">Môn học <span style="color:red">*</span></label>
                                 <select name="subject_category" id="subject_category">
                                     <option value="">- Môn Học -</option>
                                     <option value="1">Toán</option>
@@ -64,7 +64,7 @@
                                 <p id="state1" class="error"></p>
                             </div>
                             <div class="col-6 col-12-xsmall">
-                                <label for="">Số buổi/Tuần <span class="phainhap">*</span></label>
+                                <label for="">Số buổi/Tuần <span style="color:red">*</span></label>
                                 <select name="num_category" id="num_category">
                                     <option value="">- Chọn số buổi dạy -</option>
                                     <option value="1">1</option>
@@ -79,7 +79,7 @@
                                 <p id="state2" class="error"></p>
                             </div>
                             <div class="col-6 col-12-xsmall">
-                                <label for="">Số giờ học/Buổi <span class="phainhap">*</span></label>
+                                <label for="">Số giờ học/Buổi <span style="color:red">*</span></label>
                                 <select name="num_category" id="hour_category">
                                     <option value="">- Số giờ học -</option>
                                     <option value="1">1</option>

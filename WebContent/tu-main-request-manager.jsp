@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <jsp:useBean id="r" class="tulearn.dao.RequestDAO" scope="session"/>
 
 <!DOCTYPE HTML>
 <html>
@@ -26,11 +28,12 @@
 
             <div id="London" class="tabcontent">
                 <!-- Post -->
+                 <c:forEach items="${requestScope.LIST_REQ}" var="req"> 
                 <article class="post">
                     <header class="header_post">
                         <div class="title">
 
-                            <h3>bạn đã đăng kí dạy học viên <span>Lê Văn Hòa</span></h3>
+                            <h3>bạn đã đăng kí dạy học viên <span>${req.post.learner.name}</span></h3>
                         </div>
                         <div class="meta">
                             <div class="circle"></div>
@@ -42,27 +45,24 @@
                         <div class="body_first">
                             <div class="body_text">
                                 <span>Học Phí:</span>
-                                <p>1.000.000 đồng</p>
+                                <p>${req.post.fee} đồng</p>
                             </div>
                             <div class="body_text">
                                 <span>Môn:</span>
-                                <p>Toán</p>
+                                <p>${req.post.subject.sName}</p>
 
                             </div>
-                            <div class="body_text">
-                                <span>Lớp:</span>
-                                <p>lớp 12</p>
-                            </div>
+              
                         </div>
                         <div class="body_second">
 
                             <div class="body_text">
                                 <span>Số buổi/Tuần:</span>
-                                <p>3 buổi</p>
+                                <p>${req.post.lessonLearn}</p>
                             </div>
                             <div class="body_text">
                                 <span>Thời gian/Buổi:</span>
-                                <p>2 giờ</p>
+                                <p>${req.post.timeLearn}</p>
                             </div>
                         </div>
                     </div>
@@ -70,6 +70,7 @@
                         <a href="#" class="button btn">Hủy yêu cầu</a>
                     </footer>
                 </article>
+                 </c:forEach>
             </div>
 
             <div id="Paris" class="tabcontent">
