@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/fmt" prefix = "fmt" %>
 <!DOCTYPE HTML>
 <html>
 
@@ -109,7 +108,7 @@
 				                        <div class="row canh col-3 col-6-xsmall gio">
 				                            <select class="" name="NgayRanh">
 				                            	<option value="">Chọn thứ</option>
-					                            <c:forTokens items="Thứ 2, Thứ 3, Thứ 4, Thứ5, Thứ6, Thứ 7, CN" delims="," var="day">												  																                                
+					                            <c:forTokens items="Thứ hai,Thứ ba,Thứ tư,Thứ năm,Thứ sáu,Thứ bảy,Chủ Nhật" delims="," var="day">												  																                                
 					                                <option value="<c:out value="${day}"/>"><c:out value="${day}"/></option>
 					                            </c:forTokens>
 				                            </select>
