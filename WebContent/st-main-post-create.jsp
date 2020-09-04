@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/fmt" prefix = "fmt" %>
 <!DOCTYPE HTML>
 <html>
 
 <head>
     <title>Trang quản lý yêu cầu của HV - TuLearn</title>
     <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="assets/css/thu_css.css">
@@ -18,12 +20,13 @@
 
 <!-- Main -->
         <div id="main">
+        
             <article class="post">
                 <!-- Post -->
                 <section>
                     <h2>Tạo yêu cầu tìm gia sư</h2>
 
-                    <form method="post" action="#">
+                    <form method="post" action="CreatePostController">
                         <div class="row gtr-uniform">
 
                             <div class="col-6 col-12-xsmall">
@@ -101,73 +104,43 @@
                                 <label for="">Ngày Rảnh Trong Tuần</label>
                             </div>
                             <div class="col-12">
-                                <div class="row canh ngay" id="ngay1">
-                                    <label for="">Thứ Hai</label>
-                                    <div class="row canh col-12 gioranh1 original" id="idGioRanh">
-                                        <div class="row canh col-3 col-6-xsmall gio">
-                                            <select name="GioBatDau" id="demo-category">
-                                                <option value="">Giờ Bắt Đầu</option>
-                                                <option value="1">1.5</option>
-                                                <option value="1">2</option>
-                                                <option value="1">2.5</option>
-                                            </select>
-                                        </div>
-                                        <label class="phancachgio" for="">-</label>
-                                        <div class="row canh col-3 col-6-xsmall gio">
-                                            <select name="GioBatDau" id="demo-category">
-                                                <option value="">Giờ Kết Thúc</option>
-                                                <option value="1">1.5</option>
-                                                <option value="1">2</option>
-                                                <option value="1">2.5</option>
-                                            </select>
-                                        </div>
-                                        <a class="gio XoaGio" onclick="XoaGio(this)"><i
-                                                class="fas fa-times-circle"></i></a>
-                                    </div>
-                                    <div class="col-12" id="add_more1"> </div>
-                                    <input class="themgio" type="button" value="Thêm Giờ" onclick="ThemGio(this)">
-
-                                </div>
-                                <div class="row canh ngay" id="ngay2">
-                                    <label for="">Thứ Ba</label>
-                                    <div class="col-12" id="add_more2"> </div>
-                                    <input class="themgio" type="button" value="Thêm Giờ" onclick="ThemGio(this)">
-
-                                </div>
-                                <div class="row canh ngay" id="ngay3">
-                                    <label for="">Thứ Tư</label>
-                                    <div class="col-12" id="add_more3"> </div>
-                                    <input class="themgio" type="button" value="Thêm Giờ" onclick="ThemGio(this)">
-
-                                </div>
-                                <div class="row canh ngay" id="ngay4">
-                                    <label for="">Thứ Năm</label>
-                                    <div class="col-12" id="add_more4"> </div>
-                                    <input class="themgio" type="button" value="Thêm Giờ" onclick="ThemGio(this)">
-
-                                </div>
-                                <div class="row canh ngay" id="ngay5">
-                                    <label for="">Thứ Sáu</label>                                   
-                                    <div class="col-12" id="add_more5"> </div>
-                                    <input class="themgio" type="button" value="Thêm Giờ" onclick="ThemGio(this)">
-
-                                </div>
-                                <div class="row canh ngay" id="ngay6">
-                                    <label for="">Thứ Bảy</label>
-                                    <div class="col-12" id="add_more6"> </div>
-                                    <input class="themgio" type="button" value="Thêm Giờ" onclick="ThemGio(this)">
-                                </div>
-                                <div class="row canh ngay" id="ngay7">
-                                    <label for="">Chủ Nhật</label>
-                                    <div class="col-12" id="add_more7"> </div>
-                                    <input class="themgio" type="button" value="Thêm Giờ" onclick="ThemGio(this)">
-
-                                </div>
+                                 <div class="col-12" id="ngay1">                       
+				                    <div class="row canh col-12 gioranh1" id="idGioRanh">
+				                        <div class="row canh col-3 col-6-xsmall gio">
+				                            <select class="" name="NgayRanh">
+				                            	<option value="">Chọn thứ</option>
+					                            <c:forTokens items="Thứ 2, Thứ 3, Thứ 4, Thứ5, Thứ6, Thứ 7, CN" delims="," var="day">												  																                                
+					                                <option value="<c:out value="${day}"/>"><c:out value="${day}"/></option>
+					                            </c:forTokens>
+				                            </select>
+				                        </div>
+				                        <label class="phancachgio" for="">-</label>
+				                        <div class="row canh col-3 col-6-xsmall gio">
+				                            <select name="GioBatDau" id="demo-category">
+				                                <option value="">Giờ Bắt Đầu</option>
+				                                <c:forTokens items="7:00,7:30,8:00,8:30,9:00,,9:30,10:00,10:30,13:00,13:30,14:00,14:30,15:00,15:30,16:00,16:30,17:00,17:30,18:00,18:30,19:00" delims="," var="st">
+					                                <option value="${st}">${st}</option>
+					                            </c:forTokens>
+				                            </select>
+				                        </div>
+				                        <label class="phancachgio" for="">-</label>
+				                        <div class="row canh col-3 col-6-xsmall gio">
+				                            <select name="GioKetThuc" id="demo-category">
+				                                <option value="">Giờ Kết Thúc</option>
+				                                <c:forTokens items="8:00,8:30,9:00,,9:30,10:00,10:30,11:00,11:30,12:00,14:00,14:30,15:00,15:30,16:00,16:30,17:00,17:30,18:00,18:30,19:00,19:30,20:00,20:30,21:00" delims="," var="et">
+					                                <option value="${et}">${et}</option>
+					                            </c:forTokens>
+				                            </select>
+				                        </div>
+				                    </div>
+				                    <div class="col-12" id="add_more1"> </div>
+				                <input class="themgio" type="button" value="Thêm Giờ" onclick="ThemGio(this)">
+				            </div>  
                             </div>
                             <div class="col-12">
                                 <hr>
                                 <ul class="btnArea" >                                   
-                                    <li><input id="btnDangBai" type="submit" value="Đăng Bài" /></li>
+                                    <li><input type="submit" value="Đăng Bài" /></li>
                                     <li><input id="btnReset" type="reset" value="Reset" /></li>
                                 </ul>
                             </div>
