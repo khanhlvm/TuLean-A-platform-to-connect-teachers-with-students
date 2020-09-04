@@ -37,26 +37,38 @@ public class StHuyYeuCauController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		processRequest(request, response);
-	}
-	private void processRequest(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		String url = "StMainRequestManagerGlmd";
 		try {
-			int id=Integer.parseInt(request.getParameter("txtHuyYeuCau"));
+			int Tutorid=Integer.parseInt(request.getParameter("btnTutorID"));
+			int Postid =Integer.parseInt(request.getParameter("btnPostID"));
 			
 			RequestDAO dao = new RequestDAO();
-			boolean result = dao.updateSatus(7, id);
-			
+			boolean result = dao.updateSatus(7,Postid,Tutorid);			
 			if (result) {
-				url = "StMainRequestManagerGlmd";
+				request.getRequestDispatcher("StMainRequestManagerGlmd").include(request, response);
 			} 
-			
-			
+						
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			request.getRequestDispatcher(url).forward(request, response);
+			request.getRequestDispatcher("StMainRequestManagerGlmd");
+		}
+	}
+	private void processRequest(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		try {
+			int Tutorid=Integer.parseInt(request.getParameter("btnTutorID"));
+			int Postid =Integer.parseInt(request.getParameter("btnPostID"));
+			
+			RequestDAO dao = new RequestDAO();
+			boolean result = dao.updateSatus(7,Postid,Tutorid);			
+			if (result) {
+				request.getRequestDispatcher("StMainRequestManagerGlmd").include(request, response);
+			} 
+						
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			request.getRequestDispatcher("StMainRequestManagerGlmd");
 		}
 	}
 

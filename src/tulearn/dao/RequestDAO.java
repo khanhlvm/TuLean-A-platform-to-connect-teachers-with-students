@@ -38,15 +38,16 @@ public class RequestDAO {
 
 	// lấy tất cả các yêu cầu
 
-	public boolean updateSatus(int status, int post) throws SQLException {
+	public boolean updateSatus(int status, int post,int tutorID) throws SQLException {
 		boolean result = false;
 		try {
 			conn = DBContext.getConnection();
 			if (conn != null) {
-				String sql = "UPDATE Request SET statusID = ? WHERE postID = ?";
+				String sql = "UPDATE Request SET statusID = ? WHERE postID = ? AND tutorID= ?";
 				ps = conn.prepareStatement(sql);
 				ps.setInt(1, status);
 				ps.setInt(2, post);
+				ps.setInt(3,tutorID );
 				result = (ps.executeUpdate() > 0);
 			}
 
@@ -282,7 +283,10 @@ public class RequestDAO {
 	}
 	return result;
 }
-  //request của gia sư
+  
+    
+    
+    //request của gia sư
     public List<Request> tempDangKyDay(int userID) throws SQLException {
     	List<Request> result = null;
 		try {
@@ -290,8 +294,7 @@ public class RequestDAO {
 			if (conn != null) {
 				String sql = "SELECT * FROM Post  " 
 			            + " INNER JOIN Request  ON Post.postID = Request.postID\r\n"
-						+ "INNER JOIN SubjectTutor  ON Request.tutorID = SubjectTutor.tutorID\r\n"
-						+ "INNER JOIN SubjectTB ON SubjectTB.subjectID = SubjectTutor.subjectID\r\n"
+			            + "INNER JOIN SubjectTB  ON Post.subjectID = SubjectTB.subjectID\r\n"
 						+ "INNER JOIN UserTB  ON UserTB.userID = Post.learnerID\r\n"
 						
 						+ "WHERE Post.StatusID = 8 AND Post.typePost= 0 AND Request.StatusID = 4 AND Request.typeRequest=1 AND Request.tutorID ='"
@@ -335,14 +338,12 @@ public class RequestDAO {
 			if (conn != null) {
 				String sql = "SELECT * FROM Post  " 
 			            + " INNER JOIN Request  ON Post.postID = Request.postID\r\n"
-						+ "INNER JOIN SubjectTutor  ON Request.tutorID = SubjectTutor.tutorID\r\n"
-						+ "INNER JOIN SubjectTB ON SubjectTB.subjectID = SubjectTutor.subjectID\r\n"
+			            + "INNER JOIN SubjectTB  ON Post.subjectID = SubjectTB.subjectID\r\n"
 						+ "INNER JOIN UserTB  ON UserTB.userID = Post.learnerID\r\n"
-						+ "INNER JOIN Qualification ON Qualification.qualificationID=UserTB.qualificationID \r\n"
 						+ "INNER JOIN CommuneOrWard  ON UserTB.communeID = CommuneOrWard.communeID\r\n"
 						+ "INNER JOIN District  ON District.districtID = CommuneOrWard.districtID\r\n"
 						+ "INNER JOIN ProvinceOrCity  ON District.provinceID = ProvinceOrCity.provinceID\r\n"
-						+ "WHERE Post.StatusID = 8 AND Post.typePost= 0 AND Request.StatusID = 4 AND Request.typeRequest=1 AND Request.tutorID ='"
+						+ "WHERE Post.StatusID = 8 AND Post.typePost= 1 AND Request.StatusID = 4 AND Request.typeRequest=0 AND Request.tutorID ='"
 						+ userID + "'";
 				ps = conn.prepareStatement(sql);
 
@@ -351,23 +352,19 @@ public class RequestDAO {
 //					post
 					int postID = rs.getInt("postID");
 					int learnerID = rs.getInt("learnerID");
+					String userName = rs.getString("userName");
 					String subjectName = rs.getString("subjectName");
 					byte lessonLearn = rs.getByte("lessonLearn");
 					float timeLearn = rs.getFloat("timeLearn");
-					User u = new User(learnerID);
+					String fee =rs.getString("fee");
+					User u = new User(learnerID, userName);
 					Subject s = new Subject(subjectName);
-					Post post = new Post(postID, u, s, lessonLearn, timeLearn);
-					String tinh = rs.getString("provinceName");
-					String quan = rs.getString("qualificationName");
-					String salary = rs.getNString("salary");
-					AddressUser add = new AddressUser(tinh);
-					Qualificate qua = new Qualificate(quan);
-
+					String postDes= rs.getString("postDes");
+					String province = rs.getString("provinceName");
+					AddressUser add = new AddressUser(province);
+					Post post = new Post(postID, u, add, s, lessonLearn, timeLearn, postDes);
 					// Request
-					int tutorID = rs.getInt("tutorID");
-					String userName = rs.getString("userName");
-					Tutor tutor = new Tutor(userID, qua, add, userName, salary);
-					Request request = new Request(tutor, post);
+					Request request = new Request( post);
 					if (result == null) {
 						result = new ArrayList<Request>();
 					}
@@ -381,4 +378,111 @@ public class RequestDAO {
 		}
 		return result;
 	} 
+   
+    
+    
+    public List<Request> tempLopDangChoDuyetGS(int userID) throws SQLException {
+    	List<Request> result = null;
+		try {
+			conn = DBContext.getConnection();
+			if (conn != null) {
+				String sql = "SELECT * FROM Post  " 
+			            + " INNER JOIN Request  ON Post.postID = Request.postID\r\n"
+			            + "INNER JOIN SubjectTB  ON Post.subjectID = SubjectTB.subjectID\r\n"
+						+ "INNER JOIN UserTB  ON UserTB.userID = Post.learnerID\r\n"
+						+ "INNER JOIN CommuneOrWard  ON UserTB.communeID = CommuneOrWard.communeID\r\n"
+						+ "INNER JOIN District  ON District.districtID = CommuneOrWard.districtID\r\n"
+						+ "INNER JOIN ProvinceOrCity  ON District.provinceID = ProvinceOrCity.provinceID\r\n"
+						+ "WHERE Post.StatusID = 8  AND Request.StatusID = 10 AND Request.tutorID ='"
+						+ userID + "'";
+				ps = conn.prepareStatement(sql);
+
+				rs = ps.executeQuery();
+				while (rs.next()) {
+//					post
+					int postID = rs.getInt("postID");
+					int learnerID = rs.getInt("learnerID");
+					String userName = rs.getString("userName");
+					String subjectName = rs.getString("subjectName");
+					byte lessonLearn = rs.getByte("lessonLearn");
+					float timeLearn = rs.getFloat("timeLearn");
+					String fee =rs.getString("fee");
+					String phone =rs.getString("phone");
+					String street =rs.getString("streetName");
+					User u = new User(learnerID, phone, userName, street);
+					Subject s = new Subject(subjectName);
+					String postDes= rs.getString("postDes");
+					String province = rs.getString("provinceName");
+					String districtName=rs.getString("districtName");
+					String communeName=rs.getString("communeName");
+					AddressUser add = new AddressUser(province, districtName, communeName);
+					Post post = new Post(postID, u, add, s, lessonLearn, timeLearn, postDes);
+					// Request
+					Request request = new Request( post);
+					if (result == null) {
+						result = new ArrayList<Request>();
+					}
+					result.add(request);
+				}
+
+			}
+
+		} finally {
+			closeConnection();
+		}
+		return result;
+	} 
+    
+    public List<Request> tempLopDangDayGS(int userID) throws SQLException {
+    	List<Request> result = null;
+		try {
+			conn = DBContext.getConnection();
+			if (conn != null) {
+				String sql = "SELECT * FROM Post  " 
+			            + " INNER JOIN Request  ON Post.postID = Request.postID\r\n"
+			            + "INNER JOIN SubjectTB  ON Post.subjectID = SubjectTB.subjectID\r\n"
+						+ "INNER JOIN UserTB  ON UserTB.userID = Post.learnerID\r\n"
+						+ "INNER JOIN CommuneOrWard  ON UserTB.communeID = CommuneOrWard.communeID\r\n"
+						+ "INNER JOIN District  ON District.districtID = CommuneOrWard.districtID\r\n"
+						+ "INNER JOIN ProvinceOrCity  ON District.provinceID = ProvinceOrCity.provinceID\r\n"
+						+ "WHERE Post.StatusID = 8  AND Request.StatusID = 11 AND Request.tutorID ='"
+						+ userID + "'";
+				ps = conn.prepareStatement(sql);
+
+				rs = ps.executeQuery();
+				while (rs.next()) {
+//					post
+					int postID = rs.getInt("postID");
+					int learnerID = rs.getInt("learnerID");
+					String userName = rs.getString("userName");
+					String subjectName = rs.getString("subjectName");
+					byte lessonLearn = rs.getByte("lessonLearn");
+					float timeLearn = rs.getFloat("timeLearn");
+					String fee =rs.getString("fee");
+					String phone =rs.getString("phone");
+					String street =rs.getString("streetName");
+					User u = new User(learnerID, phone, userName, street);
+					Subject s = new Subject(subjectName);
+					String postDes= rs.getString("postDes");
+					String province = rs.getString("provinceName");
+					String districtName=rs.getString("districtName");
+					String communeName=rs.getString("communeName");
+					AddressUser add = new AddressUser(province, districtName, communeName);
+					Post post = new Post(postID, u, add, s, lessonLearn, timeLearn, postDes);
+					// Request
+					Request request = new Request( post);
+					if (result == null) {
+						result = new ArrayList<Request>();
+					}
+					result.add(request);
+				}
+
+			}
+
+		} finally {
+			closeConnection();
+		}
+		return result;
+	} 
+
 }

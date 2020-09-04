@@ -32,54 +32,49 @@
             
             <div id="London" class="tabcontent">
                 <!-- Post -->
+                  <c:forEach items="${requestScope.LIST_REQPOST}" var="re"> 
                 <article class="post">
                     <header>
                         <div class="title">
-                            <h2><a href="single.html">ID-xxxxxxxx</a></h2>
-                            <p class="status">Status: ---</p>
+                            <h2><a href="single.html">Bạn đã đăng yêu cầu tìm gia sư</a></h2>
+                          
                             <a class="quanly" onclick="" href="#">Chỉnh Sửa</a>
                             <a class="quanly" onclick="" href="#">Hủy yêu cầu</a>
                         </div>
-                        <div class="meta">
-                            <time class="published" datetime="2015-11-01">November 1, 2015</time>
-                            <a href="#" class="author"><span class="name"> - Jane Doe</span><img src="images/avatar.jpg" alt="" /></a>
-                        </div>
+                        
                     </header>
                     <div class="row bai">
                         <div class="row col-6 col-12-xsmall">
                             <label class="infor" for="">Môn Học: </label>
-                            <label class="infor" for="">Toán</label>
+                            <label class="infor" for="">${re.subject.sName}</label>
                         </div>
                         <div class="row col-6 col-12-xsmall">
                             <label class="infor" for="">Giới Tính Gia Sư: </label>
-                            <label class="infor" for="">Cả Hai</label>
+                            <label class="infor" for="">${re.gender.gName}</label>
                         </div>
                         <div class="row col-6 col-12-xsmall">
                             <label class="infor" for="">Trình Độ Gia Sư: </label>
-                            <label class="infor" for="">Sinh Viên</label>
+                            <label class="infor" for="">${re.qualificate.qName}</label>
                         </div>
                         <div class="row col-6 col-12-xsmall">
                             <label class="infor" for="">Học Phí Đề Xuất/Buổi: </label>
-                            <label class="infor" for="">200.000 vnđ</label>
+                            <label class="infor" for="">${re.fee}</label>
                         </div>
                         <div class="row col-6 col-12-xsmall">
                             <label class="infor" for="">Số Giờ Học/Buổi: </label>
-                            <label class="infor" for="">1.5</label>
+                            <label class="infor" for="">${re.lessonLearn}</label>
                         </div>
                         <div class="row col-6 col-12-xsmall">
                             <label class="infor" for="">Số Buổi Học/Ngày: </label>
-                            <label class="infor" for="">3</label>
+                            <label class="infor" for="">${re.timeLearn}</label>
                         </div>
                         <div class="row col-12 more1">
                             <label class="infor" for="">Ngày Dự Kiến Bắt Đầu Học: </label>
-                            <label class="infor" for="">22/09/2020</label>
+                            <label class="infor" for="">${re.startDay}</label>
                         </div>
                         <div class="row col-12 more1">
                             <label class="infor" for="">Mong Muốn, Yêu Cầu Khác Của Học Viên: </label>
-                            <label class="infor" for="">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam
-                                quisquam quis, doloribus voluptatum libero consequuntur facilis quaerat laborum
-                                excepturi debitis, molestias, totam quia culpa laudantium dolorum suscipit maiores eum
-                                quasi!</label>
+                            <label class="infor" for="">${re.postDes}</label>
                         </div>
                         <div class="row col-6 more1">
                             <label class="infor" for="">Thời Gian Rảnh Trong Tuần: </label>
@@ -94,20 +89,18 @@
                         <ul class="actions">
                             <li><a class="button large" onclick="HienThi(1)">Xem Thêm Thông Tin</a></li>
                         </ul>
-                        <ul class="stats">
-                            <li><a href="#">General</a></li>
-                            <li><a href="#" class="icon solid fa-heart">28</a></li>
-                            <li><a href="#" class="icon solid fa-comment">128</a></li>
-                        </ul>
+                       
                     </footer>
                 </article>
+                 </c:forEach>
             </div>
 
             <div id="Paris" class="tabcontent">
                 <!-- Post -->
               <c:forEach items="${requestScope.LIST_REQ}" var="req"> 
-         	      
-                <article class="post" action="StHuyYeuCauController" method="POST">
+         	       <form action="StHuyYeuCauController" method="POST">
+                <article class="post" >
+                  
                     <header class="header_post">
                         <div class="title">
                             <h3>bạn đã đăng kí học <span>${req.post.subject.sName}</span> với gia sư <span>${req.tutor.name}</span></h3>
@@ -123,6 +116,11 @@
                                 <span>Môn:</span>
                                 <p>${req.post.subject.sName}</p>
                             </div>
+                            <div class="body_text">
+                                 <input type="hidden" name="btnTutorID" value="${req.tutor.userID}">
+					             <input type="hidden" name="btnPostID" value="${req.post.postID}">	
+                            </div>
+                           
                         </div>
                         <div class="body_second">
                             <div class="body_text">
@@ -135,12 +133,15 @@
                             </div>
                         </div>
                     </div>
+                    
                     <footer>
 								
-								
-                       <a href="StHuyYeuCauController"  class="button btn" name="txtHuyYeuCau" value="${req.post.postID}">Hủy yêu cầu</a> 
+					   
+                       <input type="submit" class="button btn"  value="Hủy yêu cầu">
                     </footer>
+                    
                 </article>
+                </form>
              </c:forEach>
             </div>
 

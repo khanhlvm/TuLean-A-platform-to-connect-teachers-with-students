@@ -14,6 +14,11 @@ public class Gender {
 		this.gName = gName;
 	}
 
+	public Gender(String gName) {
+		super();
+		this.gName = gName;
+	}
+
 	public int getgID() {
 		return gID;
 	}

@@ -22,6 +22,14 @@ public class AddressUser {
 		super();
 		this.provinceName = provinceName;
 	}
+	
+
+	public AddressUser(String provinceName, String districtName, String communeName) {
+		super();
+		this.provinceName = provinceName;
+		this.districtName = districtName;
+		this.communeName = communeName;
+	}
 
 	public int getCommuneID() {
 		return communeID;

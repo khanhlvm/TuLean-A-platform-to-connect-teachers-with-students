@@ -40,6 +40,15 @@ public class User {
 		this.userID = userID;
 		this.name = name;
 	}
+	
+
+	public User(int userID, String phone, String name, String street) {
+		super();
+		this.userID = userID;
+		this.phone = phone;
+		this.name = name;
+		this.street = street;
+	}
 
 	public User(Qualificate qualificate, AddressUser address) {
 		super();

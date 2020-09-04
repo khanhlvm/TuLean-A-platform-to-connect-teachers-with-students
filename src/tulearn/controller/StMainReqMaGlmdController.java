@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,18 +42,22 @@ public class StMainReqMaGlmdController extends HttpServlet {
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		String url = "st-main-request-manager.jsp";
+			throws ServletException, IOException {	
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
 		try {
           	RequestDAO requestDAO = new RequestDAO();
 			List<Request> listRequest = requestDAO.temp(1);
 			request.setAttribute("LIST_REQ", listRequest);
 			List<Request> listRequestS = requestDAO.tempGSGYCau(1);
 			request.setAttribute("LIST_REQGS", listRequestS);
+			PostDAO postDAO = new PostDAO();
+			List<Post> listpost= postDAO.temp(1);
+			request.setAttribute("LIST_REQPOST", listpost);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			request.getRequestDispatcher(url).forward(request, response);
+			request.getRequestDispatcher("st-main-request-manager.jsp").include(request, response);
 		}
 
 	}
@@ -63,13 +68,27 @@ public class StMainReqMaGlmdController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		processRequest(request, response);
 
 	}
-
-	private void processRequest(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {		
-
+	
+	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+		try {
+          	RequestDAO requestDAO = new RequestDAO();
+			List<Request> listRequest = requestDAO.temp(1);
+			request.setAttribute("LIST_REQ", listRequest);
+			List<Request> listRequestS = requestDAO.tempGSGYCau(1);
+			request.setAttribute("LIST_REQGS", listRequestS);
+			PostDAO postDAO = new PostDAO();
+			List<Post> listpost= postDAO.temp(1);
+			request.setAttribute("LIST_REQPOST", listpost);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			request.getRequestDispatcher("st-main-request-manager.jsp").include(request, response);
+		}
 	}
 
 }

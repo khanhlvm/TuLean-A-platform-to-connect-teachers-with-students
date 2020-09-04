@@ -13,16 +13,16 @@ import tulearn.dao.RequestDAO;
 import tulearn.dto.Request;
 
 /**
- * Servlet implementation class TuMaReManagerController
+ * Servlet implementation class TuMainClassManagerController
  */
-@WebServlet("/TuMaReManagerController")
-public class TuMaReManagerController extends HttpServlet {
+@WebServlet("/TuMainClassManagerController")
+public class TuMainClassManagerController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public TuMaReManagerController() {
+    public TuMainClassManagerController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,21 +42,21 @@ public class TuMaReManagerController extends HttpServlet {
 		// TODO Auto-generated method stub
 		processRequest(request, response);
 	}
+	
 	private void processRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {		
-		String url = "tu-main-request-manager.jsp";
+		String url = "tu-main-class-manager.jsp";
 		try {
           	RequestDAO requestDAO = new RequestDAO();
-			List<Request> listRequest = requestDAO.tempDangKyDay(2);
+			List<Request> listRequest = requestDAO.tempLopDangChoDuyetGS(2);
 			request.setAttribute("LIST_REQ", listRequest);
-			List<Request> listRequestS = requestDAO.tempLoiMoiTuHocVien(2);
+			List<Request> listRequestS = requestDAO.tempLopDangDayGS(2);
 			request.setAttribute("LIST_REQGS", listRequestS);
-		
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			request.getRequestDispatcher(url).forward(request, response);
 		}
-
 	}
+
 }

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <jsp:useBean id="r" class="tulearn.dao.RequestDAO" scope="session"/>
 
 <!DOCTYPE HTML>
 <html>
@@ -27,6 +29,7 @@
 
             <div id="London" class="tabcontent">
                 <!-- Post -->
+                  <c:forEach items="${requestScope.LIST_REQ}" var="req"> 
                 <article class="post">
                     <header class="header_post">
                         <div class="title">
@@ -39,51 +42,43 @@
                             <h3>Thông tin học viên</h3>
                             <div class="body_text">
                                 <span>Họ và Tên:</span>
-                                <p>Võ Thị Thục Trang</p><br>
+                                <p>${req.post.learner.name}</p><br>
 
                             </div>
                             <div class="body_text">
                                 <span>Địa chỉ:</span>
-                                <p>123 Nguyễn Văn Linh,Đà Nẵng</p>
+                                <p>${req.post.learner.street},${req.post.address.communeName},${req.post.address.districtName},${req.post.address.provinceName}</p>
 
                             </div>
                             <div class="body_text">
                                 <span>SĐT:</span>
-                                <p>038299274</p>
+                                <p>${req.post.learner.phone}</p>
                             </div>
 
                         </div>
                         <div class="col-6 col-12-medium">
                             <h3>Thông tin yêu cầu</h3>
-                            <div class="body_text">
-
-                                <span>Lớp học:</span>
-                                <p>lớp 10</p>
-                            </div>
+                          
                             <div class="body_text">
 
                                 <span>Môn học:</span>
-                                <p>Toán</p><br>
+                                <p>${req.post.subject.sName}</p><br>
                             </div>
                             <div class="body_text">
 
                                 <span>Số buổi/Tuần:</span>
-                                <p>2 buổi</p><br>
+                                <p>${req.post.lessonLearn}</p><br>
                             </div>
                             <div class="body_text">
 
                                 <span>Thời gian/Buổi</span>
-                                <p>2 giờ</p>
+                                <p>${req.post.timeLearn}</p>
                             </div>
-                            <div class="body_text">
-
-                                <span>Lịch học:</span>
-                                <p>Thứ 2, thứ 4</p><br>
-                            </div>
+                            
                             <div class="body_text_tu">
 
                                 <span>Yêu cầu của học viên:</span>
-                                <p>Muốn gia sự dạy kĩ về phần hình học vì bị mất gốc</p><br>
+                                <p>${req.post.postDes}</p><br>
                             </div>
 
                         </div>
@@ -95,57 +90,52 @@
                      <a href="#" class="button btn">Cập nhật</a>
                     </footer>
                 </article>
-                
+                 </c:forEach>
             </div>
 
             <div id="Paris" class="tabcontent">
                 <!-- Post -->
+                  <c:forEach items="${requestScope.LIST_REQ}" var="req"> 
                 <article class="post">
                     <div class="row">
                         <div class="col-6 col-12-medium">
                             <h3>Thông tin lớp học</h3>
-                            <div class="body_text">
-
-                                <span>Lớp học:</span>
-                                <p>lớp 11</p>
-                            </div>
+                        
                             <div class="body_text">
 
                                 <span>Môn học:</span>
-                                <p>Toán</p><br>
+                                <p>${req.post.subject.sName}</p><br>
                             </div>
                             <div class="body_text">
 
                                 <span>Số buổi/Tuần:</span>
-                                <p>2 buổi</p><br>
+                                <p>${req.post.timeLearn}</p><br>
                             </div>
                             <div class="body_text">
 
                                 <span>Thời gian/Buổi</span>
-                                <p>2 giờ</p>
+                                <p>${req.post.timeLearn}</p>
                             </div>
-                            <div class="body_text">
+                          
 
-                                <span>Lịch học:</span>
-                                <p>Thứ 2, thứ 4</p><br>
-                            </div>
 
                         </div>
                         <div class="col-6 col-12-medium">
                             <h3>Thông tin học viên</h3>
                             <div class="body_text">
                                 <span>Họ và Tên:</span>
-                                <p>Nguyễn Thị Hòa</p><br>
+                                <p>${req.post.learner.name}</p><br>
 
                             </div>
                             <div class="body_text">
                                 <span>Địa chỉ:</span>
-                                <p>Quảng Ngãi</p>
+                               <p>${req.post.learner.street},${req.post.address.communeName},${req.post.address.districtName},${req.post.address.provinceName}</p>
+
 
                             </div>
                             <div class="body_text">
                                 <span>SĐT:</span>
-                                <p>038299274</p>
+                               <p>${req.post.learner.phone}</p>
                             </div>
                         </div>
 
@@ -157,6 +147,7 @@
                         <a href="#" class="button btn">Kết thúc lớp học</a>
                     </footer>
                 </article>
+                 </c:forEach>
 
             </div>
 
