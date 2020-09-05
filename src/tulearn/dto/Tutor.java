@@ -1,50 +1,34 @@
 package tulearn.dto;
 
-public class Tutor extends User{
+public class Tutor extends User {
 	private String salary;
 	private String workAt;
 	private String identityCard;
 	private String studentCard;
-	
+
 	public Tutor() {
 		super();
 	}
 
-	
-	public Tutor(int userID, int roleID, int statusUserID, int genderID, int qualificationID, int communeID,
-			String email, String phone, String password, String name, String avatar, String street) {
-		super(userID, roleID, statusUserID, genderID, qualificationID, communeID, email, phone, password, name, avatar,
-				street);
-	}
-	
-	
-
-	public Tutor(int userID, int roleID, int genderID, int qualificationID, int communeID, String email, String phone,
-			String name, String street) {
-		super(userID, roleID, genderID, qualificationID, communeID, email, phone, name, street);
-	}
-
-	
-	public Tutor(int userID, int roleID, int genderID, int qualificationID, int communeID, String email, String phone,
-			String name, String street, String salary, String workAt, String identityCard, String studentCard) {
-		super(userID, roleID, genderID, qualificationID, communeID, email, phone, name, street);
-		this.salary = salary;
-		this.workAt = workAt;
-		this.identityCard = identityCard;
-		this.studentCard = studentCard;
-	}
-
-
-	public Tutor(int userID, int roleID, int statusUserID, int genderID, int qualificationID, int communeID,
+	public Tutor(int userID, int roleID, int statusUserID, Gender gender, Qualificate qualificate, AddressUser address,
 			String email, String phone, String password, String name, String avatar, String street, String salary,
 			String workAt, String identityCard, String studentCard) {
-		super(userID, roleID, statusUserID, genderID, qualificationID, communeID, email, phone, password, name, avatar,
-				street);
+		super(userID, roleID, statusUserID, gender, qualificate, address, email, phone, password, name, avatar, street);
 		this.salary = salary;
 		this.workAt = workAt;
 		this.identityCard = identityCard;
 		this.studentCard = studentCard;
-	}	
+	}
+
+	public Tutor(int userID, int roleID, int statusUserID, Gender gender, Qualificate qualificate,
+			AddressUser addressUser, String salary, String workAt, String identityCard, String studentCard,
+			String avatar, String street) {
+		super();
+		this.salary = salary;
+		this.workAt = workAt;
+		this.identityCard = identityCard;
+		this.studentCard = studentCard;
+	}
 
 	public Tutor(String salary, String workAt, String identityCard, String studentCard) {
 		super();
@@ -86,6 +70,17 @@ public class Tutor extends User{
 		this.studentCard = studentCard;
 	}
 
-	
+	@Override
+	public String toString() {
+		return "Tutor [salary=" + salary + ", workAt=" + workAt + ", identityCard=" + identityCard + ", studentCard="
+				+ studentCard + ", getUserID()=" + getUserID() + ", getRoleID()=" + getRoleID() + ", getStatusUserID()="
+				+ getStatusUserID() + ", getGender()=" + getGender() + ", getQualificate()=" + getQualificate()
+				+ ", getAddress()=" + getAddress() + ", getEmail()=" + getEmail() + ", getPhone()=" + getPhone()
+				+ ", getPassword()=" + getPassword() + ", getName()=" + getName() + ", getAvatar()=" + getAvatar()
+				+ ", getStreet()=" + getStreet() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
+	}
 
+	
+	
 }

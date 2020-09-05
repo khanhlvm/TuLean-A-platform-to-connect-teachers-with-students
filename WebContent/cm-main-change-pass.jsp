@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="assets/css/input-radio.css" />
-    <link rel="icon" href="images/icon-tab.png">
+    <link rel="icon" href="images/icon-tab. png">
     <link rel="stylesheet" href="assets/css/common.css">
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -29,26 +29,26 @@
             
             <!-- Form -->
             
-            <form method="post" action="#">
+            <form method="post" action="ChangePassServlet">
                 <div class="row gtr-uniform">
                     <div class="col-6">
-                        <label>Mật khẩu hiện tại</label>
-                        <input type="password" name="demo-name" id="formPass" value="" placeholder="Nhập mật khẩu hiện tại"/>
+                        <label>Mật khẩu hiện tại <span style="color: red">(*)</span></label>
+                        <input type="password" name="oldPass" id="formPass" value="" placeholder="Nhập mật khẩu hiện tại"/>
                     </div>
                     <div class="col-6">
-                        <label>Mật khẩu mới</label>
-                        <input type="password" name="demo-name" id="formPassNew" value="" placeholder="Nhập mật khẩu mới"/>
+                        <label>Mật khẩu mới <span style="color: red">(*)</span></label>
+                        <input type="password" name="newPass" id="formPassNew" value="" placeholder="Nhập mật khẩu mới"/>
                         <p id="invalidNewPass"  class="invalid"></p>
                     </div>
                     <div class="col-6">
-                        <label>Xác nhận mật khẩu mới</label>
-                        <input type="password" name="demo-name" id="formXNPassNew" value="" placeholder="Nhập lại mật khẩu mới"/>
+                        <label>Xác nhận mật khẩu mới <span style="color: red">(*)</span></label>
+                        <input type="password" name="confirmPass" id="formXNPassNew" value="" placeholder="Nhập lại mật khẩu mới"/>
                         <p id="invalidXNPass"  class="invalid"></p>
                     </div>
                     <div class="col-12">
                         <hr>
                         <ul class="actions">
-                            <li><input type="reset" value="HỦY" /></li>
+							 <li><input type="reset" value="HỦY"></li>
                             <li><input type="submit" value="CẬP NHẬT" id="btn-changePass" /></li>
                         </ul>
                     </div>

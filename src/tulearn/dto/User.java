@@ -4,9 +4,9 @@ public class User {
 	private int userID;
 	private int roleID;
 	private int statusUserID;
-	private int genderID;
-	private int qualificationID;
-	private int communeID;
+	private Gender gender;
+	private Qualificate qualificate;
+	private AddressUser address;
 	private String email;
 	private String phone;
 	private String password;
@@ -18,36 +18,16 @@ public class User {
 		super();
 	}
 
-	
-	public User(int userID) {
-		super();
-		this.userID = userID;
-	}
-
-	public User(int userID, int roleID, int genderID, int qualificationID, int communeID, String email, String phone,
-			String name, String street) {
-		super();
-		this.userID = userID;
-		this.roleID = roleID;
-		this.genderID = genderID;
-		this.qualificationID = qualificationID;
-		this.communeID = communeID;
-		this.email = email;
-		this.phone = phone;
-		this.name = name;
-		this.street = street;
-	}
-
-
-	public User(int userID, int roleID, int statusUserID, int genderID, int qualificationID, int communeID,
+		
+	public User(int userID, int roleID, int statusUserID, Gender gender, Qualificate qualificate, AddressUser address,
 			String email, String phone, String password, String name, String avatar, String street) {
 		super();
 		this.userID = userID;
 		this.roleID = roleID;
 		this.statusUserID = statusUserID;
-		this.genderID = genderID;
-		this.qualificationID = qualificationID;
-		this.communeID = communeID;
+		this.gender = gender;
+		this.qualificate = qualificate;
+		this.address = address;
 		this.email = email;
 		this.phone = phone;
 		this.password = password;
@@ -55,6 +35,14 @@ public class User {
 		this.avatar = avatar;
 		this.street = street;
 	}
+	
+
+	public User(int userID, Gender gender) {
+		super();
+		this.userID = userID;
+		this.gender = gender;
+	}
+
 
 	public int getUserID() {
 		return userID;
@@ -80,28 +68,28 @@ public class User {
 		this.statusUserID = statusUserID;
 	}
 
-	public int getGenderID() {
-		return genderID;
+	public Gender getGender() {
+		return gender;
 	}
 
-	public void setGenderID(int genderID) {
-		this.genderID = genderID;
+	public void setGender(Gender gender) {
+		this.gender = gender;
 	}
 
-	public int getQualificationID() {
-		return qualificationID;
+	public Qualificate getQualificate() {
+		return qualificate;
 	}
 
-	public void setQualificationID(int qualificationID) {
-		this.qualificationID = qualificationID;
+	public void setQualificate(Qualificate qualificate) {
+		this.qualificate = qualificate;
 	}
 
-	public int getCommuneID() {
-		return communeID;
+	public AddressUser getAddress() {
+		return address;
 	}
 
-	public void setCommuneID(int communeID) {
-		this.communeID = communeID;
+	public void setAddress(AddressUser address) {
+		this.address = address;
 	}
 
 	public String getEmail() {
@@ -151,14 +139,5 @@ public class User {
 	public void setStreet(String street) {
 		this.street = street;
 	}
-
-
-	public User(String password, String name) {
-		super();
-		this.password = password;
-		this.name = name;
-	}
-	
-	
 	
 }

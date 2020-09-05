@@ -9,7 +9,7 @@ public class DBContext {
 		try {
 			Connection con = null;
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-			String url = "jdbc:sqlserver://localhost:1433; databaseName=TuLearn; user = sa; password = khanh123456";
+			String url = "jdbc:sqlserver://localhost:1433; databaseName=TuLearn; user = trang; password = de130021";
 			con = DriverManager.getConnection(url);
 			return con;
 		} catch (ClassNotFoundException e) {

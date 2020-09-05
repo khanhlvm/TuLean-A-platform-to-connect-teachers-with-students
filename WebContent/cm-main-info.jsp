@@ -26,39 +26,39 @@
                     <div class="row gtr-uniform">
                         <div class=" col-6 form" >
                             <label for="" class="input">Họ và tên: </label>
-                            <p>Nguyễn Văn An</p>
+                            <p></p>
                         </div>
                         <div class="col-6 form">
                             <label for="" class="input">Giới tính: </label>
-                            <p>Nam</p>
+                            <p></p>
                         </div>
                     <div class="col-6 form">
                         <label for=""class="input">Số điện thoại: </label>
-                        <p>0123456789</p>
+                        <p></p>
                     </div>
                     <div class="col-6 form">
                         <label for="" class="input">CMND: </label>
-                        <p>123456789</p>
+                        <p></p>
                     </div>                  
                     <div class=" col-6 form">
                         <label for="" class="input">Địa chỉ Email: </label>
-                        <p>annv@fpt.edu.vn</p>
+                        <p></p>
                     </div>
                     <div class="col-6 form" >
                         <label for="" class="input">Tỉnh/TP: </label>
-                        <p>Đà Nẵng</p>
+                        <p></p>
                     </div>
                     <div class="col-6 form" >
                         <label for="" class="input">Quận/Huyện: </label>
-                        <p>Hòa Vang</p>
+                        <p></p>
                     </div>
                     <div class="col-6 form" >
                         <label for="" class="input">Phường/Xã: </label>
-                        <p>Hòa Phước</p>
+                        <p></p>
                     </div>
                     <div class="col-6 form"  >
                         <label for="" class="input">Số nhà, Đường: </label>
-                        <p>82 Vũ Miên</p>
+                        <p></p>
                     </div>
                     <div class="col-12">
                         <hr>
