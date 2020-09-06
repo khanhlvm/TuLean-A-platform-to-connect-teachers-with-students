@@ -41,15 +41,15 @@
                     </div>
                     <div class="col-6 form" >
                         <label for="" class="input" name="province">Tỉnh/TP: </label>
-                        <p></p>
+                        <p>${requestScope.tu.address.provinceName}</p>
                     </div>
                     <div class="col-6 form" >
                         <label for="" class="input" name="district">Quận/Huyện: </label>
-                        <p></p>
+                        <p>${requestScope.tu.address.districtName}</p>
                     </div>
                     <div class="col-6 form" >
                         <label for="" class="input" name="commune">Phường/Xã: </label>
-                        <p></p>
+                        <p>${requestScope.tu.address.communeName}</p>
                     </div>
                     <div class="col-6 form"  >
                         <label for="" class="input" name="street">Số nhà, Đường: </label>

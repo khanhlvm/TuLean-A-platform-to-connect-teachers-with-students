@@ -57,4 +57,16 @@ public class Tutor extends User{
 		this.studentCard = studentCard;
 	}
 
+	@Override
+	public String toString() {
+		return "Tutor [salary=" + salary + ", workAt=" + workAt + ", identityCard=" + identityCard + ", studentCard="
+				+ studentCard + ", getUserID()=" + getUserID() + ", getRoleID()=" + getRoleID() + ", getStatusUserID()="
+				+ getStatusUserID() + ", getGender()=" + getGender() + ", getQualificate()=" + getQualificate()
+				+ ", getAddress()=" + getAddress() + ", getEmail()=" + getEmail() + ", getPhone()=" + getPhone()
+				+ ", getPassword()=" + getPassword() + ", getName()=" + getName() + ", getAvatar()=" + getAvatar()
+				+ ", getStreet()=" + getStreet() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
+	}
+	
+
 }

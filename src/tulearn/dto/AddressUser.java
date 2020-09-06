@@ -49,5 +49,12 @@ public class AddressUser {
 	public void setCommuneName(String communeName) {
 		this.communeName = communeName;
 	}
+
+	@Override
+	public String toString() {
+		return "AddressUser [communeID=" + communeID + ", provinceName=" + provinceName + ", districtName="
+				+ districtName + ", communeName=" + communeName + "]";
+	}
+	
 		
 }
