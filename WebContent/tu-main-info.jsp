@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+ <jsp:useBean id="listInfo" class="tulearn.dao.UserDAO" scope="session"/>
 <!DOCTYPE HTML>
 <html>
 
@@ -26,53 +26,62 @@
             </div>
             <div id="London" class="tabcontent">
                 <article class="post">
-                    <form method="post" action="#">
+                    <form method="post" action="ListInfoUserServlet">
+                       <c:forEach var = "tutor" items = "${listInfo}">
                         <div class="row gtr-uniform">
                             <div class=" col-6 form" >
-                                <label for="" class="input">Họ và tên: </label>
-                                <p>Trần Thị Minh Trang</p>
+                                <label for="" class="input" name="name">Họ và tên: </label>
+                                <p>${tutor.name}</p>
                             </div>
                             <div class="col-6 form">
-                                <label for="" class="input">Giới tính: </label>
-                                <p>Nữ</p>
+                                <label for="" class="input" name="gender">Giới tính: </label>
+                                <p>${tutor.gName}</p>
                             </div>
                             <div class="col-6 form" >
-                                <label for="" class="input">Số điện thoại: </label>
-                                <p>0796250638</p>
+                                <label for="" class="input" name="phone">Số điện thoại: </label>
+                                <p>${tutor.phone}</p>
                             </div>
                             <div class="col-6 form" >
-                                <label for="" class="input-cmnd">CMND: </label>
-                                <p>201766667</p>
+                                <label for="" class="input-cmnd" name="identityCard">CMND: </label>
+                                <p>${tutor.indentityCard}</p>
                             </div>
-                            
-                            <div class=" col-12 form">
-                                <label for="" class="input">Địa chỉ Email: </label>
-                                <p>trangttmde130021@fpt.edu.vn</p>
-                            </div>
-                            <div class=" col-6 form" >
-                                <label for="" class="input">Mức lương: </label>
-                                <p>4.000.000</p>
+                               <div class="col-6 form" >
+                                <label for="" class="input-cmnd" name="studentCard">Mã Sinh Viên: </label>
+                                <p>${tutor.studentCard}</p>
                             </div>
                             <div class=" col-6 form">
-                                <label for="" class="input">Trình độ: </label>
-                                <p>Đại học</p>
+                                <label for="" class="input" name="email">Địa chỉ Email: </label>
+                                <p>${tutor.email}</p>
+                            </div>
+                            <div class=" col-6 form" name="salary">
+                                <label for="" class="input">Mức lương: </label>
+                                <p>${tutor.salary}</p>
+                            </div>
+                             <div class=" col-6 form" name="salary">
+                                <label for="" class="input" name="workAt">Nơi làm việc: </label>
+                                <p>${tutor.workAt}</p>
+                            </div>
+                            <div class=" col-6 form">
+                                <label for="" class="input" name="quality">Trình độ: </label>
+                                <p>${tutor.qualificate}</p>
                             </div>
                             <div class="col-6 form" >
-                                <label for="" class="input">Tỉnh/TP: </label>
-                                <p>Đà Nẵng</p>
+                                <label for="" class="input" name="provine">Tỉnh/TP: </label>
+                                <p>${tutor.provinceName}</p>
                             </div>
                             <div class="col-6 form">
-                                <label for="" class="input">Quận/Huyện: </label>
-                                <p>Hòa Vang</p>
+                                <label for="" class="input" name="district">Quận/Huyện: </label>
+                                <p>${tutor.districtName}</p>
                             </div>
                             <div class="col-6 form" >
-                                <label for="" class="input">Phường/Xã: </label>
-                                <p>Hòa Phước</p>
+                                <label for="" class="input" name="commune">Phường/Xã: </label>
+                                <p>${tutor.communeName}</p>
                             </div>
                             <div class="col-6 form" >
-                                <label for="" class="input">Số nhà, Đường: </label>
-                                <p>QL1A</p>
+                                <label for="" class="input" name="street">Số nhà, Đường: </label>
+                                <p>${tutor.street}</p>
                             </div>
+                             </c:forEach>
                             <div class="col-12">
                                 <hr>
                                 <ul class="actions">

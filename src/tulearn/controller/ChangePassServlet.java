@@ -51,9 +51,9 @@ public class ChangePassServlet extends HttpServlet {
 			String newPass = request.getParameter("newPass");
 			String confirmPass = request.getParameter("confirmPass");
 			HttpSession se = request.getSession();
-			User user = (User) se.getAttribute("user");
+			User user = (User)se.getAttribute("user");
 			UserDAO userDAO = new UserDAO();
-			userDAO.updatePassword(1, newPass);
+			userDAO.updatePassword(user.getUserID(), newPass);
 			RequestDispatcher rd = request.getRequestDispatcher("cm-main-info.jsp");
 			rd.forward(request, response);
 		} catch (Exception e) {

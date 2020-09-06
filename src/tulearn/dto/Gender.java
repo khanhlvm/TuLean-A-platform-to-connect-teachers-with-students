@@ -8,6 +8,11 @@ public class Gender {
 		super();
 	}
 
+	public Gender(String gName) {
+		super();
+		this.gName = gName;
+	}
+
 	public Gender(int gID, String gName) {
 		super();
 		this.gID = gID;
@@ -30,4 +35,9 @@ public class Gender {
 		this.gName = gName;
 	}
 
+	@Override
+	public String toString() {
+		return "Gender [gID=" + gID + ", gName=" + gName + "]";
+	}
+	
 }

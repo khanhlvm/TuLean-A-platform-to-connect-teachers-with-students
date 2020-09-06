@@ -80,7 +80,6 @@ public class Tutor extends User {
 				+ ", getStreet()=" + getStreet() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
 				+ ", toString()=" + super.toString() + "]";
 	}
-
 	
 	
 }
