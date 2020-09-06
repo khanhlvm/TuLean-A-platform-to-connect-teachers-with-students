@@ -31,55 +31,55 @@
                         <div class="row gtr-uniform">
                             <div class=" col-6 form" >
                                 <label for="" class="input" name="name">Họ và tên: </label>
-                                <p>${tutor.name}</p>
+                                <p>${requestScope.tu.name}</p>
                             </div>
                             <div class="col-6 form">
                                 <label for="" class="input" name="gender">Giới tính: </label>
-                                <p>${tutor.gName}</p>
+                                <p>${requestScope.tu.gender.gName}</p>
                             </div>
                             <div class="col-6 form" >
                                 <label for="" class="input" name="phone">Số điện thoại: </label>
-                                <p>${tutor.phone}</p>
+                                <p>${requestScope.tu.phone}</p>
                             </div>
                             <div class="col-6 form" >
                                 <label for="" class="input-cmnd" name="identityCard">CMND: </label>
-                                <p>${tutor.indentityCard}</p>
+                                <p>${requestScope.tu.identityCard}</p>
                             </div>
                                <div class="col-6 form" >
                                 <label for="" class="input-cmnd" name="studentCard">Mã Sinh Viên: </label>
-                                <p>${tutor.studentCard}</p>
+                                <p>${requestScope.tu.studentCard}</p>
                             </div>
                             <div class=" col-6 form">
                                 <label for="" class="input" name="email">Địa chỉ Email: </label>
-                                <p>${tutor.email}</p>
+                                <p>${requestScope.tu.email}</p>
                             </div>
                             <div class=" col-6 form" name="salary">
                                 <label for="" class="input">Mức lương: </label>
-                                <p>${tutor.salary}</p>
+                                <p>${requestScope.tu.salary}</p>
                             </div>
                              <div class=" col-6 form" name="salary">
                                 <label for="" class="input" name="workAt">Nơi làm việc: </label>
-                                <p>${tutor.workAt}</p>
+                                <p>${requestScope.tu.workAt}</p>
                             </div>
                             <div class=" col-6 form">
                                 <label for="" class="input" name="quality">Trình độ: </label>
-                                <p>${tutor.qualificate}</p>
+                                <p>${requestScope.tu.qualificate.qName}</p>
                             </div>
                             <div class="col-6 form" >
                                 <label for="" class="input" name="provine">Tỉnh/TP: </label>
-                                <p>${tutor.provinceName}</p>
+                                <p>${requestScope.tu.addressUser.provinceName}</p>
                             </div>
                             <div class="col-6 form">
                                 <label for="" class="input" name="district">Quận/Huyện: </label>
-                                <p>${tutor.districtName}</p>
+                                <p></p>
                             </div>
                             <div class="col-6 form" >
                                 <label for="" class="input" name="commune">Phường/Xã: </label>
-                                <p>${tutor.communeName}</p>
+                                <p></p>
                             </div>
                             <div class="col-6 form" >
                                 <label for="" class="input" name="street">Số nhà, Đường: </label>
-                                <p>${tutor.street}</p>
+                                <p>${requestScope.tu.street}</p>
                             </div>
                              </c:forEach>
                             <div class="col-12">

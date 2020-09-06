@@ -6,7 +6,6 @@ public class Feedback extends Report{
 	public Feedback() {
 		super();
 	}
-
 	
 	public Feedback(int tutorID, int postID, String dateTime, String content, byte grade) {
 		super(tutorID, postID, dateTime, content);

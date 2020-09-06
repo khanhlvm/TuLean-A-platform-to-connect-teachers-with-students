@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <jsp:useBean id="listInfo" class="tulearn.dao.UserDAO" scope="session"/>
-
 <!DOCTYPE HTML>
 <html>
 
@@ -24,41 +22,39 @@
                 <h1>Thông tin cá nhân</h1>
                 <hr>
                 <form method="post" action="ListInfoUserServlet">
-                <c:forEach var = "tutor" items = "${listInfo}">
                     <div class="row gtr-uniform">
                         <div class=" col-6 form" >
-                            <label for="" class="input" name="name">Họ và tên: </label>
-                            <p>${tutor.name}</p>
+                            <label for="" class="input">Họ và tên: </label>
+                            <p>${requestScope.tu.name}</p>
                         </div>
                         <div class="col-6 form">
-                            <label for="" class="input" name="gender">Giới tính: </label>
-                            <p>${tutor.gName}</p>
+                            <label for="" class="input">Giới tính: </label>
+                            <p>${requestScope.tu.gender.gName}</p>
                         </div>
                     <div class="col-6 form">
                         <label for=""class="input" name="phone">Số điện thoại: </label>
-                        <p>${tutor.phone}</p>
+                        <p>${requestScope.tu.phone}</p>
                     </div>             
                     <div class=" col-6 form">
                         <label for="" class="input" name="email">Địa chỉ Email: </label>
-                        <p>${tutor.email}</p>
+                        <p>${requestScope.tu.email}</p>
                     </div>
                     <div class="col-6 form" >
                         <label for="" class="input" name="province">Tỉnh/TP: </label>
-                        <p>${tutor.provinceName}</p>
+                        <p></p>
                     </div>
                     <div class="col-6 form" >
                         <label for="" class="input" name="district">Quận/Huyện: </label>
-                        <p>${tutor.districtName}</p>
+                        <p></p>
                     </div>
                     <div class="col-6 form" >
                         <label for="" class="input" name="commune">Phường/Xã: </label>
-                        <p>${tutor.communeName}</p>
+                        <p></p>
                     </div>
                     <div class="col-6 form"  >
                         <label for="" class="input" name="street">Số nhà, Đường: </label>
-                        <p>${tutor.street}</p>
+                        <p>${requestScope.tu.street}</p>
                     </div>
-                 </c:forEach>
                     <div class="col-12">
                         <hr>
                         <ul class="actions">

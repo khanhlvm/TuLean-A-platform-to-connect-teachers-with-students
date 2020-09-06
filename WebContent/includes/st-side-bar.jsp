@@ -18,7 +18,7 @@
 			</section>
 			<section id="menu-bar">
 				<ul class="alt">
-					<li><i class="far fa-address-card"></i> <a href="">Xem
+					<li><i class="far fa-address-card"></i> <a href="ListInfoUserServlet">Xem
 							trang cá nhân của bạn</a></li>
 					<li><i class="fas fa-unlock-alt"></i> <a href="">Thay đổi
 							mật khẩu</a></li>

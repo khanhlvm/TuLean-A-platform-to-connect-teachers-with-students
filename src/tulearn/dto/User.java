@@ -18,7 +18,6 @@ public class User {
 		super();
 	}
 
-		
 	public User(int userID, int roleID, int statusUserID, Gender gender, Qualificate qualificate, AddressUser address,
 			String email, String phone, String password, String name, String avatar, String street) {
 		super();
@@ -35,14 +34,6 @@ public class User {
 		this.avatar = avatar;
 		this.street = street;
 	}
-	
-
-	public User(int userID, Gender gender) {
-		super();
-		this.userID = userID;
-		this.gender = gender;
-	}
-
 
 	public int getUserID() {
 		return userID;

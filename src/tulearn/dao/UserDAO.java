@@ -58,10 +58,10 @@ public class UserDAO {
 		try {
 			conn = DBContext.getConnection();
 			if (conn != null) {
-				String sql = "SELECT UserTB.qualificationID, Qualification.qualificationName FROM UserTB INNER JOIN Qualification\r\n"
+				String sql1 = "SELECT UserTB.qualificationID, Qualification.qualificationName FROM UserTB INNER JOIN Qualification\r\n"
 						+ "ON UserTB.qualificationID = Qualification.qualificationID\r\n"
 						+ "WHERE UserTB.userID = ?";
-				ps = conn.prepareStatement(sql);
+				ps = conn.prepareStatement(sql1);
 				ps.setInt(1, id);
 				rs = ps.executeQuery();
 				if (rs.next()) {
@@ -77,15 +77,15 @@ public class UserDAO {
 	}
 	
 	public AddressUser getAddressUserByID(int id) throws SQLException{
-		AddressUser addressUser = null;
+		AddressUser address = null;
 		try {
 			conn = DBContext.getConnection();			
 			if (conn != null) {
-				String sql = "SELECT UserTB.communeID, ProvinceOrCity.provinceName,District.districtName,CommuneOrWard.communeName\r\n"
-						+ "FROM UserTB INNER JOIN CommuneOrWard ON UserTB.communeID = CommuneOrWard.communeID\r\n"
-						+ "INNER JOIN District ON CommuneOrWard.districtID = District.districtID\r\n"
-						+ "INNER JOIN ProvinceOrCity ON District.provinceID = CommuneOrWard.districtID\r\n"
-						+ "WHERE UserTB.userID = ?";
+				String sql = "SELECT UserTB.communeID,ProvinceOrCity.provinceName,District.districtName,CommuneOrWard.communeName \r\n"
+						+"FROM ProvinceOrCity INNER JOIN District ON ProvinceOrCity.provinceID = District.provinceID\r\n" 
+						+"JOIN CommuneOrWard ON CommuneOrWard.districtID = District.districtID\r\n" 
+						+"JOIN UserTB ON CommuneOrWard.communeID = UserTB.communeID\r\n" 
+						+"WHERE UserTB.userID = ?";
 				ps = conn.prepareStatement(sql);
 				ps.setInt(1, id);
 				rs = ps.executeQuery();
@@ -94,13 +94,13 @@ public class UserDAO {
 					String provinceName = rs.getNString(2);
 					String districtName = rs.getNString(3);
 					String communeName = rs.getNString(4);
-					addressUser = new AddressUser(communeID, provinceName, districtName, communeName);
+					address = new AddressUser(communeID, provinceName, districtName, communeName);
 				}
 			}
 		}finally{
 			closeConnection();
 		}
-		return addressUser;
+		return address;
 	}
 	
 	public Tutor getUserTutorByID(int id) throws SQLException {
