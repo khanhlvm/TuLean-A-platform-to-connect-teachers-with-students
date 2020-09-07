@@ -10,16 +10,20 @@ public class Tutor extends User{
 		super();
 	}
 
-	public Tutor(int userID, int roleID, int statusUserID, int genderID, int qualificationID, int communeID,
+	public Tutor(int userID, int roleID, int statusUserID, Gender gender, Qualificate qualificate, AddressUser address,
+			String email, String phone, String password, String name, String avatar, String street) {
+		super(userID, roleID, statusUserID, gender, qualificate, address, email, phone, password, name, avatar, street);
+	}
+
+	public Tutor(int userID, int roleID, int statusUserID, Gender gender, Qualificate qualificate, AddressUser address,
 			String email, String phone, String password, String name, String avatar, String street, String salary,
 			String workAt, String identityCard, String studentCard) {
-		super(userID, roleID, statusUserID, genderID, qualificationID, communeID, email, phone, password, name, avatar,
-				street);
+		super(userID, roleID, statusUserID, gender, qualificate, address, email, phone, password, name, avatar, street);
 		this.salary = salary;
 		this.workAt = workAt;
 		this.identityCard = identityCard;
 		this.studentCard = studentCard;
-	}
+	}	
 
 	public String getSalary() {
 		return salary;
@@ -52,7 +56,5 @@ public class Tutor extends User{
 	public void setStudentCard(String studentCard) {
 		this.studentCard = studentCard;
 	}
-
-	
 
 }

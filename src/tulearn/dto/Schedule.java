@@ -17,7 +17,7 @@ public class Schedule {
 		this.startTime = startTime;
 		this.endTime = endTime;
 	}
-
+	
 	public Schedule(String dayTime, String startTime, String endTime) {
 		super();
 		this.dayTime = dayTime;

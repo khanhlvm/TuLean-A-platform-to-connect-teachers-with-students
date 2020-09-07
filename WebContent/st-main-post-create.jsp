@@ -1,12 +1,8 @@
-<%@page import="tulearn.dto.Qualificate"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
-
 <!DOCTYPE HTML>
 <html>
-
 <head>
 <title>Trang quản lý yêu cầu của HV - TuLearn</title>
 <meta charset="utf-8" />
@@ -140,7 +136,7 @@
 									</select>
 								</div>
 							</div>
-							<div class="col-12" id="add_more1"></div>
+							<div class="col-12" id="add_more1"></div>											
 							<input class="themgio" type="button" value="Thêm Giờ"
 								onclick="ThemGio(this)">
 						</div>

@@ -2,11 +2,11 @@ package tulearn.dto;
 
 public class Post{
 	private int postID;
-	private int learnerID;
-	private int communeID;
-	private int genderID;
-	private int qualificateID;
-	private int subjectID;
+	private User learner;
+	private AddressUser address;
+	private Gender gender;
+	private Qualificate qualificate;
+	private Subject subject;
 	private int statusPostID;
 	private boolean typePost;
 	private byte lessonLearn;
@@ -19,16 +19,16 @@ public class Post{
 		super();
 	}
 
-	public Post(int postID, int learnerID, int communeID, int genderID, int qualificateID, int subjectID,
+	public Post(int postID, User learner, AddressUser address, Gender gender, Qualificate qualificate, Subject subject,
 			int statusPostID, boolean typePost, byte lessonLearn, float timeLearn, String fee, String startDay,
 			String postDes) {
 		super();
 		this.postID = postID;
-		this.learnerID = learnerID;
-		this.communeID = communeID;
-		this.genderID = genderID;
-		this.qualificateID = qualificateID;
-		this.subjectID = subjectID;
+		this.learner = learner;
+		this.address = address;
+		this.gender = gender;
+		this.qualificate = qualificate;
+		this.subject = subject;
 		this.statusPostID = statusPostID;
 		this.typePost = typePost;
 		this.lessonLearn = lessonLearn;
@@ -36,16 +36,19 @@ public class Post{
 		this.fee = fee;
 		this.startDay = startDay;
 		this.postDes = postDes;
-	}	
+	}
+	
+	
 
-	public Post(int learnerID, int communeID, int genderID, int qualificateID, int subjectID, int statusPostID,
-			boolean typePost, byte lessonLearn, float timeLearn, String fee, String startDay, String postDes) {
+	public Post(User learner, AddressUser address, Gender gender, Qualificate qualificate, Subject subject,
+			int statusPostID, boolean typePost, byte lessonLearn, float timeLearn, String fee, String startDay,
+			String postDes) {
 		super();
-		this.learnerID = learnerID;
-		this.communeID = communeID;
-		this.genderID = genderID;
-		this.qualificateID = qualificateID;
-		this.subjectID = subjectID;
+		this.learner = learner;
+		this.address = address;
+		this.gender = gender;
+		this.qualificate = qualificate;
+		this.subject = subject;
 		this.statusPostID = statusPostID;
 		this.typePost = typePost;
 		this.lessonLearn = lessonLearn;
@@ -63,44 +66,44 @@ public class Post{
 		this.postID = postID;
 	}
 
-	public int getLearnerID() {
-		return learnerID;
+	public User getLearner() {
+		return learner;
 	}
 
-	public void setLearnerID(int learnerID) {
-		this.learnerID = learnerID;
+	public void setLearner(User learner) {
+		this.learner = learner;
 	}
 
-	public int getCommuneID() {
-		return communeID;
+	public AddressUser getAddress() {
+		return address;
 	}
 
-	public void setCommuneID(int communeID) {
-		this.communeID = communeID;
+	public void setAddress(AddressUser address) {
+		this.address = address;
 	}
 
-	public int getGenderID() {
-		return genderID;
+	public Gender getGender() {
+		return gender;
 	}
 
-	public void setGenderID(int genderID) {
-		this.genderID = genderID;
+	public void setGender(Gender gender) {
+		this.gender = gender;
 	}
 
-	public int getQualificateID() {
-		return qualificateID;
+	public Qualificate getQualificate() {
+		return qualificate;
 	}
 
-	public void setQualificateID(int qualificateID) {
-		this.qualificateID = qualificateID;
+	public void setQualificate(Qualificate qualificate) {
+		this.qualificate = qualificate;
 	}
 
-	public int getSubjectID() {
-		return subjectID;
+	public Subject getSubject() {
+		return subject;
 	}
 
-	public void setSubjectID(int subjectID) {
-		this.subjectID = subjectID;
+	public void setSubject(Subject subject) {
+		this.subject = subject;
 	}
 
 	public int getStatusPostID() {

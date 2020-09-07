@@ -24,7 +24,7 @@
 		<!-- Post -->
 		<section>
 			<h2>Chỉnh Sửa Yêu Cầu Tìm Gia Sư</h2>
-			<form method="post" action="CreatePostController">
+			<form method="post" action="UpdatePost">
 				<div class="row gtr-uniform">
 
 					<div class="col-6 col-12-xsmall">
@@ -94,7 +94,7 @@
 					</div>
 					<div class="col-12">
 						<label for="">Ngày Dự Kiến Bắt Đầu Học</label> <input type="date"
-							name="Date" id="datepicker" value="${oldPost.startDay}"/>
+							name="Date" id="datepicker1" value="<c:out value="${oldPost.startDay}"/>"/>
 					</div>
 					<p id="state5" class="error"></p>
 

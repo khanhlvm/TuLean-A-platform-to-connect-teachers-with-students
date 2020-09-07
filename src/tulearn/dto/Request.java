@@ -1,8 +1,8 @@
 package tulearn.dto;
 
 public class Request {
-	private int tutorID;
-	private int postID;
+	private Tutor tutor;
+	private Post post;
 	private int statusID;
 	private boolean typeRequest;
 	
@@ -10,28 +10,28 @@ public class Request {
 		super();
 	}
 
-	public Request(int tutorID, int postID, int statusID, boolean typeRequest) {
+	public Request(Tutor tutor, Post post, int statusID, boolean typeRequest) {
 		super();
-		this.tutorID = tutorID;
-		this.postID = postID;
+		this.tutor = tutor;
+		this.post = post;
 		this.statusID = statusID;
 		this.typeRequest = typeRequest;
 	}
 
-	public int getTutorID() {
-		return tutorID;
+	public Tutor getTutor() {
+		return tutor;
 	}
 
-	public void setTutorID(int tutorID) {
-		this.tutorID = tutorID;
+	public void setTutor(Tutor tutor) {
+		this.tutor = tutor;
 	}
 
-	public int getPostID() {
-		return postID;
+	public Post getPost() {
+		return post;
 	}
 
-	public void setPostID(int postID) {
-		this.postID = postID;
+	public void setPost(Post post) {
+		this.post = post;
 	}
 
 	public int getStatusID() {
@@ -49,6 +49,5 @@ public class Request {
 	public void setTypeRequest(boolean typeRequest) {
 		this.typeRequest = typeRequest;
 	}
-
 	
 }

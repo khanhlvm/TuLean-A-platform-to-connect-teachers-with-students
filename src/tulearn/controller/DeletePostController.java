@@ -1,23 +1,28 @@
 package tulearn.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class RegisterController
- */
-@WebServlet("/register")
-public class RegisterController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+import tulearn.dao.PostDAO;
 
+/**
+ * Servlet implementation class DeletePostController
+ */
+@WebServlet("/DeletePostController")
+public class DeletePostController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
     /**
-     * Default constructor. 
+     * @see HttpServlet#HttpServlet()
      */
-    public RegisterController() {
+    public DeletePostController() {
+        super();
         // TODO Auto-generated constructor stub
     }
 
@@ -25,8 +30,20 @@ public class RegisterController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+		PostDAO pdao = new PostDAO();
+		int id = Integer.parseInt(request.getParameter("id"));
+		try {
+			int tc = pdao.deletePost(id);
+			if(tc > 0) {
+				response.getWriter().append("Xóa Thành Công");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 	/**

@@ -1,7 +1,6 @@
 package tulearn.controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -52,7 +51,6 @@ public class BeforePost extends HttpServlet {
 			request.getSession().setAttribute("qualificates", qualificates);
 			request.getRequestDispatcher("st-main-post-create.jsp").forward(request, response);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
