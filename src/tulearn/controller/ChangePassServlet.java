@@ -1,9 +1,7 @@
 package tulearn.controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,12 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import tulearn.dao.UserDAO;
-import tulearn.dto.User;
+import tulearn.dto.Tutor;
 
 /**
  * Servlet implementation class ChangePassServlet
  */
-@WebServlet("/ChangePassServlet")
+@WebServlet("/change-password")
 public class ChangePassServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -45,19 +43,24 @@ public class ChangePassServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		String success = "Mật khẩu của bạn đã được cập nhật, Hãy đăng nhập lại !";
 		try {
 			String oldPass = request.getParameter("oldPass");
 			String newPass = request.getParameter("newPass");
 			String confirmPass = request.getParameter("confirmPass");
-			HttpSession se = request.getSession();
-			User user = (User)se.getAttribute("user");
-			UserDAO userDAO = new UserDAO();
-			userDAO.updatePassword(user.getUserID(), newPass);
-			RequestDispatcher rd = request.getRequestDispatcher("cm-main-info.jsp");
-			rd.forward(request, response);
+			HttpSession hs = request.getSession();
+			Tutor user = (Tutor)hs.getAttribute("u");
+			UserDAO uDAO = new UserDAO();			
+			if(user.getPassword().equals(oldPass) && newPass.equals(confirmPass) && uDAO.updatePassword(user.getUserID(), newPass)) {							
+				request.getRequestDispatcher("cm-main-login-register.jsp?success=1&noti="+success).forward(request, response);		
+			}
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			String error = "Cập nhật mật khẩu thất bại, kiểm tra lại quy tắc đặt mật khẩu hoặc mật khẩu hiện tại !";
+			request.getRequestDispatcher("cm-main-change-pass.jsp?success=0&noti="+error).include(request, response);
 		} 
 	}
 

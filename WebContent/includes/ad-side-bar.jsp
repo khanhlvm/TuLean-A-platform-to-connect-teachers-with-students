@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
         <!-- Main Above -->
         <!-- Sidebar -->
         <section id="sidebar">
@@ -8,25 +8,26 @@
             <!-- Intro -->
             <section id="intro">
                 <a href="#" class="logo"><img src="images/logo.jpg" alt="" /></a>
-                <header>
-                    <h2>Tên Admin</h2>
-                    <p><i class="fas fa-user-check"></i> Trạng thái admin</a>
-                    </p>
-                </header>
+                <header>					
+					<c:if test="${u.name==null}"><h2>Tên admin</h2></c:if>
+					<c:if test="${u.name!=null}"><h2>${u.name}</h2></c:if>
+					<p><i class="fas fa-user-tag"></i> Gia sư </p>
+					<p><i class="fas fa-user-check"></i> Trạng thái: normal </p>
+				</header>
             </section>
             <section id="menu-bar">
                 <ul class="alt">
                     <li>
                         <i class="far fa-address-card"></i>
-                        <a href="">Xem hồ sơ của bạn</a>
+                        <a href="ListInfoUserServlet">Xem hồ sơ của bạn</a>
                     </li>
                     <li>
                         <i class="fas fa-unlock-alt"></i>
-                        <a href="">Thay đổi mật khẩu</a>
+                        <a href="cm-main-change-pass.jsp">Thay đổi mật khẩu</a>
                     </li>
                     <li>
                         <i class="fas fa-edit"></i>
-                        <a href="">Cập nhật hồ sơ</a>
+                        <a href="cm-main-info-update.jsp">Cập nhật hồ sơ</a>
                     </li>
                     <li>
                         <i class="far fa-bell"></i>
@@ -34,7 +35,7 @@
                     </li>
                     <li>
                         <i class="fas fa-sign-out-alt"></i>
-                        <a href="">Đăng xuất</a>
+                        <a href="LogoutController">Đăng xuất</a>
                     </li>
                 </ul>
             </section>

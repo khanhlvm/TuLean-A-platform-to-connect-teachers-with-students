@@ -10,6 +10,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
+<link rel="stylesheet" href="assets/css/login.css">
 <link rel="stylesheet" href="assets/css/thu_css.css">
 <link rel="stylesheet" href="assets/css/input-radio.css">
 <link rel="icon" href="images/icon-tab.png">
@@ -135,6 +136,7 @@
 										</c:forTokens>
 									</select>
 								</div>
+								<p onclick="XoaGio(this)" class="delete"><i class="delete-time fas fa-times-circle"></i></p>
 							</div>
 							<div class="col-12" id="add_more1"></div>											
 							<input class="themgio" type="button" value="Thêm Giờ"
@@ -143,9 +145,13 @@
 					</div>
 					<div class="col-12">
 						<hr>
-						<ul class="btnArea">
-							<li><input type="submit" value="Đăng Bài" /></li>
-							<li><input id="btnReset" type="reset" value="Reset" /></li>
+						<ul class="btnArea">					
+							<li>
+								<input type="submit" value="Đăng bài">
+							</li>
+							<li>
+								<input type="reset" value="Reset" />
+							</li>
 						</ul>
 					</div>
 				</div>

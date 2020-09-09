@@ -19,7 +19,7 @@
 					<li><a href="#"><i class="fas fa-tasks"></i> Quản lý yêu
 							cầu</a></li>
 					<li><a href="#"><i class="fas fa-search"></i> Tìm gia sư</a></li>
-					<li><a href="#"><i class="far fa-calendar-plus"></i> Tạo
+					<li><a href="BeforePost"><i class="far fa-calendar-plus"></i> Tạo
 							yêu cầu</a></li>
 					<li><a href="#"><i class="fas fa-bell"></i> Thông báo</a></li>
 				</ul>
@@ -64,7 +64,7 @@
 								<i class="fas fa-search"></i> Tìm gia sư
 							</h3>
 					</a></li>
-					<li><a href="#">
+					<li><a href="BeforePost">
 							<h3>
 								<i class="far fa-calendar-plus"></i> Tạo yêu cầu
 							</h3>

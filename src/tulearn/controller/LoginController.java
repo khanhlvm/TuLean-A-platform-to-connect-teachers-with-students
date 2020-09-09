@@ -47,7 +47,9 @@ public class LoginController extends HttpServlet {
 		int ADMIN_ROLE_ID = 1;
 		int TUTOR_ROLE_ID = 2;
 		int STUDENT_ROLE_ID = 3;
-		String success = "Chào mừng bạn đến với TuLearn, hãy cập nhật thông tin đầy đủ để tìm kiếm kết quả phù hợp với bạn nhất";
+		String admin = "Đăng nhập trang admin thành công !";
+		String success = "Chào mừng bạn đến với TuLearn, hãy cập nhật thông tin đầy đủ để có được kết quả tìm kiếm phù hợp với bạn nhất.";
+		String error = "Đăng nhập thất bại, có thể địa chỉ email hoặc mật khẩu không chính xác, thử lại !";
 		try {
 			String email = request.getParameter("email");
 			String password = request.getParameter("password");		
@@ -60,17 +62,16 @@ public class LoginController extends HttpServlet {
 			hs.setAttribute("u", tt); 
 			// return page with role
 			if(tt.getRoleID() == ADMIN_ROLE_ID) {	
-				request.getRequestDispatcher("ad-main-common-manager.jsp").forward(request, response);
+				request.getRequestDispatcher("ad-main-common-manager.jsp?success=1&noti="+admin).forward(request, response);
 			}else if(tt.getRoleID() == TUTOR_ROLE_ID) {
 				request.getRequestDispatcher("tu-main-home.jsp?success=1&noti="+success).forward(request, response);
 			}else if(tt.getRoleID() == STUDENT_ROLE_ID) {
 				request.getRequestDispatcher("st-main-home.jsp?success=1&noti="+success).forward(request, response);
+			}else {				
+				request.getRequestDispatcher("cm-main-login-register.jsp?success=0&noti="+error).forward(request, response);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
-			String error = "Đăng nhập thất bại, có thể địa chỉ email hoặc mật khẩu không chính xác !";
-			request.getRequestDispatcher("cm-main-login-register.jsp?success=0&noti="+error).forward(request, response);
 		}
 		
 	}

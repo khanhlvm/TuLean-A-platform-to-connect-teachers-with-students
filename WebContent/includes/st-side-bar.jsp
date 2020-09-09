@@ -18,15 +18,15 @@
 			</section>
 			<section id="menu-bar">
 				<ul class="alt">
-					<li><i class="far fa-address-card"></i> <a href="">Xem
+					<li><i class="far fa-address-card"></i> <a href="ListInfoUserServlet">Xem
 							trang cá nhân của bạn</a></li>
-					<li><i class="fas fa-unlock-alt"></i> <a href="">Thay đổi
+					<li><i class="fas fa-unlock-alt"></i> <a href="cm-main-change-pass.jsp">Thay đổi
 							mật khẩu</a></li>
-					<li><i class="fas fa-edit"></i> <a href="">Cập nhật thông
+					<li><i class="fas fa-edit"></i> <a href="cm-main-info-update.jsp">Cập nhật thông
 							tin</a></li>
 					<li><i class="far fa-bell"></i> <a href="">Quản lý thông
 							báo</a></li>
-					<li><i class="fas fa-sign-out-alt"></i> <a href="">Đăng
+					<li><i class="fas fa-sign-out-alt"></i> <a href="LogoutController">Đăng
 							xuất</a></li>
 				</ul>
 				<h2>

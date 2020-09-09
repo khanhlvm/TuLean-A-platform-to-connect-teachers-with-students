@@ -19,11 +19,11 @@
                 <ul class="alt">
                     <li>
                         <i class="far fa-address-card"></i>
-                        <a href="">Xem hồ sơ của bạn</a>
+                        <a href="ListInfoUserServlet">Xem hồ sơ của bạn</a>
                     </li>
                     <li>
                         <i class="fas fa-unlock-alt"></i>
-                        <a href="">Thay đổi mật khẩu</a>
+                        <a href="cm-main-change-pass.jsp">Thay đổi mật khẩu</a>
                     </li>
                     <li>
                         <i class="fas fa-edit"></i>
@@ -35,7 +35,7 @@
                     </li>
                     <li>
                         <i class="fas fa-sign-out-alt"></i>
-                        <a href="">Đăng xuất</a>
+                        <a href="LogoutController">Đăng xuất</a>
                     </li>
                 </ul>
                 <h2>Yêu cầu phù hợp với bạn <i class="fas fa-hand-point-down"></i></h2>
@@ -127,7 +127,8 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
-
+	<script src="assets/js/thu_js.js"></script>
+	
 </body>
 
 </html>

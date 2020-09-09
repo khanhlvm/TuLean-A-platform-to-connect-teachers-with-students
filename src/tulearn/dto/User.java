@@ -35,6 +35,19 @@ public class User {
 		this.street = street;
 	}
 
+	public User(int userID, Gender gender, Qualificate qualificate, AddressUser address, String email, String phone,
+			String name, String street) {
+		super();
+		this.userID = userID;
+		this.gender = gender;
+		this.qualificate = qualificate;
+		this.address = address;
+		this.email = email;
+		this.phone = phone;
+		this.name = name;
+		this.street = street;
+	}
+
 	public int getUserID() {
 		return userID;
 	}

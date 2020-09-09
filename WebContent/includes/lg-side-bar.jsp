@@ -20,7 +20,7 @@
                 <div class="row gtr-uniform">
                     <div class="col-12">
                         <label for="inputEmail">Địa chỉ Email <span style="color:red">*</span> </label>                                
-                        <input type="email" name="email" id="inputEmail" placeholder="Nhập địa chỉ email" />
+                        <input type="email" name="email" id="inputEmail" placeholder="Nhập địa chỉ email" required="required"/>
                         <span class="validEmail hidden general valid"><i class="fas fa-check-circle noti_icon"></i>
                         Email is valid</span>
                     	<span class="invalidEmail hidden general invalid"><i class="fas fa-exclamation-circle noti_icon"></i>
@@ -33,7 +33,7 @@
                        	<label for="" style="text-align: right;"><a href="#">Quên mật khẩu?</a> </label>
                     </div>
                     <div class="col-12">                                               
-                        <input type="password" name="password" id="loginPassword" placeholder="Nhập mật khẩu" />                                 
+                        <input type="password" name="password" id="loginPassword" placeholder="Nhập mật khẩu" required="required"/>                                 
                     </div>           
                     <div class="col-12">
                     	<hr>

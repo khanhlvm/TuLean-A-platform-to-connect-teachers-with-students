@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/input-radio.css">
     <link rel="stylesheet" href="assets/css/req-manger.css">
-    
+    <link rel="stylesheet" href="assets/css/login.css">
 </head>
 <!-- Add header bar -->
 <%@ include file="/includes/st-header-bar.jsp" %>

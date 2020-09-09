@@ -1,6 +1,8 @@
 package tulearn.dto;
 
 public class AddressUser {
+	private int provinceID;
+	private int districtID;
 	private int communeID;
 	private String provinceName;
 	private String districtName;
@@ -10,12 +12,31 @@ public class AddressUser {
 		super();
 	}
 
-	public AddressUser(int communeID, String provinceName, String districtName, String communeName) {
+	public AddressUser(int provinceID, int districtID, int communeID, String provinceName, String districtName,
+			String communeName) {
 		super();
+		this.provinceID = provinceID;
+		this.districtID = districtID;
 		this.communeID = communeID;
 		this.provinceName = provinceName;
 		this.districtName = districtName;
 		this.communeName = communeName;
+	}
+
+	public int getProvinceID() {
+		return provinceID;
+	}
+
+	public void setProvinceID(int provinceID) {
+		this.provinceID = provinceID;
+	}
+
+	public int getDistrictID() {
+		return districtID;
+	}
+
+	public void setDistrictID(int districtID) {
+		this.districtID = districtID;
 	}
 
 	public int getCommuneID() {
