@@ -39,6 +39,37 @@ public class Tutor extends User{
 		this.studentCard = studentCard;
 	}
 
+	public Tutor(int userID, String name, String salary, String workAt, String identityCard, String studentCard) {
+		super(userID, name);
+		this.salary = salary;
+		this.workAt = workAt;
+		this.identityCard = identityCard;
+		this.studentCard = studentCard;
+	}
+
+	
+
+
+	public Tutor(int userID, Qualificate qualificate, AddressUser address, String name, String salary) {
+		super(userID, qualificate, address, name);
+		this.salary = salary;
+	}
+	
+	
+	public Tutor(int userID) {
+		super(userID);
+	}
+
+
+
+	public Tutor(int userID, String name) {
+		super(userID, name);
+	}
+
+	public Tutor(String name) {
+		super(name);
+	}
+
 	public String getSalary() {
 		return salary;
 	}

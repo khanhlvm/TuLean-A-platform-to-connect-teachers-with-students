@@ -23,6 +23,19 @@ public class AddressUser {
 		this.communeName = communeName;
 	}
 
+public AddressUser(String provinceName) {
+		super();
+		this.provinceName = provinceName;
+	}
+	
+
+	public AddressUser(String provinceName, String districtName, String communeName) {
+		super();
+		this.provinceName = provinceName;
+		this.districtName = districtName;
+		this.communeName = communeName;
+	}
+
 	public int getProvinceID() {
 		return provinceID;
 	}
