@@ -1,11 +1,7 @@
 package tulearn.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,9 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import tulearn.dao.UserDAO;
-import tulearn.dto.AddressUser;
-import tulearn.dto.Gender;
-import tulearn.dto.Qualificate;
 import tulearn.dto.Tutor;
 
 /**
@@ -40,7 +33,6 @@ public class ListInfoUserServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doPost(request, response);
 	}
 
@@ -51,24 +43,23 @@ public class ListInfoUserServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html;charset=UTF-8");
-		final int STUDENT_ACCOUNT = 3;
-		final int TUTOR_ACCOUNT = 2;
-		PrintWriter out = response.getWriter();
-            
-		try {
-			UserDAO udao = new UserDAO();
-			Tutor tu = udao.getUserTutorByID(1); 			
-			HttpSession session = request.getSession();
-			if (tu.getRoleID() == STUDENT_ACCOUNT) {					
-				request.setAttribute("tu", tu);
-				request.getRequestDispatcher("cm-main-info.jsp").include(request, response);;
-			}else {
-				request.setAttribute("tu", tu);
-				request.getRequestDispatcher("tu-main-info.jsp").include(request, response);;
+		response.setCharacterEncoding("UTF-8");
+		int ADMIN_ROLE_ID = 1;
+		int TUTOR_ROLE_ID = 2;
+		int STUDENT_ROLE_ID = 3;
+		String success = "Hãy cập nhật thông tin đầy đủ để có được kết quả tìm kiếm phù hợp với bạn nhất.";
+		String error = "Lỗi hệ thống ! Truy cập trang cá nhân thất bại, chúng tôi sẽ cố gắng khắc phục sớm !";
+		try {						
+			HttpSession hs = request.getSession();
+			Tutor user = (Tutor)hs.getAttribute("u");
+			if(user.getRoleID() == TUTOR_ROLE_ID) {
+				request.getRequestDispatcher("tu-main-info.jsp?success=1&noti="+success).forward(request, response);
+			}else if(user.getRoleID() == ADMIN_ROLE_ID || user.getRoleID() == STUDENT_ROLE_ID){
+				request.getRequestDispatcher("cm-main-info.jsp?success=1&noti="+success).forward(request, response);
+			}else { 				
+				request.getRequestDispatcher("cm-main-login-register.jsp?success=0&noti="+error).forward(request, response);
 			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

@@ -9,13 +9,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/login.css">
     <link rel="stylesheet" href="assets/css/input-radio.css" />
     <link rel="stylesheet" href="assets/css/common.css">
     <link rel="icon" href="images/icon-tab.png">
-    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="assets/js/jquery-3.5.1.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/validation.js"></script>
+    <script src="assets/js/address.js"></script>
 </head>
 <!-- Add header bar -->
 <%@ include file="/includes/tu-header-bar.jsp" %>

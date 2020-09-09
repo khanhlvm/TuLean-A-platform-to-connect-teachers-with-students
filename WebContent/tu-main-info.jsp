@@ -1,132 +1,181 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <jsp:useBean id="listInfo" class="tulearn.dao.UserDAO" scope="session"/>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE HTML>
 <html>
-
 <head>
     <title>Trang thông tin cá nhân của GS - TuLearn</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/login.css">
     <link rel="stylesheet" href="assets/css/common.css">
     <link rel="stylesheet" href="assets/css/input-radio.css">
+    <link rel="stylesheet" href="assets/css/thu_css.css">
     <link rel="icon" href="images/icon-tab.png">
 </head>
 <!-- Add header bar -->
 <%@ include file="/includes/tu-header-bar.jsp" %>
 
 <!-- Main -->
-        <div id="main">
+<div id="main">
 
-            <!-- Tabbar -->
-            <div class="tab">
-                <button class="tablinks" onclick="openCity(event, 'London')">Thông tin cá nhân</button>
-                <button class="tablinks" onclick="openCity(event, 'Paris')">Chứng chỉ</button>
-            </div>
-            <div id="London" class="tabcontent">
-                <article class="post">
-                    <form method="post" action="ListInfoUserServlet">
-                       <c:forEach var = "tutor" items = "${listInfo}">
-                        <div class="row gtr-uniform">
-                            <div class=" col-6 form" >
-                                <label for="" class="input" name="name">Họ và tên: </label>
-                                <p>${requestScope.tu.name}</p>
-                            </div>
-                            <div class="col-6 form">
-                                <label for="" class="input" name="gender">Giới tính: </label>
-                                <p>${requestScope.tu.gender.gName}</p>
-                            </div>
-                            <div class="col-6 form" >
-                                <label for="" class="input" name="phone">Số điện thoại: </label>
-                                <p>${requestScope.tu.phone}</p>
-                            </div>
-                            <div class="col-6 form" >
-                                <label for="" class="input-cmnd" name="identityCard">CMND: </label>
-                                <p>${requestScope.tu.identityCard}</p>
-                            </div>
-                               <div class="col-6 form" >
-                                <label for="" class="input-cmnd" name="studentCard">Mã Sinh Viên: </label>
-                                <p>${requestScope.tu.studentCard}</p>
-                            </div>
-                            <div class=" col-6 form">
-                                <label for="" class="input" name="email">Địa chỉ Email: </label>
-                                <p>${requestScope.tu.email}</p>
-                            </div>
-                            <div class=" col-6 form" name="salary">
-                                <label for="" class="input">Mức lương: </label>
-                                <p>${requestScope.tu.salary}</p>
-                            </div>
-                             <div class=" col-6 form" name="salary">
-                                <label for="" class="input" name="workAt">Nơi làm việc: </label>
-                                <p>${requestScope.tu.workAt}</p>
-                            </div>
-                            <div class=" col-6 form">
-                                <label for="" class="input" name="quality">Trình độ: </label>
-                                <p>${requestScope.tu.qualificate.qName}</p>
-                            </div>
-                            <div class="col-6 form" >
-                                <label for="" class="input" name="provine">Tỉnh/TP: </label>
-                                <p>${requestScope.tu.address.provinceName}</p>
-                            </div>
-                            <div class="col-6 form">
-                                <label for="" class="input" name="district">Quận/Huyện: </label>
-                                <p>${requestScope.tu.address.districtName}</p>
-                            </div>
-                            <div class="col-6 form" >
-                                <label for="" class="input" name="commune">Phường/Xã: </label>
-                                <p>${requestScope.tu.address.communeName}</p>
-                            </div>
-                            <div class="col-6 form" >
-                                <label for="" class="input" name="street">Số nhà, Đường: </label>
-                                <p>${requestScope.tu.street}</p>
-                            </div>
-                             </c:forEach>
-                            <div class="col-12">
-                                <hr>
-                                <ul class="actions">
-                                    <li><input type="reset" value="HỦY" /></li>
-                                    <li><input type="submit" value="CẬP NHẬT" /></li>
-                                </ul>
-                            </div>
-                    
-                        </div>
-                    </form>
-                </article>
-            </div>
-            <div id="Paris" class="tabcontent">
-                <article class="post">
-                    <ul>
-                        <li>Chứng chỉ 1: <a href="">url</a></li>
-                        <li>Chứng chỉ 2: <a href="">url</a></li>
-                        <li>Chứng chỉ 3: <a href="">url</a></li>
-                    </ul>
-                    <hr>
-                    <div class="col-12">
-                            <ul class="actions">
-                                <li><input type="submit" value="Thêm chứng chỉ" id="btn-CapNhat" /></li>
-                            </ul>
-                    </div>
-                </article>         
-            </div>
-            <script>
-                function openCity(evt, cityName) {
-                    var i, tabcontent, tablinks;
-                    tabcontent = document.getElementsByClassName("tabcontent");
-                    for (i = 0; i < tabcontent.length; i++) {
-                        tabcontent[i].style.display = "none";
-                    }
-                    tablinks = document.getElementsByClassName("tablinks");
-                    for (i = 0; i < tablinks.length; i++) {
-                        tablinks[i].className = tablinks[i].className.replace(" active", "");
-                    }
-                    document.getElementById(cityName).style.display = "block";
-                    evt.currentTarget.className += " active";
-                }
-            </script>
-            
-        </div>
-        <!-- End Main -->
+    <!-- Tabbar -->
+	<div class="tab">
+	    <button class="tablinks" onclick="openCity(event, 'London')">Thông tin cá nhân</button>
+	    <button class="tablinks" onclick="openCity(event, 'Berlin')">Lịch dạy</button>
+		<button class="tablinks" onclick="openCity(event, 'Paris')">Chứng chỉ</button>
+	</div>
+	<script src="assets/js/tab-bar.js"></script>
+	
+	<div id="London" class="tabcontent">
+	    <article class="post">
+	        <form method="post" action="">
+	       		<div class="row gtr-uniform">
+	           <div class=" col-6 form" >
+	               <label for="" class="input">Họ và tên: </label>
+	               <p>${u.name}</p>
+	           </div>
+	           <div class="col-6 form">
+	               <label for="" class="input">Giới tính: </label>
+	               <p>${u.gender.gName}</p>
+	           </div>
+	           <div class="col-6 form" >
+	               <label for="" class="input">Số điện thoại: </label>
+	               <p>${u.phone}</p>
+	           </div>
+	           <div class="col-6 form" >
+	               <label for="" class="input-cmnd">CMND: </label>
+	               <p>${u.identityCard}</p>
+	           </div>
+	              <div class="col-6 form" >
+	               <label for="" class="input-cmnd">Mã Sinh Viên: </label>
+	               <p>${u.studentCard}</p>
+	           </div>
+	           <div class=" col-6 form">
+	               <label for="" class="input">Địa chỉ Email: </label>
+	               <p>${u.email}</p>
+	           </div>
+	           <div class=" col-6 form">
+	               <label for="" class="input">Mức lương: </label>
+	               <p>${u.salary}</p>
+	           </div>
+	            <div class=" col-6 form">
+	               <label for="" class="input">Nơi làm việc: </label>
+	               <p>${u.workAt}</p>
+	           </div>
+	           <div class=" col-6 form">
+	               <label for="" class="input">Trình độ: </label>
+	               <p>${u.qualificate.qName}</p>
+	           </div>
+	           <div class="col-6 form" >
+	               <label for="" class="input">Tỉnh/TP: </label>
+	               <p>${u.address.provinceName}</p>
+	           </div>
+	           <div class="col-6 form">
+	               <label for="" class="input">Quận/Huyện: </label>
+	               <p>${u.address.districtName}</p>
+	           </div>
+	           <div class="col-6 form" >
+	               <label for="" class="input">Phường/Xã: </label>
+	               <p>${u.address.communeName}</p>
+	           </div>
+	           <div class="col-6 form" >
+	               <label for="" class="input">Số nhà, Đường: </label>
+	               <p>${u.street}</p>
+	           </div>
+	                <div class="col-12">
+	                    <hr>
+	                    <ul class="actions">
+	                        <li><input type="reset" value="HỦY" /></li>
+	                        <li><input type="submit" value="CẬP NHẬT" /></li>
+	                    </ul>
+	                </div>
+	        
+	            </div>
+	        </form>
+	    </article>
+	</div>
+	
+	<div id="Berlin" class="tabcontent">
+	    <article class="post">
+	    <form method="post" action="CreatePostController">
+			<div class="row gtr-uniform">
+	        <div class="col-12">
+						<label for="">Chọn lịch dạy trong tuần</label>
+					</div>
+					<div class="col-12">
+						<div class="col-12" id="ngay1">
+							<div class="row canh col-12 gioranh1" id="idGioRanh">
+								<div class="row canh col-3 col-6-xsmall gio">
+									<select class="" name="NgayRanh">
+										<option value="">Chọn thứ</option>
+										<c:set var="tokenising" value="Thứ hai,Thứ ba,Thứ tư,Thứ năm,Thứ sáu,Thứ bảy,Chủ Nhật" scope="page" />
+										<c:forTokens items="${pageScope.tokenising}" delims="," var="day" varStatus="status">
+											<option value="<c:out value="${status.count}"/>"><c:out value="${day}" /></option>
+										</c:forTokens>
+										
+									</select>
+								</div>
+								<label class="phancachgio" for="">-</label>
+								<div class="row canh col-3 col-6-xsmall gio">
+									<select name="GioBatDau" id="demo-category">
+										<option value="">Giờ Bắt Đầu</option>
+										<c:forTokens
+											items="7:00,7:30,8:00,8:30,9:00,,9:30,10:00,10:30,13:00,13:30,14:00,14:30,15:00,15:30,16:00,16:30,17:00,17:30,18:00,18:30,19:00"
+											delims="," var="st">
+											<option value="${st}">${st}</option>
+										</c:forTokens>
+									</select>
+								</div>
+								<label class="phancachgio" for="">-</label>
+								<div class="row canh col-3 col-6-xsmall gio">
+									<select name="GioKetThuc" id="demo-category">
+										<option value="">Giờ Kết Thúc</option>
+										<c:forTokens
+											items="8:00,8:30,9:00,,9:30,10:00,10:30,11:00,11:30,12:00,14:00,14:30,15:00,15:30,16:00,16:30,17:00,17:30,18:00,18:30,19:00,19:30,20:00,20:30,21:00"
+											delims="," var="et">
+											<option value="${et}">${et}</option>
+										</c:forTokens>
+									</select>
+								</div>
+								<p onclick="XoaGio(this)" class="delete"><i class="delete-time fas fa-times-circle"></i></p>
+							</div>
+							<div class="col-12" id="add_more1"></div>											
+							<input class="themgio" type="button" value="Thêm Giờ"
+								onclick="ThemGio(this)">
+						</div>
+					</div>
+					<div class="col-12">
+						<hr>
+						<ul class="btnArea">
+							<li><input type="submit" value="Đăng Bài" /></li>
+							<li><input type="reset" value="Reset" /></li>
+						</ul>
+					</div>
+					</div>
+			</form>
+	    </article>         
+	</div>
+	
+	<div id="Paris" class="tabcontent">
+	    <article class="post">
+	        <ul>
+	            <li>Chứng chỉ 1: <a href="">url</a></li>
+	            <li>Chứng chỉ 2: <a href="">url</a></li>
+	            <li>Chứng chỉ 3: <a href="">url</a></li>
+	        </ul>
+	        <hr>
+	        <div class="col-12">
+                <ul class="actions">
+                    <li><a href="tu-main-certificate-add.jsp" class="button">Thêm chứng chỉ</a></li>
+                </ul>
+	        </div>
+	    </article>         
+	</div>
+	
+</div>
+<!-- End Main -->
 
 <!-- Add side bar -->
 <%@ include file="/includes/tu-side-bar.jsp" %>

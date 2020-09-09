@@ -81,7 +81,7 @@ public class UserDAO {
 		try {
 			conn = DBContext.getConnection();			
 			if (conn != null) {
-				String sql = "SELECT UserTB.communeID,ProvinceOrCity.provinceName,District.districtName,CommuneOrWard.communeName \r\n"
+				String sql = "SELECT ProvinceOrCity.provinceID,District.districtID,UserTB.communeID,ProvinceOrCity.provinceName,District.districtName,CommuneOrWard.communeName \r\n"
 						+"FROM ProvinceOrCity INNER JOIN District ON ProvinceOrCity.provinceID = District.provinceID\r\n" 
 						+"JOIN CommuneOrWard ON CommuneOrWard.districtID = District.districtID\r\n" 
 						+"JOIN UserTB ON CommuneOrWard.communeID = UserTB.communeID\r\n" 
@@ -90,11 +90,13 @@ public class UserDAO {
 				ps.setInt(1, id);
 				rs = ps.executeQuery();
 				if (rs.next()) {
-					int communeID = rs.getInt(1);
-					String provinceName = rs.getNString(2);
-					String districtName = rs.getNString(3);
-					String communeName = rs.getNString(4);
-					address = new AddressUser(communeID, provinceName, districtName, communeName);
+					int provinceID = rs.getInt(1);
+					int districtID = rs.getInt(2);
+					int communeID = rs.getInt(3);
+					String provinceName = rs.getNString(4);
+					String districtName = rs.getNString(5);
+					String communeName = rs.getNString(6);
+					address = new AddressUser(provinceID,districtID,communeID,provinceName,districtName,communeName);
 				}
 			}
 		}finally{
@@ -152,7 +154,7 @@ public class UserDAO {
 		return t;
 	}
 
-	public boolean updateUserOrTutorByID(Tutor t, Gender g, Qualificate q, AddressUser a) throws SQLException {
+	public boolean updateUserOrTutor(Tutor t) throws SQLException {
 		boolean result = false;	
 		try {
 			conn = DBContext.getConnection();
@@ -162,9 +164,9 @@ public class UserDAO {
 				ps.setNString(1, t.getName());
 				ps.setNString(2, t.getEmail());
 				ps.setString(3, t.getPhone());
-				ps.setInt(4, g.getgID());
-				ps.setInt(5, q.getqID());
-				ps.setInt(6, a.getCommuneID());
+				ps.setInt(4, t.getGender().getgID());
+				ps.setInt(5, t.getQualificate().getqID());
+				ps.setInt(6, t.getAddress().getCommuneID());
 				ps.setNString(7, t.getStreet());
 				ps.setInt(8, t.getUserID());
 				result = ps.executeUpdate() > 0;

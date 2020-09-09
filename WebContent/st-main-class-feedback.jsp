@@ -11,6 +11,7 @@
     <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
     <link rel="stylesheet" href="assets/css/feedback.css">
     <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/login.css">
     <link rel="stylesheet" href="assets/css/common.css">
     <link rel="icon" href="images/icon-tab.png">
 </head>

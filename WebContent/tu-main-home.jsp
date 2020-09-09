@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="assets/css/common.css">
     <link rel="stylesheet" href="assets/css/input-radio.css">    
     <link rel="stylesheet" href="assets/css/req-manger.css">
+    <link rel="stylesheet" href="assets/css/login.css">
 </head>
 <!-- Add header bar -->
 <%@ include file="/includes/tu-header-bar.jsp" %>

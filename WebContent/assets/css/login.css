@@ -39,6 +39,6 @@
     color: white;
 }
 
-.noti-success,.noti-fail p {
+.noti-success p,.noti-fail p {
     margin: 0.5em 0 0.5em 1em;   
 }

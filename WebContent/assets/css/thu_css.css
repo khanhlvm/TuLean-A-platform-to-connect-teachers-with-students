@@ -67,21 +67,12 @@ input[type=time]{
   text-transform: uppercase;
 }
 
-.XoaGio {
-  margin-left: 0.2rem;
-  box-sizing: border-box;
-  transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
-  background-color: transparent;
-  border: 0;
-  color: #3c3b3b !important;
-  display: inline-block;
-  font-family: "Raleway", Helvetica, sans-serif;
-  font-size: 1em;
-  font-weight: 800;
-  padding: 1% 2%;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
+.hidden {
+    visibility: hidden;
+}
+
+p.delete{
+	margin-top: 1.5em;
 }
 
 .themgio {

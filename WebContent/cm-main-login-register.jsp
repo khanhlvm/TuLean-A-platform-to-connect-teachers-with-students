@@ -15,7 +15,6 @@
     <script src="assets/js/jquery-3.5.1.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/validate.js"></script>
-    <script src="assets/js/login-register.js"></script>
 </head>
 <!-- Add header bar -->
 <%@ include file="/includes/lg-header-bar.jsp" %>
