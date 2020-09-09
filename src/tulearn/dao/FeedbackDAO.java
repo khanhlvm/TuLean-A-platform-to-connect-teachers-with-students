@@ -65,7 +65,7 @@ public class FeedbackDAO {
 		try {
 			conn = DBContext.getConnection();
 			if (conn != null) {
-				String sql = "SELECT * FROM Feedback WHERE tutorID =?";
+				String sql = "SELECT postID, dateTimeFB, contentFB,gradeFB FROM Feedback WHERE tutorID =?";
 				ps = conn.prepareStatement(sql);
 				ps.setInt(1, tutorid);
 				rs = ps.executeQuery();

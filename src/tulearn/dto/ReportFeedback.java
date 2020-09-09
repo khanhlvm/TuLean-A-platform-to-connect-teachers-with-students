@@ -79,7 +79,7 @@ public class ReportFeedback {
 
 	@Override
 	public String toString() {
-		return "ReportFeedback [tutor=" + tutor + ", dateTime=" + dateTime + ", content=" + content + ", grade=" + grade
+		return "ReportFeedback  dateTime=" + dateTime + ", content=" + content + ", grade=" + grade
 				+ "]";
 	}
 
