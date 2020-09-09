@@ -64,8 +64,8 @@
              
                         <div class="col-6" >
                             <label for="" >Tỉnh/TP <span style="color: red">(*)</span></label>
-                            <select name="cars" id="cars">
-                                <option value="">Đà Nẵng</option>
+                            <select name="district" id="district">
+                                <option value="">- Chọn Tỉnh/TP --</option>
                                 <option value="">Hà Nội</option>
                                 <option value="o">Hồ Chí Minh</option>
                               </select>

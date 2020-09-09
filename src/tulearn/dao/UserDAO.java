@@ -42,7 +42,7 @@ public class UserDAO {
 				ps.setInt(1, id);
 				rs = ps.executeQuery();
 				if (rs.next()) {
-					int genderID = rs.getInt(1);
+					int genderID = rs.getInt(1);	
 					String genderName = rs.getString(2);
 					gender = new Gender(genderID, genderName);
 				}

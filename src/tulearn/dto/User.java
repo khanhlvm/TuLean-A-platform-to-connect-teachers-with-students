@@ -35,6 +35,11 @@ public class User {
 		this.street = street;
 	}
 
+	public User(int userID) {
+		super();
+		this.userID = userID;
+	}
+
 	public int getUserID() {
 		return userID;
 	}

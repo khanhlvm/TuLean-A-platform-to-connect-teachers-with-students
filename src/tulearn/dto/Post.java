@@ -37,6 +37,12 @@ public class Post{
 		this.startDay = startDay;
 		this.postDes = postDes;
 	}	
+	
+
+	public Post(int postID) {
+		super();
+		this.postID = postID;
+	}
 
 	public int getPostID() {
 		return postID;

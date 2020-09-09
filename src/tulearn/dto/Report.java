@@ -49,6 +49,23 @@ public class Report {
 	public void setContent(String content) {
 		this.content = content;
 	}
+	
+
+	public Report(int tutorID, String dateTime, String content) {
+		super();
+		this.tutorID = tutorID;
+		this.dateTime = dateTime;
+		this.content = content;
+	}
+
+	@Override
+	public String toString() {
+		return "Report [tutorID=" + tutorID + ", postID=" + postID + ", dateTime=" + dateTime + ", content=" + content
+				+ "]";
+	}
+
+
+	
 
 	
 }

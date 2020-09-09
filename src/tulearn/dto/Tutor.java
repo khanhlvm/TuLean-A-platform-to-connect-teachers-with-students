@@ -25,6 +25,10 @@ public class Tutor extends User{
 		this.studentCard = studentCard;
 	}
 
+	public Tutor(int userID) {
+		super(userID);
+	}
+
 	public String getSalary() {
 		return salary;
 	}
