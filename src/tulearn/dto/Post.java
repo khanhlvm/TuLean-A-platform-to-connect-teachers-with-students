@@ -58,6 +58,58 @@ public class Post{
 		this.postDes = postDes;
 	}
 
+public Post(int postID, User learner, Subject subject, byte lessonLearn, float timeLearn) {
+		super();
+		this.postID = postID;
+		this.learner = learner;
+		this.subject = subject;
+		this.lessonLearn = lessonLearn;
+		this.timeLearn = timeLearn;
+	}
+	
+	
+
+	public Post(int postID, User learner, Subject subject, byte lessonLearn, float timeLearn, String fee) {
+		super();
+		this.postID = postID;
+		this.learner = learner;
+		this.subject = subject;
+		this.lessonLearn = lessonLearn;
+		this.timeLearn = timeLearn;
+		this.fee = fee;
+	}
+	
+
+	public Post(int postID, User learner, AddressUser address, Subject subject, byte lessonLearn, float timeLearn,
+			String postDes) {
+		super();
+		this.postID = postID;
+		this.learner = learner;
+		this.address = address;
+		this.subject = subject;
+		this.lessonLearn = lessonLearn;
+		this.timeLearn = timeLearn;
+		this.postDes = postDes;
+	}
+	
+
+	
+
+
+	public Post(int postID, Gender gender, Qualificate qualificate, Subject subject, byte lessonLearn, float timeLearn,
+			String fee, String startDay, String postDes) {
+		super();
+		this.postID = postID;
+		this.gender = gender;
+		this.qualificate = qualificate;
+		this.subject = subject;
+		this.lessonLearn = lessonLearn;
+		this.timeLearn = timeLearn;
+		this.fee = fee;
+		this.startDay = startDay;
+		this.postDes = postDes;
+	}
+
 	public int getPostID() {
 		return postID;
 	}

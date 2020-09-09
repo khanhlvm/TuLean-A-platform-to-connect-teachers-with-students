@@ -14,6 +14,11 @@ public class Qualificate {
 		this.qName = qName;
 	}
 
+	public Qualificate(String qName) {
+		super();
+		this.qName = qName;
+	}
+
 	public int getqID() {
 		return qID;
 	}

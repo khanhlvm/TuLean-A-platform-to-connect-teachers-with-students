@@ -5,6 +5,7 @@ public class Request {
 	private Post post;
 	private int statusID;
 	private boolean typeRequest;
+	private String status;
 	
 	public Request() {
 		super();
@@ -16,6 +17,26 @@ public class Request {
 		this.post = post;
 		this.statusID = statusID;
 		this.typeRequest = typeRequest;
+	}
+	
+
+	public Request(Tutor tutor, Post post) {
+		super();
+		this.tutor = tutor;
+		this.post = post;
+	}
+	
+
+	public Request(Tutor tutor, Post post, String status) {
+		super();
+		this.tutor = tutor;
+		this.post = post;
+		this.status = status;
+	}
+
+	public Request(Post post) {
+		super();
+		this.post = post;
 	}
 
 	public Tutor getTutor() {
@@ -48,6 +69,14 @@ public class Request {
 
 	public void setTypeRequest(boolean typeRequest) {
 		this.typeRequest = typeRequest;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 }
