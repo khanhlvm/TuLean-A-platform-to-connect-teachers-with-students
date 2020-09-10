@@ -23,20 +23,15 @@ function setInputDate(_id) {
 setInputDate("#datepicker");
 
 $(document).ready(function () {
-
-
     $('#btnDangBai, #btnCapNhap').on('click', function (e) {
         e.preventDefault();
         var inputState1 = $('#MonHoc').val();
         var inputState2 = $('#GioiTinhGiaSu').val();
         var inputState3 = $('#TrinhDoGiaSu').val();
         var inputState4 = $('#HocPhiDeXuat').val();
-        // var inputState5 = $('#datepicker').val();
-        var checkMoney = /^([1-9]+\d*)$/g;
-        if (inputState1 == "" || inputState2 == "" || inputState3 == "" || inputState4 == "" || !checkMoney.test(inputState4)) {
+        if (inputState1 == "" || inputState2 == "" || inputState3 == "" || inputState4 == "" ) {
             $("html, body").animate({ scrollTop: 0 }, 600);
         }
-
         if (inputState1 == "") {
             $('#state1').text("Không chọn item đầu tiên");
             $("#state1").show().delay(3000).fadeOut(1000);
@@ -49,21 +44,14 @@ $(document).ready(function () {
             $('#state3').text("Không chọn item đầu tiên");
             $("#state3").show().delay(3000).fadeOut(1000);
         }
-        if (inputState4 == "" || !checkMoney.test(inputState4)) {
+        if (inputState4 == "") {
             $('#state4').text("Làm ơn nhập số nguyên dương");
             $("#state4").show().delay(3000).fadeOut(1000);
         }
-        // if (inputState5 == "") {
-        //     $('#state5').text("Không chọn item đầu tiên");
-        //     $("#state5").show().delay(3000).fadeOut(1000);
-        // }
-
-
-
-    })
+		
+    });
    
-})
-
+});
 
 function ThemGio(obj) {
     var idNgay = obj.parentNode.id;

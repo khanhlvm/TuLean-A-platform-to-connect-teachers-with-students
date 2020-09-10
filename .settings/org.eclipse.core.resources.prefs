@@ -1,3 +1,15 @@
 eclipse.preferences.version=1
+encoding//src/tulearn/controller/AddTutorScheduleController.java=UTF-8
+encoding//src/tulearn/controller/ChangePassServlet.java=UTF-8
 encoding//src/tulearn/controller/CreatePostController.java=UTF-8
+encoding//src/tulearn/controller/LearnRegisterController.java=UTF-8
+encoding//src/tulearn/controller/ListInfoUserServlet.java=UTF-8
+encoding//src/tulearn/controller/LoginController.java=UTF-8
+encoding//src/tulearn/controller/LogoutController.java=UTF-8
+encoding//src/tulearn/controller/RegisterController.java=UTF-8
+encoding//src/tulearn/controller/TeachRegisterController.java=UTF-8
+encoding//src/tulearn/controller/UpdateUserInfoController.java=UTF-8
 encoding//src/tulearn/dao/PostDAO.java=UTF-8
+encoding//src/tulearn/dao/RequestDAO.java=UTF-8
+encoding//src/tulearn/dao/UserDAO.java=UTF-8
+encoding//src/tulearn/dto/Gender.java=UTF-8

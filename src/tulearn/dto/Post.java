@@ -2,7 +2,7 @@ package tulearn.dto;
 
 public class Post{
 	private int postID;
-	private User learner;
+	private Tutor learner;
 	private AddressUser address;
 	private Gender gender;
 	private Qualificate qualificate;
@@ -19,7 +19,7 @@ public class Post{
 		super();
 	}
 
-	public Post(int postID, User learner, AddressUser address, Gender gender, Qualificate qualificate, Subject subject,
+	public Post(int postID, Tutor learner, AddressUser address, Gender gender, Qualificate qualificate, Subject subject,
 			int statusPostID, boolean typePost, byte lessonLearn, float timeLearn, String fee, String startDay,
 			String postDes) {
 		super();
@@ -40,7 +40,7 @@ public class Post{
 	
 	
 
-	public Post(User learner, AddressUser address, Gender gender, Qualificate qualificate, Subject subject,
+	public Post(Tutor learner, AddressUser address, Gender gender, Qualificate qualificate, Subject subject,
 			int statusPostID, boolean typePost, byte lessonLearn, float timeLearn, String fee, String startDay,
 			String postDes) {
 		super();
@@ -51,6 +51,58 @@ public class Post{
 		this.subject = subject;
 		this.statusPostID = statusPostID;
 		this.typePost = typePost;
+		this.lessonLearn = lessonLearn;
+		this.timeLearn = timeLearn;
+		this.fee = fee;
+		this.startDay = startDay;
+		this.postDes = postDes;
+	}
+
+public Post(int postID, Tutor learner, Subject subject, byte lessonLearn, float timeLearn) {
+		super();
+		this.postID = postID;
+		this.learner = learner;
+		this.subject = subject;
+		this.lessonLearn = lessonLearn;
+		this.timeLearn = timeLearn;
+	}
+	
+	
+
+	public Post(int postID, Tutor learner, Subject subject, byte lessonLearn, float timeLearn, String fee) {
+		super();
+		this.postID = postID;
+		this.learner = learner;
+		this.subject = subject;
+		this.lessonLearn = lessonLearn;
+		this.timeLearn = timeLearn;
+		this.fee = fee;
+	}
+	
+
+	public Post(int postID, Tutor learner, AddressUser address, Subject subject, byte lessonLearn, float timeLearn,
+			String postDes) {
+		super();
+		this.postID = postID;
+		this.learner = learner;
+		this.address = address;
+		this.subject = subject;
+		this.lessonLearn = lessonLearn;
+		this.timeLearn = timeLearn;
+		this.postDes = postDes;
+	}
+	
+
+	
+
+
+	public Post(int postID, Gender gender, Qualificate qualificate, Subject subject, byte lessonLearn, float timeLearn,
+			String fee, String startDay, String postDes) {
+		super();
+		this.postID = postID;
+		this.gender = gender;
+		this.qualificate = qualificate;
+		this.subject = subject;
 		this.lessonLearn = lessonLearn;
 		this.timeLearn = timeLearn;
 		this.fee = fee;
@@ -70,7 +122,7 @@ public class Post{
 		return learner;
 	}
 
-	public void setLearner(User learner) {
+	public void setLearner(Tutor learner) {
 		this.learner = learner;
 	}
 

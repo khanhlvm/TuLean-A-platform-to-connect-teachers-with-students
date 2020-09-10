@@ -11,6 +11,17 @@ public class Gender {
 	public Gender(int gID, String gName) {
 		super();
 		this.gID = gID;
+		if(gName.equals("M")) {
+			this.gName = "Nam";
+		}else if(gName.equals("F")) {
+			this.gName = "Nữ";
+		}else {
+			this.gName = "Khác";
+		}
+	}
+
+	public Gender(String gName) {
+		super();
 		this.gName = gName;
 	}
 
@@ -27,7 +38,13 @@ public class Gender {
 	}
 
 	public void setgName(String gName) {
-		this.gName = gName;
+		if(gName == "M") {
+			this.gName = "Nam";
+		}else if(gName == "F") {
+			this.gName = "Nữ";
+		}else {
+			this.gName = "Khác";
+		}		
 	}
 		
 }

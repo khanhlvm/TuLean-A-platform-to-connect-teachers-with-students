@@ -1,0 +1,44 @@
+.general{
+	margin-top:0.1em;
+	padding-right: 0.3em;
+    border-radius: 0.3em;
+    color: white;
+}
+.valid {
+	background-color: #84d46a;  
+    float:left;
+}
+
+.invalid {
+    background-color: #ffa19e;
+    float:right;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.noti-success {
+    display: flex;
+    align-items: baseline;
+    background-color: #cdf5f1f6;
+    margin-bottom: 2em;
+    color: #2ebaae;
+}
+
+.noti-fail {
+    display: flex;
+    align-items: baseline;
+    background-color: #ff8e7a;
+    margin-bottom: 2em;
+    color:white;
+}
+
+.noti_icon {
+    margin: 0.5em 0 0.5em 0.5em;
+    color: white;
+}
+
+.noti-success p,.noti-fail p {
+    margin: 0.5em 0 0.5em 1em;   
+}

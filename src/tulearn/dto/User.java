@@ -35,6 +35,68 @@ public class User {
 		this.street = street;
 	}
 
+	public User(int userID, Gender gender, Qualificate qualificate, AddressUser address, String email, String phone,
+			String name, String street) {
+		super();
+		this.userID = userID;
+		this.gender = gender;
+		this.qualificate = qualificate;
+		this.address = address;
+		this.email = email;
+		this.phone = phone;
+		this.name = name;
+		this.street = street;
+	}
+
+public User(int userID, String name) {
+		super();
+		this.userID = userID;
+		this.name = name;
+	}
+	
+
+	public User(int userID, String phone, String name, String street) {
+		super();
+		this.userID = userID;
+		this.phone = phone;
+		this.name = name;
+		this.street = street;
+	}
+
+	public User(Qualificate qualificate, AddressUser address) {
+		super();
+		this.qualificate = qualificate;
+		this.address = address;
+	}
+
+	public User(int userID, Qualificate qualificate, AddressUser address, String name) {
+		super();
+		this.userID = userID;
+		this.qualificate = qualificate;
+		this.address = address;
+		this.name = name;
+	}
+	
+
+	public User(int userID, Qualificate qualificate, AddressUser address, String phone, String name) {
+		super();
+		this.userID = userID;
+		this.qualificate = qualificate;
+		this.address = address;
+		this.phone = phone;
+		this.name = name;
+	}
+
+	public User(int userID) {
+		super();
+		this.userID = userID;
+	}
+
+	public User(String name) {
+		super();
+		this.name = name;
+	}
+
 	public int getUserID() {
 		return userID;
 	}

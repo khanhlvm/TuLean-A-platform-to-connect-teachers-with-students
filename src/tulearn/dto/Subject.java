@@ -14,6 +14,11 @@ public class Subject {
 		this.sName = sName;
 	}
 
+	public Subject(String sName) {
+		super();
+		this.sName = sName;
+	}
+
 	public int getsID() {
 		return sID;
 	}
