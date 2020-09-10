@@ -58,14 +58,15 @@
                         <label for="" class="input">Số nhà, Đường: </label>
                         <p>${u.street}</p>
                     </div>
+	               
+	           </div>
                     <div class="col-12">
                         <hr>
                         <ul class="actions">
                             <li><input type="reset" value="HỦY" /></li>
                             <li><a href="cm-main-info-update.jsp" class="button">CẬP NHẬT</a></li>
                         </ul>
-                    </div>              
-                </div>
+                    </div>
             </form>
 
             </article>

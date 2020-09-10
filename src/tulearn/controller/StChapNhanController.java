@@ -37,13 +37,13 @@ public class StChapNhanController extends HttpServlet {
 			int Postid =Integer.parseInt(request.getParameter("btnPostID"));
 			
 			RequestDAO dao = new RequestDAO();
-			boolean result = dao.updateSatus(5,Postid,Tutorid);			
+			boolean result = dao.updateSatus(10,Postid,Tutorid);			
 			 
 						
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			request.getRequestDispatcher("StMainRequestManagerGlmd").include(request, response);
+			request.getRequestDispatcher("request-manager-student").include(request, response);
 		}
 	}
 

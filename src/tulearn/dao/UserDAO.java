@@ -5,11 +5,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Time;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import tulearn.context.DBContext;
 import tulearn.dto.AddressUser;
 import tulearn.dto.Gender;
 import tulearn.dto.Qualificate;
+import tulearn.dto.Schedule;
+import tulearn.dto.Subject;
 import tulearn.dto.Tutor;
 
 public class UserDAO {
@@ -202,6 +208,100 @@ public class UserDAO {
 			closeConnection();
 		}
 		return result;
+	}
+	
+	// get all of tutor and schedules
+	public HashMap<Tutor, ArrayList<Schedule>> getAllTutor() throws SQLException {
+		HashMap<Tutor, ArrayList<Schedule>> allPost = new HashMap<Tutor, ArrayList<Schedule>>();
+		UserDAO udao = new UserDAO();
+		try {
+			conn = DBContext.getConnection();
+			if (conn != null) {
+				String sql = "SELECT userID FROM UserTB WHERE NOT statusID=3 AND roleID=2";
+				ps = conn.prepareStatement(sql);
+				rs = ps.executeQuery();
+				while (rs.next()) {
+					int id = rs.getInt(1);
+					allPost.put(udao.getUserTutorByID(id), udao.getScheduleForTutor(id));
+				}
+			}
+		} finally {
+			closeConnection();
+		}
+		return allPost;
+	}
+	
+	// get tutor schedule
+	public ArrayList<Schedule> getScheduleForTutor(int tutorID) throws SQLException {
+		ArrayList<Schedule> scheList = new ArrayList<>();
+		try {
+			conn = DBContext.getConnection();
+			if (conn != null) {
+				String sql = "select dayWeek,startTime,endTime from ScheduleTutor where tutorID = ?";
+				ps = conn.prepareStatement(sql);
+				ps.setInt(1, tutorID);
+				rs = ps.executeQuery();
+				while (rs.next()) {
+					String dayWeek = rs.getString("dayWeek");
+					Time sTime = rs.getTime("startTime");
+					String startTime = sTime.toString().substring(0, 5);
+					Time eTime = rs.getTime("endTime");
+					String endTime = eTime.toString().substring(0, 5);
+					Schedule s = new Schedule(tutorID, dayWeek, startTime, endTime);
+					scheList.add(s);
+				}
+			}
+		} finally {
+			closeConnection();
+		}
+		return scheList;
+	}		
+	
+	public boolean addTutorSchedule(ArrayList<Schedule> ts) throws SQLException, ParseException {
+		boolean result = false;
+		try {
+			conn = DBContext.getConnection();
+			if (conn != null) {
+				String sql = "Insert into ScheduleTutor(tutorID,dayWeek,startTime,endTime) values (?,?,?,?)";
+				ps = conn.prepareStatement(sql);
+				for (Schedule sche : ts) {
+					ps.setInt(1, sche.getEntityID());
+					int daytime = Integer.parseInt(sche.getDayTime());
+					ps.setInt(2, daytime);
+					Time sTime = Time.valueOf(sche.getStartTime().concat(":00"));
+					Time eTime = Time.valueOf(sche.getEndTime().concat(":00"));
+					ps.setTime(3, sTime);
+					ps.setTime(4, eTime);
+				}
+				result = true;
+			}
+		}finally {
+			closeConnection();
+		}
+		return result;
+	}
+	
+	public ArrayList<Subject> getSubjectByTutorID(int id) throws SQLException {
+		ArrayList<Subject> s = new ArrayList<Subject>();
+		try {
+			conn = DBContext.getConnection();
+			if (conn != null) {
+				String sql = "SELECT SubjectTB.subjectID, SubjectTB.subjectName from SubjectTutor\r\n"
+						+ "INNER JOIN SubjectTB ON SubjectTutor.subjectID = SubjectTB.subjectID\r\n"
+						+ "WHERE SubjectTutor.tutorID =?";
+				ps = conn.prepareStatement(sql);
+				ps.setInt(1, id);
+				rs = ps.executeQuery();
+				while (rs.next()) {
+					int sID = rs.getInt(1);
+					String sName = rs.getString(2);
+					s.add(new Subject(sID, sName));
+				}
+			}
+		}finally{
+			closeConnection();
+		}
+		return s;
 	}
 
 }

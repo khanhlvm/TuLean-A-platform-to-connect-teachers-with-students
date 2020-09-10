@@ -8,14 +8,16 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import tulearn.dao.RequestDAO;
 import tulearn.dto.Request;
+import tulearn.dto.Tutor;
 
 /**
  * Servlet implementation class StMainClassMaController
  */
-@WebServlet("/StMainClassMaController")
+@WebServlet("/class-manager-student")
 public class StMainClassMaController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -48,12 +50,14 @@ public class StMainClassMaController extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		String url = "st-main-class-manager.jsp";
 		try {
+			HttpSession hs = request.getSession();
+			Tutor user = (Tutor)hs.getAttribute("u");
           	RequestDAO requestDAO = new RequestDAO();
-			List<Request> listRequest = requestDAO.tempLopDangChoDuyet(1);
+			List<Request> listRequest = requestDAO.tempLopDangChoDuyet(user.getUserID());
 			request.setAttribute("LIST_REQ", listRequest);
-			List<Request> listRequestS = requestDAO.tempLopDangHoc(1);
+			List<Request> listRequestS = requestDAO.tempLopDangHoc(user.getUserID());
 			request.setAttribute("LIST_REQGS", listRequestS);
-			List<Request> listRequestDH = requestDAO.tempDaHoc(1);
+			List<Request> listRequestDH = requestDAO.tempDaHoc(user.getUserID());
 			request.setAttribute("LIST_REQDH", listRequestDH);
 		} catch (Exception e) {
 			e.printStackTrace();

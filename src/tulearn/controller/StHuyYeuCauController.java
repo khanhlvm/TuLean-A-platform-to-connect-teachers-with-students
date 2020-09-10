@@ -43,7 +43,7 @@ public class StHuyYeuCauController extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			request.getRequestDispatcher("StMainRequestManagerGlmd").include(request, response);
+			request.getRequestDispatcher("request-manager-student").include(request, response);
 		}
 		
 		

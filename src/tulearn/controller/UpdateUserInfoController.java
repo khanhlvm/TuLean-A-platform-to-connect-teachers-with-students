@@ -1,6 +1,7 @@
 package tulearn.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -52,24 +53,40 @@ public class UpdateUserInfoController extends HttpServlet {
 		String success = "Cập nhật thông tin thành công";
 		String error = "Cập nhật thông tin thất bại";
 		try {						
-			String formHovaTen = request.getParameter("formHovaTen");
+			String formHovaTen = request.getParameter("formHovaTen");			
 			String formEmail = request.getParameter("formEmail");			
-			String formSDT = request.getParameter("formSDT");
+			String formSDT = request.getParameter("formSDT");												
+			String qualification = request.getParameter("qualification");
+			String gender = request.getParameter("gender");
+			String commune = request.getParameter("commune");
 			Qualificate q = new Qualificate();
-			q.setqID(2);
+			q.setqID(Integer.parseInt(qualification));
 			Gender g = new Gender();
-			g.setgID(Integer.parseInt(request.getParameter("gender")));
 			AddressUser a = new AddressUser();
-			a.setCommuneID(Integer.parseInt(request.getParameter("commune")));
+			if(gender.isEmpty() || commune.isEmpty()) {
+				g.setgID(3);
+				a.setCommuneID(455);
+			}else {
+				g.setgID(Integer.parseInt(gender));
+				a.setCommuneID(Integer.parseInt(commune));
+			}			
 			String formSoNha = request.getParameter("formSoNha");
 			HttpSession hs = request.getSession();
 			Tutor user = (Tutor)hs.getAttribute("u");
 			UserDAO udao = new UserDAO();
-			Tutor t;
+			Tutor t;			
 			if(user.getRoleID() == TUTOR_ROLE_ID) {
-				t = new Tutor();
-				if(udao.updateUserOrTutor(t)) {
+				String formMSSV = request.getParameter("formMSSV");			
+				String formCMND = request.getParameter("formCMND");			
+				String formLuong = request.getParameter("formLuong");
+				String formNoiLamViec = request.getParameter("formNoiLamViec");
+				t = new Tutor(user.getUserID(),g,q,a,formEmail,formSDT,formHovaTen,formSoNha,formLuong,formNoiLamViec,formCMND,formMSSV);
+				if(udao.updateUserOrTutor(t)) {		
+					Tutor tt = udao.getUserTutorByID(user.getUserID());
+					hs.setAttribute("u", tt);
 					request.getRequestDispatcher("tu-main-info-update.jsp?success=1&noti="+success).forward(request, response);
+				}else {				
+					request.getRequestDispatcher("tu-main-info-update.jsp?success=0&noti="+error).forward(request, response);
 				}		
 			}else if(user.getRoleID() == ADMIN_ROLE_ID || user.getRoleID() == STUDENT_ROLE_ID){
 				t = new Tutor(user.getUserID(),g,q,a,formEmail,formSDT,formHovaTen,formSoNha);
@@ -77,9 +94,9 @@ public class UpdateUserInfoController extends HttpServlet {
 					Tutor tt = udao.getUserTutorByID(user.getUserID());
 					hs.setAttribute("u", tt); 
 					request.getRequestDispatcher("cm-main-info-update.jsp?success=1&noti="+success).forward(request, response);
+				}else {				
+					request.getRequestDispatcher("cm-main-info-update.jsp?success=0&noti="+error).forward(request, response);
 				}
-			}else { 				
-				request.getRequestDispatcher("cm-main-login-register.jsp?success=0&noti="+error).forward(request, response);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

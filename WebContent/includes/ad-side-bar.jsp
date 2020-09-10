@@ -11,7 +11,7 @@
                 <header>					
 					<c:if test="${u.name==null}"><h2>Tên admin</h2></c:if>
 					<c:if test="${u.name!=null}"><h2>${u.name}</h2></c:if>
-					<p><i class="fas fa-user-tag"></i> Gia sư </p>
+					<p><i class="fas fa-user-tag"></i> Admin </p>
 					<p><i class="fas fa-user-check"></i> Trạng thái: normal </p>
 				</header>
             </section>

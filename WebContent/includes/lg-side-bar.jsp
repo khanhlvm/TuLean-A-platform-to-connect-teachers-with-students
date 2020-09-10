@@ -47,7 +47,14 @@
 	<!-- About -->
 	<section class="blurb">
 	    <h2>Về chúng tôi</h2>
-	    <p>Hiện nay, nhiều người có nhu cầu tìm kiếm gia sư rất lớn và phổ biến. Để đáp ứng nhu cầu này, hàng loạt các trung tâm gia sư được thành lập để cung cấp gia sư cho phụ huynh. Tuy nhiên, hiện nay cung chưa đáp ứng được cầu, vì vẫn có rất nhiều trung tâp cung cấp gia sư không đúng yêu cầu như: gia sư không tin cậy, chất lượng gia sư không được xét duyệt và quản lý thông tin...</p>
+	    <p>Hiện nay, nhiều người có nhu cầu tìm kiếm gia sư rất lớn và phổ biến. Để đáp ứng nhu cầu này, hàng loạt các trung tâm gia sư được thành lập để ...</p>
+	    <div class="box alt">
+            <div class="row gtr-uniform">
+                <div class="col-4"><span class="image fit"><img src="images/pic98.jpg" alt="" /></span></div>
+                <div class="col-4"><span class="image fit"><img src="images/pic97.jpg" alt="" /></span></div>
+                <div class="col-4"><span class="image fit"><img src="images/pic96.jpg" alt="" /></span></div>
+            </div>
+        </div>
 	    <ul class="actions">
 	        <li><a href="#" class="button">Xem thêm</a></li>
 	    </ul>

@@ -8,11 +8,11 @@
 
 			<!-- Intro -->
 			<section id="intro">
-				<a href="#" class="logo"><img src="images/logo.jpg" alt="" /></a>
-				<header>					
-					<c:if test="${u.name==null}"><h2>Tên học viên</h2></c:if>
+				<header>
+                	<a href="#" class="logo"><img src="images/logo.jpg" alt="" /></a> 					
+					<c:if test="${u.name==null}"><h2>Tên admin</h2></c:if>
 					<c:if test="${u.name!=null}"><h2>${u.name}</h2></c:if>
-					<p><i class="fas fa-user-tag"></i> Học viên </p>
+					<p><i class="fas fa-user-tag"></i>Học viên</p>
 					<p><i class="fas fa-user-check"></i> Trạng thái: normal </p>
 				</header>
 			</section>
@@ -38,90 +38,40 @@
 			<!-- Posts List -->
 			<section>
 				<ul class="posts">
+				<c:forEach items="${uhm}" var="tu">
 					<li>
 						<article>
 							<header>
 								<h3>
-									<a href="single.html">Tên Gia sư</a>
+									<a href="single.html">${tu.key.name}</a>
 								</h3>
 								<p class="published">
-									Hải Châu, Đà Nẵng - Rate 4.5 <i class="fas fa-star"></i>
+									${tu.key.address.districtName} - ${tu.key.address.provinceName} - Rate 4.5 <i class="fas fa-star"></i>
 								</p>
 							</header>
 							<a href="single.html" class="image"><img
-								src="images/pic08.jpg" alt="" /></a>
+								src="images/post-avatar.jpg" alt="" /></a>
 						</article>
 					</li>
-					<li>
-						<article>
-							<header>
-								<h3>
-									<a href="single.html">Tên Gia sư</a>
-								</h3>
-								<p class="published">
-									Hải Châu, Đà Nẵng - Rate 4.5 <i class="fas fa-star"></i>
-								</p>
-							</header>
-							<a href="single.html" class="image"><img
-								src="images/pic09.jpg" alt="" /></a>
-						</article>
-					</li>
-					<li>
-						<article>
-							<header>
-								<h3>
-									<a href="single.html">Tên Gia sư</a>
-								</h3>
-								<p class="published">
-									Thanh Khê, Đà Nẵng - Rate 3.5 <i class="fas fa-star"></i>
-								</p>
-							</header>
-							<a href="single.html" class="image"><img
-								src="images/pic10.jpg" alt="" /></a>
-						</article>
-					</li>
-					<li>
-						<article>
-							<header>
-								<h3>
-									<a href="single.html">Tên Gia sư</a>
-								</h3>
-								<p class="published">
-									Liên Chiểu, Đà Nẵng - Rate 5 <i class="fas fa-star"></i>
-								</p>
-							</header>
-							<a href="single.html" class="image"><img
-								src="images/pic11.jpg" alt="" /></a>
-						</article>
-					</li>
-					<li>
-						<article>
-							<header>
-								<h3>
-									<a href="single.html">Tên Gia sư</a>
-								</h3>
-								<p class="published">
-									Sơn Trà, Đà Nẵng - Rate 4.8 <i class="fas fa-star"></i>
-								</p>
-							</header>
-							<a href="single.html" class="image"><img
-								src="images/pic12.jpg" alt="" /></a>
-						</article>
-					</li>
+				</c:forEach>						
 				</ul>
 			</section>
 
 			<!-- About -->
-			<section class="blurb">
-				<h2>About</h2>
-				<p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus
-					nisl. Sed mattis nunc id lorem euismod amet placerat. Vivamus
-					porttitor magna enim, ac accumsan tortor cursus at phasellus sed
-					ultricies.</p>
-				<ul class="actions">
-					<li><a href="#" class="button">Learn More</a></li>
-				</ul>
-			</section>
+	<section class="blurb">
+	    <h2>Về chúng tôi</h2>
+	    <p>Hiện nay, nhiều người có nhu cầu tìm kiếm gia sư rất lớn và phổ biến. Để đáp ứng nhu cầu này, hàng loạt các trung tâm gia sư được thành lập để ...</p>
+	    <div class="box alt">
+            <div class="row gtr-uniform">
+                <div class="col-4"><span class="image fit"><img src="images/pic98.jpg" alt="" /></span></div>
+                <div class="col-4"><span class="image fit"><img src="images/pic97.jpg" alt="" /></span></div>
+                <div class="col-4"><span class="image fit"><img src="images/pic96.jpg" alt="" /></span></div>
+            </div>
+        </div>
+	    <ul class="actions">
+	        <li><a href="#" class="button">Xem thêm</a></li>
+	    </ul>
+	</section>
 
 			<!-- Footer -->
 			<section id="footer">

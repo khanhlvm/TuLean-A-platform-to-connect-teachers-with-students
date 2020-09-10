@@ -8,14 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import tulearn.context.DBContext;
-import tulearn.dto.Address;
 import tulearn.dto.AddressUser;
 import tulearn.dto.Post;
 import tulearn.dto.Qualificate;
 import tulearn.dto.Request;
 import tulearn.dto.Subject;
 import tulearn.dto.Tutor;
-import tulearn.dto.User;
 
 public class RequestDAO {
 	private Connection conn;
@@ -36,7 +34,6 @@ public class RequestDAO {
 		}
 	}
 
-	// lấy tất cả các yêu cầu
 
 	public boolean updateSatus(int status, int post,int tutorID) throws SQLException {
 		boolean result = false;
@@ -73,7 +70,7 @@ public class RequestDAO {
 		}
 		return result;
 	}
-//request của học viên
+//request cá»§a há»�c viÃªn
 	public List<Request> temp(int userID) throws SQLException {
 		List<Request> result = null;
 		try {
@@ -93,7 +90,7 @@ public class RequestDAO {
 					String subjectName = rs.getString("subjectName");
 					byte lessonLearn = rs.getByte("lessonLearn");
 					float timeLearn = rs.getFloat("timeLearn");
-					User u = new User(learnerID);
+					Tutor u = new Tutor(learnerID);
 					Subject s = new Subject(subjectName);
 
 					Post post = new Post(postID, u, s, lessonLearn, timeLearn);
@@ -144,7 +141,7 @@ public class RequestDAO {
 					String subjectName = rs.getString("subjectName");
 					byte lessonLearn = rs.getByte("lessonLearn");
 					float timeLearn = rs.getFloat("timeLearn");
-					User u = new User(learnerID);
+					Tutor u = new Tutor(learnerID);
 					Subject s = new Subject(subjectName);
 					Post post = new Post(postID, u, s, lessonLearn, timeLearn);
 					String tinh = rs.getString("provinceName");
@@ -199,7 +196,7 @@ public class RequestDAO {
 					String subjectName = rs.getString("subjectName");
 					byte lessonLearn = rs.getByte("lessonLearn");
 					float timeLearn = rs.getFloat("timeLearn");
-					User u = new User(learnerID);
+					Tutor u = new Tutor(learnerID);
 					Subject s = new Subject(subjectName);
 					Post post = new Post(postID, u, s, lessonLearn, timeLearn);
 					String tinh = rs.getString("provinceName");
@@ -256,7 +253,7 @@ public class RequestDAO {
 				String subjectName = rs.getString("subjectName");
 				byte lessonLearn = rs.getByte("lessonLearn");
 				float timeLearn = rs.getFloat("timeLearn");
-				User u = new User(learnerID);
+				Tutor u = new Tutor(learnerID);
 				Subject s = new Subject(subjectName);
 				Post post = new Post(postID, u, s, lessonLearn, timeLearn);
 				String tinh = rs.getString("provinceName");
@@ -312,7 +309,7 @@ public class RequestDAO {
     				String subjectName = rs.getString("subjectName");
     				byte lessonLearn = rs.getByte("lessonLearn");
     				float timeLearn = rs.getFloat("timeLearn");
-    				User u = new User(learnerID);
+    				Tutor u = new Tutor(learnerID);
     				Subject s = new Subject(subjectName);
     				Post post = new Post(postID, u, s, lessonLearn, timeLearn);
     				String tinh = rs.getString("provinceName");
@@ -343,7 +340,7 @@ public class RequestDAO {
     }
     
     
-    //request của gia sư
+    //request cá»§a gia sÆ°
     public List<Request> tempDangKyDay(int tutorID) throws SQLException {
     	List<Request> result = null;
 		try {
@@ -368,7 +365,7 @@ public class RequestDAO {
 					byte lessonLearn = rs.getByte("lessonLearn");
 					float timeLearn = rs.getFloat("timeLearn");
 					String fee =rs.getString("fee");
-					User u = new User(learnerID, userName);
+					Tutor u = new Tutor(learnerID, userName);
 					Subject s = new Subject(subjectName);
 					Post post = new Post(postID, u, s, lessonLearn, timeLearn,fee);
 					// Request
@@ -416,7 +413,7 @@ public class RequestDAO {
 					byte lessonLearn = rs.getByte("lessonLearn");
 					float timeLearn = rs.getFloat("timeLearn");
 					String fee =rs.getString("fee");
-					User u = new User(learnerID, userName);
+					Tutor u = new Tutor(learnerID, userName);
 					Subject s = new Subject(subjectName);
 					String postDes= rs.getString("postDes");
 					String province = rs.getString("provinceName");
@@ -470,7 +467,7 @@ public class RequestDAO {
 					String fee =rs.getString("fee");
 					String phone =rs.getString("phone");
 					String street =rs.getString("streetName");
-					User u = new User(learnerID, phone, userName, street);
+					Tutor u = new Tutor(learnerID, phone, userName, street);
 					Subject s = new Subject(subjectName);
 					String postDes= rs.getString("postDes");
 					String province = rs.getString("provinceName");
@@ -524,7 +521,7 @@ public class RequestDAO {
 					String fee =rs.getString("fee");
 					String phone =rs.getString("phone");
 					String street =rs.getString("streetName");
-					User u = new User(learnerID, phone, userName, street);
+					Tutor u = new Tutor(learnerID, phone, userName, street);
 					Subject s = new Subject(subjectName);
 					String postDes= rs.getString("postDes");
 					String province = rs.getString("provinceName");
@@ -578,7 +575,7 @@ public class RequestDAO {
 					String fee =rs.getString("fee");
 					String phone =rs.getString("phone");
 					String street =rs.getString("streetName");
-					User u = new User(learnerID, phone, userName, street);
+					Tutor u = new Tutor(learnerID, phone, userName, street);
 					Subject s = new Subject(subjectName);
 					String postDes= rs.getString("postDes");
 					String province = rs.getString("provinceName");
@@ -603,5 +600,25 @@ public class RequestDAO {
 		}
 		return result;
 	} 
+    
+    public boolean insertRequestToLearner(Request req) throws SQLException {
+    	boolean result = false;
+    	try {
+			conn = DBContext.getConnection();
+			if (conn != null) {
+				String sql = "INSERT INTO Request(tutorID,postID,typeRequest,statusID) VALUES (?,?,?,?)";
+				ps = conn.prepareStatement(sql);	
+				ps.setInt(1, req.getTutor().getUserID());		
+				ps.setInt(2, req.getPost().getPostID());
+				ps.setInt(3, req.isTypeRequest());
+				ps.setInt(4, req.getStatusID());
+				result = ps.executeUpdate() > 0;
+			}
+			result = true;
+		}finally {
+			closeConnection();
+		}
+		return result;
+    }
 
 }

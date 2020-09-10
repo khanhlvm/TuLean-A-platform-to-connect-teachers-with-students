@@ -63,8 +63,12 @@ public class Request {
 		this.statusID = statusID;
 	}
 
-	public boolean isTypeRequest() {
-		return typeRequest;
+	public int isTypeRequest() {
+		if(typeRequest) {
+			return 1;
+		}else {
+			return 0;
+		}
 	}
 
 	public void setTypeRequest(boolean typeRequest) {

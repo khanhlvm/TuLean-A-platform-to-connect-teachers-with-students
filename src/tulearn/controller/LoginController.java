@@ -2,6 +2,8 @@ package tulearn.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import tulearn.dao.AccountDAO;
+import tulearn.dao.PostDAO;
 import tulearn.dao.UserDAO;
+import tulearn.dto.Post;
+import tulearn.dto.Schedule;
 import tulearn.dto.Tutor;
 import tulearn.dto.User;
 
@@ -55,6 +60,7 @@ public class LoginController extends HttpServlet {
 			String password = request.getParameter("password");		
 			AccountDAO adao = new AccountDAO();
 			UserDAO udao = new UserDAO(); 
+			PostDAO pdao = new PostDAO();
 			User us = adao.checkLogin(email, password);
 			Tutor tt = udao.getUserTutorByID(us.getUserID());
 			// set user into session
@@ -64,8 +70,12 @@ public class LoginController extends HttpServlet {
 			if(tt.getRoleID() == ADMIN_ROLE_ID) {	
 				request.getRequestDispatcher("ad-main-common-manager.jsp?success=1&noti="+admin).forward(request, response);
 			}else if(tt.getRoleID() == TUTOR_ROLE_ID) {
+				HashMap<Post, ArrayList<Schedule>> hm = pdao.getAllPost();
+				hs.setAttribute("hm", hm); 
 				request.getRequestDispatcher("tu-main-home.jsp?success=1&noti="+success).forward(request, response);
 			}else if(tt.getRoleID() == STUDENT_ROLE_ID) {
+				HashMap<Tutor, ArrayList<Schedule>> hm = udao.getAllTutor();
+				hs.setAttribute("uhm", hm); 
 				request.getRequestDispatcher("st-main-home.jsp?success=1&noti="+success).forward(request, response);
 			}else {				
 				request.getRequestDispatcher("cm-main-login-register.jsp?success=0&noti="+error).forward(request, response);

@@ -2,7 +2,7 @@ package tulearn.dto;
 
 public class Post{
 	private int postID;
-	private User learner;
+	private Tutor learner;
 	private AddressUser address;
 	private Gender gender;
 	private Qualificate qualificate;
@@ -19,7 +19,7 @@ public class Post{
 		super();
 	}
 
-	public Post(int postID, User learner, AddressUser address, Gender gender, Qualificate qualificate, Subject subject,
+	public Post(int postID, Tutor learner, AddressUser address, Gender gender, Qualificate qualificate, Subject subject,
 			int statusPostID, boolean typePost, byte lessonLearn, float timeLearn, String fee, String startDay,
 			String postDes) {
 		super();
@@ -40,7 +40,7 @@ public class Post{
 	
 	
 
-	public Post(User learner, AddressUser address, Gender gender, Qualificate qualificate, Subject subject,
+	public Post(Tutor learner, AddressUser address, Gender gender, Qualificate qualificate, Subject subject,
 			int statusPostID, boolean typePost, byte lessonLearn, float timeLearn, String fee, String startDay,
 			String postDes) {
 		super();
@@ -58,7 +58,7 @@ public class Post{
 		this.postDes = postDes;
 	}
 
-public Post(int postID, User learner, Subject subject, byte lessonLearn, float timeLearn) {
+public Post(int postID, Tutor learner, Subject subject, byte lessonLearn, float timeLearn) {
 		super();
 		this.postID = postID;
 		this.learner = learner;
@@ -69,7 +69,7 @@ public Post(int postID, User learner, Subject subject, byte lessonLearn, float t
 	
 	
 
-	public Post(int postID, User learner, Subject subject, byte lessonLearn, float timeLearn, String fee) {
+	public Post(int postID, Tutor learner, Subject subject, byte lessonLearn, float timeLearn, String fee) {
 		super();
 		this.postID = postID;
 		this.learner = learner;
@@ -80,7 +80,7 @@ public Post(int postID, User learner, Subject subject, byte lessonLearn, float t
 	}
 	
 
-	public Post(int postID, User learner, AddressUser address, Subject subject, byte lessonLearn, float timeLearn,
+	public Post(int postID, Tutor learner, AddressUser address, Subject subject, byte lessonLearn, float timeLearn,
 			String postDes) {
 		super();
 		this.postID = postID;
@@ -122,7 +122,7 @@ public Post(int postID, User learner, Subject subject, byte lessonLearn, float t
 		return learner;
 	}
 
-	public void setLearner(User learner) {
+	public void setLearner(Tutor learner) {
 		this.learner = learner;
 	}
 

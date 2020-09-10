@@ -45,7 +45,7 @@ public class stXoaLopHoccontroller extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			request.getRequestDispatcher("StMainClassMaController").include(request, response);
+			request.getRequestDispatcher("class-manager-student").include(request, response);
 		}
 	}
 

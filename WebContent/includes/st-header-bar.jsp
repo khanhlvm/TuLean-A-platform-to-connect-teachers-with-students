@@ -9,14 +9,14 @@
 		<!-- Header -->
 		<header id="header">
 			<h1>
-				<a href="index.html"><i class="fas fa-user-graduate"></i>
+				<a href="st-main-home.jsp"><i class="fas fa-user-graduate"></i>
 					TuLearn</a>
 			</h1>
 			<nav class="links">
 				<ul>
-					<li><a href="#"><i class="fas fa-users"></i> Quản lý lớp
+					<li><a href="class-manager-student"><i class="fas fa-users"></i> Quản lý lớp
 							học</a></li>
-					<li><a href="#"><i class="fas fa-tasks"></i> Quản lý yêu
+					<li><a href="request-manager-student"><i class="fas fa-tasks"></i> Quản lý yêu
 							cầu</a></li>
 					<li><a href="#"><i class="fas fa-search"></i> Tìm gia sư</a></li>
 					<li><a href="BeforePost"><i class="far fa-calendar-plus"></i> Tạo

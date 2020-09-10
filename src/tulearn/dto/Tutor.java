@@ -53,9 +53,12 @@ public class Tutor extends User{
 	public Tutor(int userID, Qualificate qualificate, AddressUser address, String name, String salary) {
 		super(userID, qualificate, address, name);
 		this.salary = salary;
+	}	
+		
+	public Tutor(int userID, String phone, String name, String street) {
+		super(userID, phone, name, street);
 	}
-	
-	
+
 	public Tutor(int userID) {
 		super(userID);
 	}

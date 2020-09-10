@@ -22,7 +22,7 @@ import tulearn.dto.Subject;
 /**
  * Servlet implementation class UpdatePost
  */
-@WebServlet("/UpdatePost")
+@WebServlet("/update-post")
 public class UpdatePost extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

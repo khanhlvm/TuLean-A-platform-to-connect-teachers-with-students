@@ -44,7 +44,7 @@ public class GsHuyYeuCauController extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			request.getRequestDispatcher("TuMaReManagerController").include(request, response);
+			request.getRequestDispatcher("request-manager-tutor").include(request, response);
 		}
 	}
 

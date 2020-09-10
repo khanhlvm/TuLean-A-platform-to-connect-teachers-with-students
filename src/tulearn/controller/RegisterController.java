@@ -35,6 +35,7 @@ public class RegisterController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");	
 		String success = "Đăng ký tài khoản thành công";
+		String error = "Đăng ký tài khoản thất bại !";
 		try {			
 			String vEmail = request.getParameter("verifyEmail").trim();
 			AccountDAO adao = new AccountDAO();
@@ -44,13 +45,12 @@ public class RegisterController extends HttpServlet {
 			
 			if(vEmail.equals(vCode)&& adao.insertRegister(us)) {				
 				request.getRequestDispatcher("cm-main-login-register.jsp?success=1&noti="+success).forward(request, response);;
+			}else {				
+				request.getRequestDispatcher("cm-main-login-register.jsp?success=0&noti="+error).forward(request, response);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-			String error = "Đăng ký tài khoản thất bại !";
-			request.getRequestDispatcher("cm-main-login-register.jsp?success=0&noti="+error).forward(request, response);
-		}
+		} 
 	}
 
 	/**

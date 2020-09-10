@@ -133,7 +133,7 @@
 					</div>
 				</div>
 				<footer>
-					<a href="#" class="button btn">Feedback</a>
+					<a href="st-main-class-feedback.jsp" class="button btn">Feedback</a>
 				</footer>
 			</article>
 		</c:forEach>

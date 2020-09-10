@@ -3,6 +3,7 @@ package tulearn.controller;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -19,12 +20,14 @@ import tulearn.dao.PostDAO;
 import tulearn.dao.RequestDAO;
 import tulearn.dto.Post;
 import tulearn.dto.Request;
+import tulearn.dto.Schedule;
+import tulearn.dto.Tutor;
 import tulearn.dto.User;
 
 /**
  * Servlet implementation class StMainRequestManagerGlmd
  */
-@WebServlet("/StMainRequestManagerGlmd")
+@WebServlet("/request-manager-student")
 public class StMainReqMaGlmdController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private final String SUCCESS = "st-main-request-manager.jsp";
@@ -46,13 +49,18 @@ public class StMainReqMaGlmdController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		try {
+			HttpSession hs = request.getSession();
+			Tutor user = (Tutor)hs.getAttribute("u");
           	RequestDAO requestDAO = new RequestDAO();
-			List<Request> listRequest = requestDAO.temp(1);
+          	PostDAO pdao = new PostDAO();
+			List<Request> listRequest = requestDAO.temp(user.getUserID());
 			request.setAttribute("LIST_REQ", listRequest);
-			List<Request> listRequestS = requestDAO.tempGSGYCau(1);
+			List<Request> listRequestS = requestDAO.tempGSGYCau(user.getUserID());
 			request.setAttribute("LIST_REQGS", listRequestS);
 			PostDAO postDAO = new PostDAO();
-			List<Post> listpost= postDAO.temp(1);
+			HashMap<Post, ArrayList<Schedule>> hm = pdao.getAllPost();
+			hs.setAttribute("hm", hm); 
+			List<Post> listpost= postDAO.temp(user.getUserID());
 			request.setAttribute("LIST_REQPOST", listpost);
 		} catch (Exception e) {
 			e.printStackTrace();
