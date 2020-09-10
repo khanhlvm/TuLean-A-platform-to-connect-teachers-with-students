@@ -86,13 +86,13 @@
     <article class="post">
 	    <section>
 	        <h2>Tu learn</h2>
-	        <p>Nền tảng kết nối gia sư và học viên một cách dễ dàng và nhanh chóng</p>
+	        <h4>Nền tảng kết nối gia sư và học viên một cách dễ dàng và nhanh chóng</h4>
 	            <div class="box alt">
 	                <div class="row gtr-uniform">
-	                    <div class="col-12"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-	                    <div class="col-4"><span class="image fit"><img src="images/pic04.jpg" alt="" /></span></div>
-	                    <div class="col-4"><span class="image fit"><img src="images/pic05.jpg" alt="" /></span></div>
-	                    <div class="col-4"><span class="image fit"><img src="images/pic06.jpg" alt="" /></span></div>
+	                    <div class="col-12"><span class="image fit"><img src="images/pic99.jpg" alt="" /></span></div>
+	                    <div class="col-4"><span class="image fit"><img src="images/pic98.jpg" alt="" /></span></div>
+	                    <div class="col-4"><span class="image fit"><img src="images/pic97.jpg" alt="" /></span></div>
+	                    <div class="col-4"><span class="image fit"><img src="images/pic96.jpg" alt="" /></span></div>
 	                </div>
 	            </div>
 	            <h4>Left &amp; Right</h4>

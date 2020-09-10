@@ -8,7 +8,7 @@
 
         <!-- Header -->
         <header id="header">
-            <h1><a href="index.html"><i class="fas fa-user-graduate"></i>TuLearn</a></h1>
+            <h1><a href="cm-main-login-register.jsp"><i class="fas fa-user-graduate"></i>TuLearn</a></h1>
             <nav class="links">
                 <ul>
                     <li><a href="#"><i class="fas fa-user-tie"></i> Tìm gia sư</a></li>

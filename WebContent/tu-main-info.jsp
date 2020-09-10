@@ -19,7 +19,7 @@
 
 <!-- Main -->
 <div id="main">
-
+<%@ include file="/includes/cm-notification-bar.jsp" %>
     <!-- Tabbar -->
 	<div class="tab">
 	    <button class="tablinks" onclick="openCity(event, 'London')">Thông tin cá nhân</button>
@@ -30,7 +30,7 @@
 	
 	<div id="London" class="tabcontent">
 	    <article class="post">
-	        <form method="post" action="">
+	        <form method="post" action="update-info">
 	       		<div class="row gtr-uniform">
 	           <div class=" col-6 form" >
 	               <label for="" class="input">Họ và tên: </label>
@@ -88,7 +88,7 @@
 	                    <hr>
 	                    <ul class="actions">
 	                        <li><input type="reset" value="HỦY" /></li>
-	                        <li><input type="submit" value="CẬP NHẬT" /></li>
+	                        <li><a href="tu-main-info-update.jsp" class="button">CẬP NHẬT</a></li>
 	                    </ul>
 	                </div>
 	        
@@ -99,10 +99,40 @@
 	
 	<div id="Berlin" class="tabcontent">
 	    <article class="post">
-	    <form method="post" action="CreatePostController">
+	    <form method="post" action="add-schedule-tutor">
 			<div class="row gtr-uniform">
-	        <div class="col-12">
-						<label for="">Chọn lịch dạy trong tuần</label>
+			<div class="col-12">
+						<label for="">LỊCH DẠY TRONG TUẦN</label>
+					</div>
+			<div class="col-12">
+				<c:forEach items="${reqsch}" var="sch">
+							<div class="row canh col-12 gioranh1">															
+								<div class="row canh col-2 col-6-xsmall gio">
+									<select class="" name="NgayRanh">
+										<option value="${sch.dayTime}">Thứ ${sch.dayTime}</option>										
+									</select>
+								</div>
+								<label class="phancachgio" for="">-</label>
+								<div class="row canh col-2 col-6-xsmall gio">
+									<select name="GioBatDau" id="demo-category">
+										<option value="${sch.startTime}">${sch.startTime}</option>
+									</select>
+								</div>
+								<label class="phancachgio" for="">-</label>
+								<div class="row canh col-2 col-6-xsmall gio">
+									<select name="GioKetThuc" id="demo-category">
+										<option value="${sch.endTime}">${sch.endTime}</option>
+									</select>
+								</div>
+								<label class="phancachgio" for="">-</label>
+								<div class="row canh col-2 col-6-xsmall gio">
+								<a onclick="XoaGio(this)" class="button" href="">Xóa</a>
+								</div>
+							</div>							
+							</c:forEach>
+							</div>
+	        		<div class="col-12">
+						<label for="">THÊM LỊCH DẠY TRONG TUẦN</label>
 					</div>
 					<div class="col-12">
 						<div class="col-12" id="ngay1">
@@ -149,7 +179,7 @@
 					<div class="col-12">
 						<hr>
 						<ul class="btnArea">
-							<li><input type="submit" value="Đăng Bài" /></li>
+							<li><input type="submit" value="Thêm lịch" /></li>
 							<li><input type="reset" value="Reset" /></li>
 						</ul>
 					</div>

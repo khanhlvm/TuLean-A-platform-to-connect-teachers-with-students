@@ -7,7 +7,7 @@
 
             <!-- Intro -->
             <section id="intro">
-                <a href="#" class="logo"><img src="images/logo.jpg" alt="" /></a>
+                <a href="#" class="logo"><img src="images/tu-avatar.jpg" alt="" /></a>
 				<header>					
 					<c:if test="${u.name==null}"><h2>Tên gia sư</h2></c:if>
 					<c:if test="${u.name!=null}"><h2>${u.name}</h2></c:if>
@@ -27,7 +27,7 @@
                     </li>
                     <li>
                         <i class="fas fa-edit"></i>
-                        <a href="">Cập nhật hồ sơ</a>
+                        <a href="tu-main-info-update.jsp">Cập nhật hồ sơ</a>
                     </li>
                     <li>
                         <i class="far fa-bell"></i>
@@ -44,66 +44,41 @@
             <!-- Mini Posts -->
             <section>
                 <div class="mini-posts">
-
+				<c:forEach items="${hm}" var="ps">
                     <!-- Mini Post -->
                     <article class="mini-post">
                         <header>
-                            <h3><a href="single.html">Tìm gia sư dạy Toán</a></h3>
-                            <p class="published">Thanh Khê, Đà Nẵng</p>
-                            <p class="published">Học phí: 200.000vnđ/buổi</p>
-                            <p class="published">Thời gian: 18h T2 - 4 - 6</p>
-                            <a href="#" class="author"><img src="images/avatar.jpg" alt="" /></a>
+                            <h3><a href="single.html">Tìm gia sư dạy ${ps.key.subject.sName}</a></h3>
+                            <p class="published">${ps.key.address.districtName} - ${ps.key.address.provinceName}</p>
+                            <p class="published">Học phí: ${ps.key.fee} đ/buổi</p>
+                            <p class="published">Thời gian: 
+							<c:forEach items="${ps.value}" var="sc">
+		                    		Thứ ${sc.dayTime} : ${sc.startTime} - ${sc.endTime},
+		                    </c:forEach>
+							</p>
+                            <a href="#" class="author"><img src="images/post-avatar.jpg" alt="" /></a>
                         </header>
-                        <a href="single.html" class="image"><img src="images/pic04.jpg" alt="" /></a>
+                        <a href="single.html" class="image"><img src="images/pic98.jpg" alt="" /></a>
                     </article>
-
-                    <!-- Mini Post -->
-                    <article class="mini-post">
-                        <header>
-                            <h3><a href="single.html">Tìm gia sư dạy vẽ</a></h3>
-                            <p class="published">Hải Châu, Đà Nẵng</p>
-                            <p class="published">Học phí: 350.000vnđ/buổi</p>
-                            <p class="published">Thời gian: 18h T2 - 4 - 6</p>
-                            <a href="#" class="author"><img src="images/avatar.jpg" alt="" /></a>
-                        </header>
-                        <a href="single.html" class="image"><img src="images/pic05.jpg" alt="" /></a>
-                    </article>
-
-                    <!-- Mini Post -->
-                    <article class="mini-post">
-                        <header>
-                            <h3><a href="single.html">Tìm gia sư dạy Thể dục</a></h3>
-                            <p class="published">Sơn Trà, Đà Nẵng</p>
-                            <p class="published">Học phí: 500.000vnđ/buổi</p>
-                            <p class="published">Thời gian: 6h T2 - 4 - 6</p>
-                            <a href="#" class="author"><img src="images/avatar.jpg" alt="" /></a>
-                        </header>
-                        <a href="single.html" class="image"><img src="images/pic06.jpg" alt="" /></a>
-                    </article>
-
-                    <!-- Mini Post -->
-                    <article class="mini-post">
-                        <header>
-                            <h3><a href="single.html">Tìm gia sư dạy Tiếng Anh</a></h3>
-                            <p class="published">Hội An, Quảng Nam</p>
-                            <p class="published">Học phí: 100.000vnđ/buổi</p>
-                            <p class="published">Thời gian: 19h T2 - 4 - 6</p>
-                            <a href="#" class="author"><img src="images/avatar.jpg" alt="" /></a>
-                        </header>
-                        <a href="single.html" class="image"><img src="images/pic07.jpg" alt="" /></a>
-                    </article>
-
+				</c:forEach>
                 </div>
             </section>
 
             <!-- About -->
-            <section class="blurb">
-                <h2>About</h2>
-                <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod amet placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at phasellus sed ultricies.</p>
-                <ul class="actions">
-                    <li><a href="#" class="button">Learn More</a></li>
-                </ul>
-            </section>
+	<section class="blurb">
+	    <h2>Về chúng tôi</h2>
+	    <p>Hiện nay, nhiều người có nhu cầu tìm kiếm gia sư rất lớn và phổ biến. Để đáp ứng nhu cầu này, hàng loạt các trung tâm gia sư được thành lập để ...</p>
+	    <div class="box alt">
+            <div class="row gtr-uniform">
+                <div class="col-4"><span class="image fit"><img src="images/pic98.jpg" alt="" /></span></div>
+                <div class="col-4"><span class="image fit"><img src="images/pic97.jpg" alt="" /></span></div>
+                <div class="col-4"><span class="image fit"><img src="images/pic96.jpg" alt="" /></span></div>
+            </div>
+        </div>
+	    <ul class="actions">
+	        <li><a href="#" class="button">Xem thêm</a></li>
+	    </ul>
+	</section>
 
             <!-- Footer -->
             <section id="footer">

@@ -8,7 +8,7 @@
 
         <!-- Header -->
         <header id="header">
-            <h1><a href="index.html"><i class="fas fa-user-graduate"></i> TuLearn</a></h1>
+            <h1><a href="ad-main-common-manager.jsp"><i class="fas fa-user-graduate"></i> TuLearn</a></h1>
             <nav class="links">
                 <ul>
                     <li><a href="#"><i class="fas fa-bullhorn"></i> Truyền thông</a></li>

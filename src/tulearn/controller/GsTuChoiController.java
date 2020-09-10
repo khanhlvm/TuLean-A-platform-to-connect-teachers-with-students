@@ -45,7 +45,7 @@ public class GsTuChoiController extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			request.getRequestDispatcher("TuMaReManagerController").include(request, response);
+			request.getRequestDispatcher("class-manager-tutor").include(request, response);
 		}
 	}
 

@@ -14,7 +14,7 @@ import tulearn.dao.PostDAO;
 /**
  * Servlet implementation class DeletePostController
  */
-@WebServlet("/DeletePostController")
+@WebServlet("/delete-post")
 public class DeletePostController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -33,11 +33,11 @@ public class DeletePostController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		PostDAO pdao = new PostDAO();
-		int id = Integer.parseInt(request.getParameter("id"));
+		int Postid =Integer.parseInt(request.getParameter("btnPostID"));
 		try {
-			int tc = pdao.deletePost(id);
+			int tc = pdao.deletePost(Postid);
 			if(tc > 0) {
-				response.getWriter().append("Xóa Thành Công");
+				request.getRequestDispatcher("request-manager-student").include(request, response);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

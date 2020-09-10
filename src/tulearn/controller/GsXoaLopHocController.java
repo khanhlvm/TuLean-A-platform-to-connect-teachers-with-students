@@ -45,7 +45,7 @@ public class GsXoaLopHocController extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			request.getRequestDispatcher("TuMainClassManagerController").include(request, response);
+			request.getRequestDispatcher("class-manager-tutor").include(request, response);
 		}
 	}
 

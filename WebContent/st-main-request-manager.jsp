@@ -23,6 +23,7 @@
 
 <!-- Main -->
         <div id="main">
+        <%@ include file="/includes/cm-notification-bar.jsp" %>
             <!-- Tabbar -->
            <div class="tab">
                 <button class="tablinks" onclick="openCity(event, 'London')">Yêu cầu tìm GS</button>
@@ -33,73 +34,65 @@
             <div id="London" class="tabcontent">
                 <!-- Post -->
                   <c:forEach items="${requestScope.LIST_REQPOST}" var="re"> 
-                         <form action="StHuyBaiPostController" method="GET">
                   
                 <article class="post">
                     <header>
                         <div class="title">
-                            <h2><a href="single.html">Bạn đã đăng yêu cầu tìm gia sư</a></h2>
-                          
-                            <a class="quanly" onclick="" href="#">Chỉnh Sửa</a>
-                              <input type="submit"  class="quanly"  value="Hủy yêu cầu">
-                       
+                            <h2><a href="single.html">Bạn đã đăng yêu cầu tìm gia sư</a></h2>                          
+                            <a class="quanly" onclick="" href="update-post?id=${re.postID}">Chỉnh sửa</a>
+                            <a class="quanly" onclick="" href="delete-post?btnPostID=${re.postID}">Hủy yêu cầu</a>                       
                         </div>
                         
                     </header>
                     <div class="row bai">
                         <div class="row col-6 col-12-xsmall">
-                            <label class="infor" for="">Môn Học: </label>
-                            <label class="infor" for="">${re.subject.sName}</label>
+                            <label for="">Môn Học: </label>
+                            <p>${re.subject.sName}</p>
                         </div>
                         <div class="row col-6 col-12-xsmall">
-                            <label class="infor" for="">Giới Tính Gia Sư: </label>
-                            <label class="infor" for="">${re.gender.gName}</label>
+                            <label for="">Giới Tính Gia Sư: </label>
+                            <p>${re.gender.gName}</p>
                         </div>
                         <div class="row col-6 col-12-xsmall">
-                            <label class="infor" for="">Trình Độ Gia Sư: </label>
-                            <label class="infor" for="">${re.qualificate.qName}</label>
-                        </div>
-                         <div class="row col-6 col-12-xsmall">
-                                 
-					             <input type="hidden" name="btnPostID" value="${re.postID}">	
-                            </div>
+                            <label for="">Trình Độ Gia Sư: </label>
+                            <p>${re.qualificate.qName}</p>
+                        </div>                         
                         <div class="row col-6 col-12-xsmall">
-                            <label class="infor" for="">Học Phí Đề Xuất/Buổi: </label>
-                            <label class="infor" for="">${re.fee}</label>
+                            <label for="">Học Phí Đề Xuất/Buổi: </label>
+                            <p>${re.fee}</p>
                         </div>
                         <div class="row col-6 col-12-xsmall">
-                            <label class="infor" for="">Số Giờ Học/Buổi: </label>
-                            <label class="infor" for="">${re.lessonLearn}</label>
+                            <label for="">Số Giờ Học/Buổi: </label>
+                            <p>${re.lessonLearn}</p>
                         </div>
                         <div class="row col-6 col-12-xsmall">
-                            <label class="infor" for="">Số Buổi Học/Ngày: </label>
-                            <label class="infor" for="">${re.timeLearn}</label>
+                            <label for="">Số Buổi Học/Ngày: </label>
+                            <p>${re.timeLearn}</p>
+                        </div>
+                        <div class="row col-6 col-12-xsmall">
+                            <label for="">Ngày Dự Kiến Bắt Đầu Học: </label>
+                            <p>${re.startDay}</p>
                         </div>
                         <div class="row col-12 more1">
-                            <label class="infor" for="">Ngày Dự Kiến Bắt Đầu Học: </label>
-                            <label class="infor" for="">${re.startDay}</label>
-                        </div>
-                        <div class="row col-12 more1">
-                            <label class="infor" for="">Mong Muốn, Yêu Cầu Khác Của Học Viên: </label>
-                            <label class="infor" for="">${re.postDes}</label>
+                            <label for="">Mong Muốn, Yêu Cầu Khác Của Học Viên: </label>
+                            <p>${re.postDes}</p>
                         </div>
                         <div class="row col-6 more1">
-                            <label class="infor" for="">Thời Gian Rảnh Trong Tuần: </label>
-                            <label class="infor" for="">Thứ 2: 15:00-17:00</label>
-                            <ul class="actions">
-                            	<li><a class="button large" onclick="HienThi(1)">Ẩn bớt Thông Tin</a></li>
-                        	</ul>
+                            <label for="">Thời Gian Rảnh Trong Tuần: </label>
+                            <p>Thứ 2: 15:00-17:00</p>
                         </div>
+                        <div class="row col-6 more1">
+							<input type="hidden" name="btnPostID" value="${re.postID}">	
+                         </div>
                         
                     </div>
                     <footer>
                         <ul class="actions">
-                            <li><a class="button large" onclick="HienThi(1)">Xem Thêm Thông Tin</a></li>
+                            <li><a class="button large" onclick="HienThi(1)">Thêm / ẩn Thông Tin</a></li>
                         </ul>
                        
                     </footer>
                 </article>
-                </form>
                  </c:forEach>
             </div>
 

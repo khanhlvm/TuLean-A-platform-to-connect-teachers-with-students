@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 import tulearn.context.DBContext;
 import tulearn.dto.AddressUser;
@@ -18,7 +19,7 @@ import tulearn.dto.Post;
 import tulearn.dto.Qualificate;
 import tulearn.dto.Schedule;
 import tulearn.dto.Subject;
-import tulearn.dto.User;
+import tulearn.dto.Tutor;
 
 public class PostDAO {
 	private Connection conn;
@@ -210,7 +211,7 @@ public class PostDAO {
 					String postDes = rs.getString("postDes");
 					
 					
-					User learner = udao.getUserTutorByID(learnerId);
+					Tutor learner = udao.getUserTutorByID(learnerId);
 					AddressUser addUser = udao.getAddressUserByID(learnerId);
 					Gender gender = getGenderInPostByIDt(id);
 					Qualificate quatificate = getQualificateInPostByID(id);
@@ -258,7 +259,7 @@ public class PostDAO {
 		try {
 			conn = DBContext.getConnection();
 			if (conn != null) {
-				String sql = "SELECT postID FROM Post where typePost = 0";
+				String sql = "SELECT Post.postID FROM Post WHERE NOT EXISTS (SELECT * FROM Request WHERE Post.postID=Request.postID) AND Post.typePost=0";
 				ps = conn.prepareStatement(sql);
 				rs = ps.executeQuery();
 				while (rs.next()) {
@@ -335,6 +336,52 @@ public class PostDAO {
 			closeConnection();
 		}
 		return gender;
+	}
+	
+	public List<Post> temp(int userID) throws SQLException {
+		List<Post> result = null;
+		try {
+			conn = DBContext.getConnection();
+			if (conn != null) {
+				String sql = "SELECT * FROM Post  " 
+						+ "INNER JOIN SubjectTB  ON Post.subjectID = SubjectTB.subjectID\r\n"
+						+ "INNER JOIN Qualification ON Qualification.qualificationID=Post.qualificationID \r\n"
+						+ "INNER JOIN Gender ON Gender.genderID=Post.genderID \r\n"
+						+ "WHERE Post.StatusID = 8 AND Post.typePost=0 AND Post.learnerID ='"
+						+ userID + "'";
+				ps = conn.prepareStatement(sql);
+
+				rs = ps.executeQuery();
+				while (rs.next()) {
+					int postID = rs.getInt("postID");
+					String subjectName = rs.getString("subjectName");
+					byte lessonLearn = rs.getByte("lessonLearn");
+					float timeLearn = rs.getFloat("timeLearn");
+					Subject s = new Subject(subjectName);
+					String qua =rs.getString("qualificationName");
+					Qualificate quali= new Qualificate(qua);
+					String fee =rs.getString("fee");
+					String postDes= rs.getString("postDes");
+					String day=rs.getString("startDay");
+					String sex= rs.getString("genderType");
+					Gender gen = new Gender(sex);
+
+					Post post = new Post(postID, gen,quali, s, lessonLearn, timeLearn, fee, day, postDes);
+
+			
+
+					if (result == null) {
+						result = new ArrayList<Post>();
+					}
+					result.add(post);
+				}
+
+			}
+
+		} finally {
+			closeConnection();
+		}
+		return result;
 	}
 		
 	

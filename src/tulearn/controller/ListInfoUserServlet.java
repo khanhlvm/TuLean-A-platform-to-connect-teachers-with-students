@@ -1,6 +1,7 @@
 package tulearn.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,7 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import tulearn.dao.QualificateDAO;
 import tulearn.dao.UserDAO;
+import tulearn.dto.Qualificate;
+import tulearn.dto.Schedule;
 import tulearn.dto.Tutor;
 
 /**
@@ -52,7 +56,13 @@ public class ListInfoUserServlet extends HttpServlet {
 		try {						
 			HttpSession hs = request.getSession();
 			Tutor user = (Tutor)hs.getAttribute("u");
+			UserDAO udao = new UserDAO();
 			if(user.getRoleID() == TUTOR_ROLE_ID) {
+				ArrayList<Schedule> reqsch = udao.getScheduleForTutor(user.getUserID());
+				hs.setAttribute("reqsch",reqsch);
+				QualificateDAO q = new QualificateDAO();
+				ArrayList<Qualificate> qualificates = q.getAllQualificate();
+				request.getSession().setAttribute("qualificates", qualificates);
 				request.getRequestDispatcher("tu-main-info.jsp?success=1&noti="+success).forward(request, response);
 			}else if(user.getRoleID() == ADMIN_ROLE_ID || user.getRoleID() == STUDENT_ROLE_ID){
 				request.getRequestDispatcher("cm-main-info.jsp?success=1&noti="+success).forward(request, response);

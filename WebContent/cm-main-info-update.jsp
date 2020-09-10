@@ -27,7 +27,7 @@
             <article class="post">
                 <h1>Cập nhật thông tin</h1>
                 <hr>
-                <form method="POST" action="update-info" style="height:60%;">
+                <form method="post" action="update-info" style="height:60%;">
                     <div class="row gtr-uniform">
                         <div class=" col-6"  >
                             <label for="">Họ và tên <span style="color: red">*</span></label>
@@ -54,28 +54,28 @@
                         
                         <div class="col-6"  >
                             <label for="" >Số điện thoại <span style="color: red">*</span></label>
-                            <input type="text" name= "formSDT" placeholder="Cập nhật thông tin" value="${u.phone}">
+                            <input type="text" name= "formSDT" placeholder="Cập nhật thông tin" value="${u.identityCard}">
                         </div>
                                     
 						<div class="col-6" >
                             <label for="" >Tỉnh/TP</label>
                             <select name="province" id="province">
                                 <c:if test="${u.address.provinceName!=null}"><option value="${u.address.provinceID}">${u.address.provinceName}</option></c:if>
-                                <c:if test="${u.address.provinceName==null}"><option>-- Chọn Tỉnh/TP --</option></c:if>
+                                <c:if test="${u.address.provinceName==null}"><option value="">-- Chọn Tỉnh/TP --</option></c:if>
                             </select>
                         </div>
                         <div class="col-6" >
                             <label for="" >Quận/Huyện</label>
                             <select name="district" id="district">
                                 <c:if test="${u.address.districtName!=null}"><option value="${u.address.districtID}">${u.address.districtName}</option></c:if>
-                                <c:if test="${u.address.districtName==null}"><option>-- Chọn Quận/Huyện --</option></c:if>
+                                <c:if test="${u.address.districtName==null}"><option value="">-- Chọn Quận/Huyện --</option></c:if>
                               </select>
                         </div>
                         <div class="col-6" >
                             <label for="" >Phường/Xã</label>
                             <select name="commune" id="commune">                          
                                 <c:if test="${u.address.communeName!=null}"><option value="${u.address.communeID}">${u.address.communeName}</option></c:if>
-                                <c:if test="${u.address.communeName==null}"><option>-- Chọn Phường/Xã --</option></c:if>
+                                <c:if test="${u.address.communeName==null}"><option value="">-- Chọn Phường/Xã --</option></c:if>
                               </select>
                         </div>
 
@@ -83,6 +83,7 @@
                             <label for="" >Số nhà, Đường <span style="color: red">*</span></label>
                             <input type="text" name="formSoNha" placeholder="Cập nhật thông tin" value="${u.street}">
                         </div>
+                        <input type="hidden" name="qualification" value="2">
                         <div class="col-12">
                             <hr>
                             <ul class="actions">

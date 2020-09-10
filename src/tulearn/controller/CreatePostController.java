@@ -10,7 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
 
 import tulearn.dao.PostDAO;
 import tulearn.dao.UserDAO;
@@ -19,7 +19,7 @@ import tulearn.dto.Post;
 import tulearn.dto.Qualificate;
 import tulearn.dto.Schedule;
 import tulearn.dto.Subject;
-import tulearn.dto.User;
+import tulearn.dto.Tutor;
 
 /**
  * Servlet implementation class CreatePostController
@@ -52,13 +52,14 @@ public class CreatePostController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html;charset=UTF-8");		
+		response.setCharacterEncoding("UTF-8");
 		String success = "Tạo yêu cầu thành công";
 		String error = "Tạo yêu cầu thất bại";
 		try {			
-			UserDAO udao = new UserDAO();			
-			User u = udao.getUserTutorByID(1);
-			
+			UserDAO udao = new UserDAO();		
+			HttpSession ss = request.getSession();
+			Tutor us = (Tutor)ss.getAttribute("u");
+			Tutor u = udao.getUserTutorByID(us.getUserID());			
 			int monhoc = Integer.parseInt(request.getParameter("MonHoc"));
 			Subject s = new Subject();
 			s.setsID(monhoc);
@@ -79,17 +80,16 @@ public class CreatePostController extends HttpServlet {
 			String[] endTime = request.getParameterValues("GioKetThuc");  
 			for (int i = 0; i < dayTime.length; i++) {
 				sche.add(new Schedule(dayTime[i], startTime[i], endTime[i]));
-			}
-			
+			}			
 			PostDAO pdao = new PostDAO();
 			Post p = new Post(u,u.getAddress(),gd,q,s,8,false,soBuoiMotTuan,soGioMotBuoi,hocPhiDeXuat,ngayBatDau,mongMuon);
 			if(pdao.upPost(p, sche)) {
-				request.getRequestDispatcher("st-main-request-manager.jsp?success=1&?noti="+success).forward(request, response);
+				request.getRequestDispatcher("st-main-home.jsp?success=1&?noti="+success).forward(request, response);
 			}
 		} catch (SQLException | ParseException e) {
 			e.printStackTrace();
 		}finally {
-			request.getRequestDispatcher("st-main-post-create.jsp?success=0&?noti="+error); 
+			request.getRequestDispatcher("st-main-post-create.jsp?success=0&?noti="+error).forward(request, response);; 
 		}
 		
 	}

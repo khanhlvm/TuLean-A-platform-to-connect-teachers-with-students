@@ -46,6 +46,7 @@ public class ChangePassServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		String success = "Mật khẩu của bạn đã được cập nhật, Hãy đăng nhập lại !";
+		String error = "Cập nhật mật khẩu thất bại, kiểm tra lại quy tắc đặt mật khẩu hoặc mật khẩu hiện tại !";
 		try {
 			String oldPass = request.getParameter("oldPass");
 			String newPass = request.getParameter("newPass");
@@ -55,13 +56,12 @@ public class ChangePassServlet extends HttpServlet {
 			UserDAO uDAO = new UserDAO();			
 			if(user.getPassword().equals(oldPass) && newPass.equals(confirmPass) && uDAO.updatePassword(user.getUserID(), newPass)) {							
 				request.getRequestDispatcher("cm-main-login-register.jsp?success=1&noti="+success).forward(request, response);		
-			}
+			}else{				
+				request.getRequestDispatcher("cm-main-change-pass.jsp?success=0&noti="+error).forward(request, response);
+			} 
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
-			String error = "Cập nhật mật khẩu thất bại, kiểm tra lại quy tắc đặt mật khẩu hoặc mật khẩu hiện tại !";
-			request.getRequestDispatcher("cm-main-change-pass.jsp?success=0&noti="+error).include(request, response);
-		} 
+		}
 	}
 
 }

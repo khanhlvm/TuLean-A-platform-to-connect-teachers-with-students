@@ -44,9 +44,9 @@ public class BeforePost extends HttpServlet {
 	}
 	
 	protected void beforePost(HttpServletRequest request, HttpServletResponse response) {
-		response.setContentType("text/html;charset=UTF-8");
-		QualificateDAO q = new QualificateDAO();		
+		response.setContentType("text/html;charset=UTF-8");				
 		try {
+			QualificateDAO q = new QualificateDAO();
 			ArrayList<Qualificate> qualificates = q.getAllQualificate();
 			request.getSession().setAttribute("qualificates", qualificates);
 			request.getRequestDispatcher("st-main-post-create.jsp").forward(request, response);

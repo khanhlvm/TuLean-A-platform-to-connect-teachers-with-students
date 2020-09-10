@@ -11,13 +11,14 @@
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="assets/css/admin.css" />
     <link rel="icon" href="images/icon-tab.png">
+    <link rel="stylesheet" href="assets/css/login.css">
 </head>
 <!-- Add header bar -->
 <%@ include file="/includes/ad-header-bar.jsp" %>
 
 <!-- Main -->
 <div id="main">
-         
+<%@ include file="/includes/cm-notification-bar.jsp" %>         
 	<!-- Tab Bar -->
 	<div class="tab">
 	    <button class="tablinks" onclick="openCity(event, 'London')">Q.Lý Gia sư</button>
@@ -74,7 +75,25 @@
                                    <li><a href="#" class="bt1 button small">Chặn</a></li>
                                </ul>
                             </td>
-                        </tr>                            
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Franklin D. Roosevelt</td>
+                            <td>Verified</td>
+                            <td>4.3</td>
+                            <td>8</td>
+                            <td>6</td>
+                            <td>2</td>
+                            <td>6</td>
+                            <td>2</td>
+                            <td>
+                               <ul class="actions">                                	
+                                   <li><a href="#" class="button small">Chi tiết</a></li>
+                                   <li><a href="#" class="button small">Cập nhật</a></li>
+                                   <li><a href="#" class="bt1 button small">Chặn</a></li>
+                               </ul>
+                            </td>
+                        </tr>                             
                     </tbody>
                     
                 </table>
@@ -115,6 +134,22 @@
 	                    </tr>
 	                </thead>
 	                <tbody>
+	                    <tr>
+	                        <td>1</td>
+	                        <td>Vladimir Putin</td>
+	                        <td>3</td>
+	                        <td>3</td>
+	                        <td>1</td>
+	                        <td>1</td>
+	                        <td>2</td>
+	                        <td>
+                               <ul class="actions">                                	
+                                   <li><a href="#" class="button small">Chi tiết</a></li>
+                                   <li><a href="#" class="button small">Cập nhật</a></li>
+                                   <li><a href="#" class="bt1 button small">Chặn</a></li>
+                               </ul>
+                            </td>
+	                    </tr>
 	                    <tr>
 	                        <td>1</td>
 	                        <td>Vladimir Putin</td>
@@ -180,7 +215,21 @@
                                    <li><a href="#" class="bt1 button small">Ẩn bài đăng</a></li>
                                </ul>
                             </td>
-                        </tr>                           
+                        </tr>  
+                        <tr>
+                            <td>1</td>
+                            <td>NVA tìm gia sư dạy Toán ...</td>
+                            <td>0</td>
+                            <td>Active</td>
+							<td>
+                               <ul class="actions">                               	   
+                                   <li><a href="#" class="button small">Người đăng</a></li>
+                                   <li><a href="#" class="button small">Bài đăng</a></li>
+                                   <li><a href="#" class="button small">Cập nhật</a></li>
+                                   <li><a href="#" class="bt1 button small">Ẩn bài đăng</a></li>
+                               </ul>
+                            </td>
+                        </tr>                         
                     </tbody>
                 </table>
                 
@@ -234,7 +283,21 @@
                                      <li><a href="#" class="button small">Cập nhật</a></li>
                                  </ul>
                              </td>
-                         </tr>                         
+                         </tr>   
+                         <tr>
+                             <td>1</td>
+                             <td>Franklin D. Roosevelt</td>
+                             <td>3</td>
+                             <td>Vladimir Putin</td>
+                             <td>Đang kết nối</td>
+                             <td>
+                                 <ul class="actions">
+                                     <li><a href="#" class="button small">Gia sư</a></li>
+                                     <li><a href="#" class="button small">Học viên</a></li>
+                                     <li><a href="#" class="button small">Cập nhật</a></li>
+                                 </ul>
+                             </td>
+                         </tr>                      
                      </tbody>
                  </table>
                  
@@ -298,27 +361,17 @@
         <div id="Berlin" class="tabcontent">
             <section id="menu-bar">
                 <ul class="alt">
-                    <li>
-                        <i class="far fa-address-card"></i>
-                        <a href="">Xem trang cá nhân của bạn</a>
-                    </li>
-                    <li>
-                        <i class="fas fa-unlock-alt"></i>
-                        <a href="">Thay đổi mật khẩu</a>
-                    </li>
-                    <li>
-                        <i class="fas fa-edit"></i>
-                        <a href="">Cập nhật thông tin</a>
-                    </li>
-                    <li>
-                        <i class="far fa-bell"></i>
-                        <a href="">Quản lý thông báo</a>
-                    </li>
-                    <li>
-                        <i class="fas fa-sign-out-alt"></i>
-                        <a href="">Đăng xuất</a>
-                    </li>
-                </ul>
+					<li><i class="far fa-address-card"></i> <a href="ListInfoUserServlet">Xem
+							trang cá nhân của bạn</a></li>
+					<li><i class="fas fa-unlock-alt"></i> <a href="cm-main-change-pass.jsp">Thay đổi
+							mật khẩu</a></li>
+					<li><i class="fas fa-edit"></i> <a href="cm-main-info-update.jsp">Cập nhật thông
+							tin</a></li>
+					<li><i class="far fa-bell"></i> <a href="">Quản lý thông
+							báo</a></li>
+					<li><i class="fas fa-sign-out-alt"></i> <a href="LogoutController">Đăng
+							xuất</a></li>
+				</ul>
             </section>
         </div> <!-- End Admin Account -->
         
